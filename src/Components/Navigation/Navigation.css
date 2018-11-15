@@ -1,0 +1,17 @@
+.Header ul {
+  list-style-type: none;
+  background-color: darkslategrey;
+}
+
+.Header li {
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.Header a {
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
