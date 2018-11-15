@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5cfb8352-6a61-4c68-b48b-90e995cbf85c" name="Default Changelist" comment="" />
+    <list default="true" id="5cfb8352-6a61-4c68-b48b-90e995cbf85c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Containers/SignUpContainer/SignUpContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/SignUpContainer/SignUpContainer.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +69,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Containers/SignUpContainer/SignUpContainer.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="342">
-                  <caret line="23" column="2" lean-forward="true" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
+                <state relative-caret-position="184">
+                  <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -306,15 +308,16 @@
       <option name="presentableId" value="Default" />
       <updated>1542276231667</updated>
       <workItem from="1542276233245" duration="1410000" />
-      <workItem from="1542279893680" duration="5889000" />
+      <workItem from="1542279893680" duration="7107000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7299000" />
+    <option name="totallyTimeSpent" value="8517000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12437563" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -422,8 +425,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Containers/SignUpContainer/SignUpContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="23" column="2" lean-forward="true" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
+        <state relative-caret-position="184">
+          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

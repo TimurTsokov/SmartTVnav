@@ -11,7 +11,7 @@ class SignUpContainer extends Component {
 
     render() {
         return (
-            <div className={classes["auth-container"]}>{this.props.needSignUp}</div>
+            {/*<div className={classes["auth-container"]}>{this.props.needSignUp}</div>*/}
         );
     }
 }
