@@ -2,13 +2,13 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import classes from './SignUpContainer.scss';
 import logo from '../../assets/images/logo.svg';
-
-// import {Auth} from '../../store/actions/AuthActions';
+import {GetCountries, GetInfo} from '../../store/actions/SignUpActions';
 
 class SignUpContainer extends PureComponent {
 
     componentDidMount() {
-        console.log(classes);
+        this.props.GetCountries();
+        this.props.GetInfo();
     }
 
     render() {
@@ -21,16 +21,19 @@ class SignUpContainer extends PureComponent {
     }
 }
 
-// const mapStateToProps = state => {
-//     return {
-//         needSignUp: state.needSignUp
-//     };
-// };
-//
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         onAuthCheck: () => dispatch(Auth())
-//     };
-// };
+const mapStateToProps = state => {
+    return {
+        countries: state.countries,
+        countryId: state.countryId,
+        partnerId: state.partnerId
+    };
+};
 
-export default SignUpContainer;
+const mapDispatchToProps = dispatch => {
+    return {
+        GetCountries: () => dispatch(GetCountries()),
+        GetInfo: () => dispatch(GetInfo())
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpContainer);

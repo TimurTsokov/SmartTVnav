@@ -6,7 +6,7 @@ import {Auth} from '../../store/actions/AuthActions';
 class AuthContainer extends Component {
 
     componentDidMount() {
-        this.props.onAuthCheck();
+        this.props.Auth();
     }
 
     render() {
@@ -24,7 +24,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuthCheck: () => dispatch(Auth())
+        Auth: () => dispatch(Auth())
     };
 };
 
