@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import classes from './Navigation.css';
 import {Route, NavLink, Switch} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 import ChannelsList from '../ChannelsList/ChannelsList'

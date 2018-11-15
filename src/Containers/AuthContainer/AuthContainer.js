@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import classes from './AuthContainer.css'
+import classes from './AuthContainer.scss'
 import {Auth} from '../../store/actions/AuthActions';
 
 class AuthContainer extends Component {
@@ -11,7 +11,7 @@ class AuthContainer extends Component {
 
     render() {
         return (
-            <div className={classes["auth-container"]}>{this.props.needSignUp}</div>
+            <div className={classes["auth-container"]}>1</div>
         );
     }
 }
