@@ -8,7 +8,7 @@ const SignUpReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'GET_INFO':
             if (action.payload.status === 'OK') {
-                console.log(action.payload);
+                console.log(action.payload.country_id);
                 return {
                     ...state,
                     countryId: action.payload.country_id
@@ -17,10 +17,10 @@ const SignUpReducer = (state = initialState, action) => {
             break;
         case 'GET_COUNTRIES':
             if (action.payload.status === 'OK') {
-                console.log(action.payload);
+                console.log(action.payload.countries);
                 return {
                     ...state,
-                    countryId: action.payload.countries
+                    countries: action.payload.countries
                 }
             }
     }
