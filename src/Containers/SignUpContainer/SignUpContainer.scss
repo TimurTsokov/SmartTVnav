@@ -10,4 +10,13 @@
     font-family: 'AvenirBold', 'Tahoma';
     font-size: 36px;
   }
+  .country-codes-list {
+    padding: 0;
+    list-style: none;
+    height: 412px;
+    width: 180px;
+    background-color: #15394C;
+    overflow: hidden;
+    border-radius: 42px 42px 15px 15px;
+  }
 }

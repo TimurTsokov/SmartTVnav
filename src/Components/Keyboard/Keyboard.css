@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box; }
+
+.keyboard {
+  width: 311px;
+  height: 408px;
+  background-color: #15394C;
+  border-radius: 15px;
+  padding: 16px; }
+  .keyboard .key {
+    width: 85px;
+    height: 85px;
+    display: inline-block;
+    background: rgba(32, 188, 198, 0.35);
+    border-radius: 10px;
+    font-size: 36px;
+    text-align: center;
+    line-height: 85px;
+    margin-bottom: 12px;
+    color: #fff; }
+    .keyboard .key:focus, .keyboard .key:hover {
+      background-color: #20BCC6;
+      outline: none; }
+    .keyboard .key:not(:nth-of-type(3n)) {
+      margin-right: 12px; }
+
+.backspace svg {
+  display: inline-block;
+  vertical-align: sub;
+  width: 64px;
+  height: 39px;
+  fill: #fff; }
+
+/*# sourceMappingURL=Keyboard.css.map */

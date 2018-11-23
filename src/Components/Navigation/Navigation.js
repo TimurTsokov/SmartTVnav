@@ -7,7 +7,7 @@ class Navigation extends Component {
 
 stateGo = () => (
   this.props.history.push({pathname: '/channels'})
-)
+);
 
   render() {
     return (<div>

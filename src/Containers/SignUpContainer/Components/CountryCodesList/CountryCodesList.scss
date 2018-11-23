@@ -1,0 +1,11 @@
+.code-item {
+  width: 180px;
+  font-family: 'AvenirDemi', 'Tahoma';
+  text-align: center;
+  font-size: 32px;
+  border-radius: 42px;
+  &.selected {
+    padding-top: 22px;
+    height: 85px;
+  }
+}

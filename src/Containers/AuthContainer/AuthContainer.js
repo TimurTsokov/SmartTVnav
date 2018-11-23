@@ -2,23 +2,35 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import classes from './AuthContainer.scss'
 import {Auth} from '../../store/actions/AuthActions';
+import {Route, Switch, withRouter} from "react-router-dom";
+import SignUpContainer from "../../Containers/SignUpContainer/SignUpContainer";
+import MainPageContainer from "../../Containers/MainPageContainer/MainPageContainer";
 
 class AuthContainer extends Component {
 
-    componentDidMount() {
-        this.props.Auth();
+    componentWillMount() {
+        this.props.Auth().then(() => {
+            if (this.props.needSignUp) {
+                this.props.history.push({pathname: '/signup'})
+            }
+        })
     }
 
     render() {
         return (
-            <div className={classes["auth-container"]}>1</div>
+            <div className={classes["auth-container"]}>
+                <Switch>
+                    <Route path="/signup" exact component={SignUpContainer}/>
+                    <Route path="/main" exact component={MainPageContainer}/>
+                </Switch>
+            </div>
         );
     }
 }
 
 const mapStateToProps = state => {
     return {
-        needSignUp: state.needSignUp
+        needSignUp: state.auth.needSignUp
     };
 };
 
@@ -28,4 +40,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AuthContainer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AuthContainer));

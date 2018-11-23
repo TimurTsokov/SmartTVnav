@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,UAAW;EACT,KAAK,EAAE,KAAK;EACZ,WAAW,EAAE,sBAAsB;EACnC,UAAU,EAAE,MAAM;EAClB,SAAS,EAAE,IAAI;EACf,aAAa,EAAE,IAAI;EACnB,mBAAW;IACT,WAAW,EAAE,IAAI;IACjB,MAAM,EAAE,IAAI",
+"sources": ["CountryCodesList.scss"],
 "names": [],
 "file": "CountryCodesList.css"
 }

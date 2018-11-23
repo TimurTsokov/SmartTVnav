@@ -1,11 +1,11 @@
 import fetch from 'isomorphic-fetch';
 
-const server = 'http://tv-server.trinity-tv.net/server/GeoServerService/';
+const server = 'http://tv-server.trinity-tv.net/server/';
 
-const MakeRequest = (method) => {
-    return fetch(server + method + '.json', {
-        method: "POST",
-        body: "",
+const MakeRequest = (service, method, data) => {
+    return fetch(server + service + '/' + method + '.json', {
+        method: "post",
+        body: JSON.stringify(data) || "",
         headers: {
             "Content-Type": "application/json"
         },
@@ -17,7 +17,7 @@ const MakeRequest = (method) => {
 
 export function GetInfo() {
     return dispatch => {
-        return MakeRequest('GetInfo').then(response => {
+        return MakeRequest('GeoServerService', 'GetInfo').then(response => {
             dispatch({type: 'GET_INFO', payload: response});
         })
     };
@@ -25,8 +25,24 @@ export function GetInfo() {
 
 export function GetCountries() {
     return dispatch => {
-        return MakeRequest('GetCountries').then(response => {
+        return MakeRequest('GeoServerService', 'GetCountries').then(response => {
             dispatch({type: 'GET_COUNTRIES', payload: response});
+        })
+    };
+}
+
+export function SetPhone() {
+    return dispatch => {
+        const data = {
+            device: {
+                type: 'DT_SmartTV',
+                mac: 'A1:AB:AC:AF:11:2F'
+            },
+            phone: '380985935158'
+        };
+
+        return MakeRequest('SignupServerService', 'SetPhone', data).then(response => {
+            dispatch({type: 'SET_PHONE', payload: response});
         })
     };
 }

@@ -1,9 +1,9 @@
 import fetch from 'isomorphic-fetch';
 
-const server = 'http://tv-server.trinity-tv.net/server/TvServerService/';
+const server = 'http://tv-server.trinity-tv.net/server/';
 
-const MakeRequest = (method) => {
-    return fetch(server + method + '.json', {
+const MakeRequest = (service, method) => {
+    return fetch(server + service +'/' + method + '.json', {
         method: "POST",
         body: JSON.stringify({
             device: {
@@ -22,7 +22,7 @@ const MakeRequest = (method) => {
 
 export function Auth() {
     return dispatch => {
-        return MakeRequest('Auth').then(response => {
+        return MakeRequest('TvServerService','Auth').then(response => {
             dispatch({type: 'AUTH_CHECK', payload: response});
         })
     };
