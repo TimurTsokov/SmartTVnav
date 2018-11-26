@@ -11,12 +11,17 @@ class SignUpContainer extends Component {
     componentWillMount() {
         this.props.GetInfo();
         this.props.GetCountries();
-    }
+    };
+
+    scrollIntoView(id) {
+      const element = document.getElementById(id);
+        element.scrollIntoView();
+    };
 
     render() {
         const countryCodes = this.props.countries.map(countries => {
             return (
-                <CountryCodesList focusPath={'code-item-' + countries.id}
+                <CountryCodesList id={countries.id} scrollIntoView={this.scrollIntoView} focusPath={'code-item-' + countries.id}
                                   key={countries.id}>{countries.telephone_code}</CountryCodesList>
             )
         });
