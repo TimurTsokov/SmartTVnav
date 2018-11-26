@@ -8,21 +8,56 @@ import Keyboard from '../../Components/Keyboard/Keyboard';
 
 class SignUpContainer extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            fullCodeList: false
+        };
+        this.showFullCodeList = this.showFullCodeList.bind(this);
+    }
+
     componentWillMount() {
         this.props.GetInfo();
         this.props.GetCountries();
     };
 
     scrollIntoView(id) {
-      const element = document.getElementById(id);
+        const element = document.getElementById(id);
         element.scrollIntoView();
     };
 
+    showFullCodeList() {
+        this.setState({fullCodeList: !this.state.fullCodeList})
+    }
+
     render() {
-        const countryCodes = this.props.countries.map(countries => {
+        // let fullList = '';
+        // if (this.state.fullCodeList) {
+        //     fullList = classes["full-list"]
+        // } else {
+        //     fullList = ''
+        // }
+        let selected = false;
+
+        const {countryId} = this.props;
+        const {countries} = this.props;
+        const {fullCodeList} = this.state;
+        const countryCodes = countries.map(countries => {
+            if (countryId === countries.id) {
+                selected = true;
+            } else {
+                selected = false;
+            }
             return (
-                <CountryCodesList id={countries.id} scrollIntoView={this.scrollIntoView} focusPath={'code-item-' + countries.id}
-                                  key={countries.id}>{countries.telephone_code}</CountryCodesList>
+                <CountryCodesList id={countries.id}
+                                  scrollIntoView={this.scrollIntoView}
+                                  focusPath={'code-item-' + countries.id}
+                                  selected={selected}
+                                  fullCodeList={fullCodeList}
+                                  showFullCodeList={this.showFullCodeList}
+                                  key={countries.id}>
+                    {countries.telephone_code}
+                </CountryCodesList>
             )
         });
         return (

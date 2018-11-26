@@ -10,10 +10,10 @@
 .signup-container .country-codes-list {
   padding: 0;
   list-style: none;
-  height: 412px;
+  max-height: 412px;
   width: 180px;
   background-color: #15394C;
   overflow: hidden;
-  border-radius: 42px 42px 15px 15px; }
+  border-radius: 42px; }
 
 /*# sourceMappingURL=SignUpContainer.css.map */

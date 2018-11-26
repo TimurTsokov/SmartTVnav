@@ -1,11 +1,24 @@
 .code-item {
   width: 180px;
+  display: none;
   font-family: 'AvenirDemi', 'Tahoma';
   text-align: center;
   font-size: 32px;
   border-radius: 42px; }
-  .code-item.selected {
+  .code-item.visible {
+    display: block; }
+  .code-item:focus, .code-item.selected {
+    display: block;
+    background-color: rgba(32, 188, 198, 0.35);
     padding-top: 22px;
-    height: 85px; }
+    height: 85px;
+    outline: none;
+    border: 3px solid #20BCC6; }
+  .code-item.selected {
+    background-color: initial;
+    border: none; }
+    .code-item.selected:focus {
+      background-color: rgba(32, 188, 198, 0.35);
+      border: 3px solid #20BCC6; }
 
 /*# sourceMappingURL=CountryCodesList.css.map */
