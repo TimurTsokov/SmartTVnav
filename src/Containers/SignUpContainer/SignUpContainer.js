@@ -11,7 +11,8 @@ class SignUpContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fullCodeList: false
+            fullCodeList: false,
+            selectedCode: null
         };
         this.showFullCodeList = this.showFullCodeList.bind(this);
     }
@@ -26,37 +27,40 @@ class SignUpContainer extends Component {
         element.scrollIntoView();
     };
 
-    showFullCodeList() {
-        this.setState({fullCodeList: !this.state.fullCodeList})
+    showFullCodeList(id) {
+        if (this.state.fullCodeList) {
+          this.setState({
+            fullCodeList: !this.state.fullCodeList,
+            selectedCode: id
+          });
+        } else {
+          this.setState({
+            ...this.state,
+            fullCodeList: !this.state.fullCodeList
+          });
+        }
+              this.scrollIntoView(id)
     }
 
     render() {
-        // let fullList = '';
-        // if (this.state.fullCodeList) {
-        //     fullList = classes["full-list"]
-        // } else {
-        //     fullList = ''
-        // }
         let selected = false;
-
-        const {countryId} = this.props;
-        const {countries} = this.props;
-        const {fullCodeList} = this.state;
-        const countryCodes = countries.map(countries => {
-            if (countryId === countries.id) {
+        const {countryId, countries} = this.props;
+        const {fullCodeList, selectedCode} = this.state;
+        const countryCodes = countries.map(country => {
+            if ((countryId === country.id && selectedCode === null) || selectedCode === country.id) {
                 selected = true;
             } else {
-                selected = false;
+              selected = false;
             }
             return (
-                <CountryCodesList id={countries.id}
+                <CountryCodesList id={country.id}
                                   scrollIntoView={this.scrollIntoView}
-                                  focusPath={'code-item-' + countries.id}
+                                  focusPath={'code-item-' + country.id}
                                   selected={selected}
                                   fullCodeList={fullCodeList}
                                   showFullCodeList={this.showFullCodeList}
-                                  key={countries.id}>
-                    {countries.telephone_code}
+                                  key={country.id}>
+                    {country.telephone_code}
                 </CountryCodesList>
             )
         });
