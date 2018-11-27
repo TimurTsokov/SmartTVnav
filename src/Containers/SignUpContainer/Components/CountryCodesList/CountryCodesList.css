@@ -16,7 +16,7 @@
     border: 3px solid #20BCC6; }
   .code-item.selected {
     background-color: initial;
-    border: none; }
+    border: 3px solid #15394C; }
     .code-item.selected:focus {
       background-color: rgba(32, 188, 198, 0.35);
       border: 3px solid #20BCC6; }

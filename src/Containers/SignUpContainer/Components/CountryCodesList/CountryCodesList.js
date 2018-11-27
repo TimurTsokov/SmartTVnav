@@ -5,14 +5,14 @@ import {withFocusable} from 'react-tv-navigation';
 let Selected = '';
 let visible = '';
 
-const Item = ({focused, setFocus, focusPath, value, scrollIntoView, id, selected, fullCodeList}) => {
-    selected ? Selected = classes.selected : Selected = '';
-    fullCodeList ? visible = classes.visible : visible = '';
+const Item = (props) => {
+    props.selected ? Selected = classes.selected : Selected = '';
+    props.codeListVisible ? visible = classes.visible : visible = '';
     return (
-        <li id={id}
+        <li id={props.id}
             className={[classes["code-item"], Selected, visible].join(' ')}
-            onFocus={() => scrollIntoView(id)}>
-            +{value}
+            onFocus={() => props.scrollIntoView(props.id)}>
+            +{props.value}
         </li>
     );
 };
@@ -25,7 +25,7 @@ const CountryCodesList = (props) => {
                        scrollIntoView={props.scrollIntoView}
                        focusPath={props.focusPath}
                        selected={props.selected}
-                       fullCodeList={props.fullCodeList}
+                       codeListVisible={props.codeListVisible}
                        showFullCodeList={props.showFullCodeList}
                        value={props.children}
                        onEnterPress={() => props.showFullCodeList(props.id)}/>
