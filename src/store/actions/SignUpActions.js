@@ -31,14 +31,14 @@ export function GetCountries() {
     };
 }
 
-export function SetPhone() {
+export function SetPhone(phone) {
     return dispatch => {
         const data = {
             device: {
                 type: 'DT_SmartTV',
                 mac: 'A1:AB:AC:AF:11:2F'
             },
-            phone: '380985935158'
+            phone: phone
         };
 
         return MakeRequest('SignupServerService', 'SetPhone', data).then(response => {

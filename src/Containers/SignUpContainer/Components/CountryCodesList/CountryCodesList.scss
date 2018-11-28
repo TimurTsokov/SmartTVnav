@@ -11,18 +11,15 @@
   &:focus,
   &.selected {
     display: block;
-    background-color: rgba(32, 188, 198, 0.35);
-    padding-top: 22px;
+    background-color: rgba(32, 188, 198, 1);
+    line-height: 82px;
     height: 85px;
     outline: none;
-    border: 3px solid #20BCC6;
   }
   &.selected {
     background-color: initial;
-    border: 3px solid #15394C;
     &:focus {
-      background-color: rgba(32, 188, 198, 0.35);
-      border: 3px solid #20BCC6;
+      background-color: rgba(32, 188, 198, 1);
     }
   }
 }

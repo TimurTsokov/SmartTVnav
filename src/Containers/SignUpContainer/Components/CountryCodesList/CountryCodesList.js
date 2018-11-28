@@ -6,7 +6,6 @@ let Selected = '';
 let visible = '';
 
 const Item = (props) => {
-    console.log(props);
     props.selected ? Selected = classes.selected : Selected = '';
     props.codeListVisible ? visible = classes.visible : visible = '';
     return (
@@ -27,9 +26,8 @@ const CountryCodesList = (props) => {
                        focusPath={props.focusPath}
                        selected={props.selected}
                        codeListVisible={props.codeListVisible}
-                       showFullCodeList={props.showFullCodeList}
                        value={props.children}
-                       onEnterPress={() => props.showFullCodeList(props.id)}/>
+                       onEnterPress={() => props.showFullCodeList(props.id, props.children)}/>
     );
 };
 

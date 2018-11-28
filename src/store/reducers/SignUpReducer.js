@@ -2,6 +2,7 @@ const initialState = {
     countries: [],
     countryId: undefined,
     partnerId: undefined,
+    setPhoneErrorMessage: null
 };
 
 const SignUpReducer = (state = initialState, action) => {
@@ -21,6 +22,13 @@ const SignUpReducer = (state = initialState, action) => {
                     countries: action.payload.countries
                 }
             }
+            break;
+        case 'HIDE_ERROR_MESSAGE':
+                return {
+                    ...state,
+                    setPhoneErrorMessage: null
+                };
+
     }
     return state;
 };
