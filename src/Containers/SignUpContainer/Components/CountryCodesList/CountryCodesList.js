@@ -6,6 +6,7 @@ let Selected = '';
 let visible = '';
 
 const Item = (props) => {
+    console.log(props);
     props.selected ? Selected = classes.selected : Selected = '';
     props.codeListVisible ? visible = classes.visible : visible = '';
     return (

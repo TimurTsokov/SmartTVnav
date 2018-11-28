@@ -1,35 +1,47 @@
 @font-face {
-	font-family: 'AvenirRegular';
-	src: url("./assets/fonts/AvenirNextCyr-Regular.ttf");
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'AvenirRegular';
+  src: url("./assets/fonts/AvenirNextCyr-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-	font-family: 'AvenirDemi';
-	src: url('/assets/fonts/AvenirNextCyr-Demi.ttf');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'AvenirDemi';
+  src: url('/assets/fonts/AvenirNextCyr-Demi.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-	font-family: 'AvenirBold';
-	src: url('/assets/fonts/AvenirNextCyr-Bold.ttf');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'AvenirBold';
+  src: url('/assets/fonts/AvenirNextCyr-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
-	font-family: 'AvenirRegular', 'Tahoma';
-	margin: 0;
-	padding: 0;
-	width: 1920px;
-	height: 1080px;
-	overflow: hidden;
-	position: absolute;
-	background-color: #0e151b;
-	border: 1px solid lightskyblue;
-	top: 0;
-	left: 0;
-	color: #fff;
+  font-family: 'AvenirRegular', 'Tahoma';
+  margin: 0;
+  padding: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  position: absolute;
+  background-color: #0e151b;
+  border: 1px solid lightskyblue;
+  top: 0;
+  left: 0;
+  color: #fff;
+}
+
+.button {
+  background-color: rgba(32, 188, 198, 0.5);
+  border: 3px solid rgba(32, 188, 198, 1);
+  width: 368px;
+  text-transform: uppercase;
+  color: #fff;
+  height: 85px;
+  font-size: 32px;
+  font-family: 'AvenirDemi', 'Tahoma';
+  border-radius: 42px;
 }

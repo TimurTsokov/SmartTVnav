@@ -27,42 +27,64 @@ const ButtonBack = ({setFocus, focusPath}) => {
 const FocusableButton = withFocusable(Button);
 const FocusableButtonBack = withFocusable(ButtonBack);
 
-const Keyboard = () => {
+const Keyboard = (props) => {
     return (
         <div className={classes.keyboard}>
             <FocusableButton
                 focusPath='button1' i='1'
-                onEnterPress={() => console.log('Pressed enter on Button!')}/>
+                onEnterPress={() => {
+                    props.inputText(1)
+                }}/>
             <FocusableButton
                 focusPath='button2' i='2'
-                onEnterPress={() => console.log('Pressed enter on Button!')}/>
+                onEnterPress={() => {
+                    props.inputText(2)
+                }}/>
             <FocusableButton
                 focusPath='button3' i='3'
-                onEnterPress={() => console.log('Pressed enter on Button!')}/>
+                onEnterPress={() => {
+                    props.inputText(3)
+                }}/>
             <FocusableButton
                 focusPath='button4' i='4'
-                onEnterPress={() => console.log('Pressed enter on Button!')}/>
+                onEnterPress={() => {
+                    props.inputText(4)
+                }}/>
             <FocusableButton
                 focusPath='button5' i='5'
-                onEnterPress={() => console.log('Pressed enter on Button!')}/>
+                onEnterPress={() => {
+                    props.inputText(5)
+                }}/>
             <FocusableButton
                 focusPath='button6' i='6'
-                onEnterPress={() => console.log('Pressed enter on Button!')}/>
+                onEnterPress={() => {
+                    props.inputText(6)
+                }}/>
             <FocusableButton
                 focusPath='button7' i='7'
-                onEnterPress={() => console.log('Pressed enter on Button!')}/>
+                onEnterPress={() => {
+                    props.inputText(7)
+                }}/>
             <FocusableButton
                 focusPath='button8' i='8'
-                onEnterPress={() => console.log('Pressed enter on Button!')}/>
+                onEnterPress={() => {
+                    props.inputText(8)
+                }}/>
             <FocusableButton
                 focusPath='button9' i='9'
-                onEnterPress={() => console.log('Pressed enter on Button!')}/>
+                onEnterPress={() => {
+                    props.inputText(9)
+                }}/>
             <FocusableButtonBack
                 focusPath='buttonBack'
-                onEnterPress={() => console.log('Pressed enter on Button!')}/>
+                onEnterPress={() => {
+                    props.inputText('backspace')
+                }}/>
             <FocusableButton
                 focusPath='button0' i='0'
-                onEnterPress={() => console.log('Pressed enter on Button!')}/>
+                onEnterPress={() => {
+                    props.inputText(0)
+                }}/>
             <FocusableButton
                 focusPath='button10' i='OK'
                 onEnterPress={() => console.log('Pressed enter on Button!')}/>

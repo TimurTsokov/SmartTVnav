@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import classes from './SignUpContainer.scss';
+import globalClasses from '../../index.scss';
 import logo from '../../assets/images/logo.svg';
 import {GetCountries, GetInfo, SetPhone} from '../../store/actions/SignUpActions';
 import CountryCodesList from './Components/CountryCodesList/CountryCodesList';
@@ -22,12 +23,12 @@ class SignUpContainer extends Component {
         this.props.GetCountries();
     };
 
-    scrollIntoView(id) {
+    scrollIntoView = (id) => {
         const element = document.getElementById(id);
         element.scrollIntoView();
     };
 
-    showFullCodeList(id) {
+    showFullCodeList = (id) => {
         if (this.state.codeListVisible) {
             this.setState({
                 codeListVisible: !this.state.codeListVisible,
@@ -40,7 +41,20 @@ class SignUpContainer extends Component {
             });
         }
         this.scrollIntoView(id)
-    }
+    };
+
+    inputText = (num) => {
+        const content = document.getElementById('input-field').textContent;
+        if (num === 'backspace') {
+
+        }
+        if (isNaN(parseFloat(content))) {
+            document.getElementById('input-field').textContent = '';
+        }
+        if (document.getElementById('input-field').textContent.length < 10) {
+            document.getElementById('input-field').textContent += num;
+        }
+    };
 
     render() {
         let selected = false;
@@ -69,9 +83,14 @@ class SignUpContainer extends Component {
             <div className={classes["signup-container"]}>
                 <img className={classes.logo} src={logo} alt="Sweet TV"/>
                 <h1>Введите свой номер телефона для подключения</h1>
-                <ul className={classes["country-codes-list"]}>{countryCodes}</ul>
-                <button onClick={this.props.SetPhone}>SetPhone</button>
-                <Keyboard/>
+                <div className={classes.wrap}>
+                    <ul className={classes["country-codes-list"]}>{countryCodes}</ul>
+                    <Keyboard inputText={this.inputText}/>
+                    <div id='input-field' className={classes["input-field"]}>(___)___-__-__</div>
+                    <button className={[globalClasses.button, classes["button-signup"]].join(' ')}
+                            onClick={this.props.SetPhone}>Активировать
+                    </button>
+                </div>
             </div>
         );
     }
