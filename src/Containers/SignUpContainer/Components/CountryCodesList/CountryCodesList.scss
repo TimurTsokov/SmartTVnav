@@ -19,7 +19,7 @@
   }
   &.selected {
     background-color: initial;
-    border: none;
+    border: 3px solid #15394C;
     &:focus {
       background-color: rgba(32, 188, 198, 0.35);
       border: 3px solid #20BCC6;
