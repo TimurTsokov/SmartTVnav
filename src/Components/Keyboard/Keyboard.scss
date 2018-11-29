@@ -8,7 +8,7 @@
   height: 408px;
   background-color: #15394C;
   border-radius: 15px;
-  padding: 16px;
+  padding: 16px 0 0 16px;
   .key {
     width: 85px;
     height: 85px;
@@ -20,6 +20,7 @@
     line-height: 85px;
     margin-bottom: 12px;
     color: #fff;
+    &.focus,
     &:focus,
     &:hover {
       background-color: #20BCC6;
