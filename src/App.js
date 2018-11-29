@@ -7,13 +7,14 @@ import Keyboard from "./Components/Keyboard/Keyboard";
 
 class App extends Component {
     render() {
-        return (<BrowserRouter>
+        return (
             <Navigation>
+                <BrowserRouter>
                 <div>
                     <AuthContainer/>
                 </div>
-            </Navigation>
-        </BrowserRouter>);
+            </BrowserRouter>
+            </Navigation>);
     }
 }
 

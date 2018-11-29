@@ -21,6 +21,13 @@ const SignUpReducer = (state = initialState, action) => {
                     countries: action.payload.countries
                 }
             }
+            break;
+        case 'HIDE_ERROR_MESSAGE':
+            return {
+                ...state,
+                setPhoneErrorMessage: null
+            };
+
     }
     return state;
 };

@@ -9,9 +9,9 @@ class GeoServerService extends Service {
         return this.request('GetCountries');
     }
 
-    GetInfo() {
-        return this.request('GetInfo');
-    }
+    // GetInfo() {
+    //     return this.request('GetInfo');
+    // }
 }
 
 export default GeoServerService;

@@ -11,7 +11,7 @@ class AuthContainer extends Component {
     componentWillMount() {
         this.props.Auth().then(() => {
             if (this.props.needSignUp) {
-                this.props.history.push({pathname: '/signup'})
+                this.props.history.push({pathname: '/signup/'})
             }
         })
     }
@@ -20,8 +20,8 @@ class AuthContainer extends Component {
         return (
             <div className={classes["auth-container"]}>
                 <Switch>
-                    <Route path="/signup" exact component={SignUpContainer}/>
-                    <Route path="/main" exact component={MainPageContainer}/>
+                    <Route path="/signup/" exact component={SignUpContainer}/>
+                    <Route path="/main/" exact component={MainPageContainer}/>
                 </Switch>
             </div>
         );

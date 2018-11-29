@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Focusable} from 'react-key-navigation';
 
 
 class MainPageContainer extends Component {
@@ -6,7 +7,10 @@ class MainPageContainer extends Component {
 
     render() {
         return (
-            <div>Home</div>
+            <div>
+                <Focusable>Button-1</Focusable>
+                <Focusable>Button-2</Focusable>
+            </div>
         );
     }
 }
