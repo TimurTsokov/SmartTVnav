@@ -44,8 +44,4 @@ body {
   font-size: 32px;
   font-family: 'AvenirDemi', 'Tahoma';
   border-radius: 42px;
-  &:focus {
-    background-color: rgba(32, 188, 198, 1);
-    outline: none;
-  }
 }

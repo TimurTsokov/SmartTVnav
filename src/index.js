@@ -1,7 +1,8 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';
 import ReactTV from 'react-tv';
 import {withNavigation} from 'react-tv-navigation';
+import './index.scss';
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
 import App from './App';
