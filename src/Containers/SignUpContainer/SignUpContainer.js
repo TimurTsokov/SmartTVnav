@@ -6,6 +6,10 @@ import logo from '../../assets/images/logo.svg';
 import {GetCountries, GetInfo, SetPhone} from '../../store/actions/SignUpActions';
 import CountryCodesList from './Components/CountryCodesList/CountryCodesList';
 import Keyboard from '../../Components/Keyboard/Keyboard';
+import GeoServerService from "../../modules/services/GeoServerService";
+
+
+const GeoService = new GeoServerService();
 
 class SignUpContainer extends Component {
 
@@ -107,7 +111,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         GetCountries: () => dispatch(GetCountries()),
-        GetInfo: () => dispatch(GetInfo()),
+        GetInfo: () => dispatch(GeoService.GetInfo()),
         SetPhone: () => dispatch(SetPhone())
     };
 };
