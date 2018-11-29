@@ -20,3 +20,19 @@ body {
 	opacity: 0
 }
 
+
+.button {
+  background-color: rgba(32, 188, 198, 0.5);
+  border: 3px solid rgba(32, 188, 198, 1);
+  width: 368px;
+  text-transform: uppercase;
+  color: #fff;
+  height: 85px;
+  font-size: 32px;
+  font-family: 'AvenirDemi', 'Tahoma';
+  border-radius: 42px;
+  &:focus {
+    background-color: rgba(32, 188, 198, 1);
+    outline: none;
+  }
+}

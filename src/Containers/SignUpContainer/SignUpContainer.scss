@@ -6,11 +6,33 @@
   h1 {
     text-transform: uppercase;
     text-align: center;
-    margin: 110px 0 0 0;
+    margin: 110px 0 78px 0;
     font-family: 'AvenirBold', 'Tahoma';
     font-size: 36px;
   }
+  .wrap {
+    width: 900px;
+    position: relative;
+    margin: 0 auto;
+    .input-field {
+      width: 368px;
+      height: 85px;
+      line-height: 82px;
+      float: right;
+      margin-right: 22px;
+      border-radius: 42px;
+      text-align: center;
+      background-color: #15394C;
+      font-size: 32px;
+    }
+    .button-signup {
+      float: right;
+      margin: 20px 22px 0 0;
+    }
+  }
   .country-codes-list {
+    float: left;
+    margin: 0;
     padding: 0;
     list-style: none;
     max-height: 412px;
