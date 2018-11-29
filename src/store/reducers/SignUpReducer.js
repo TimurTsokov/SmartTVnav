@@ -2,6 +2,7 @@ const initialState = {
     countries: [],
     countryId: undefined,
     partnerId: undefined,
+    showCode: false
 };
 
 const SignUpReducer = (state = initialState, action) => {
@@ -19,6 +20,13 @@ const SignUpReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     countries: action.payload.countries
+                }
+            }
+        case 'SET_PHONE':
+            if (action.payload.status === 'OK') {
+                return {
+                    ...state,
+                    showCode: true
                 }
             }
     }

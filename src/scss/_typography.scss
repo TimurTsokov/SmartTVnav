@@ -1,0 +1,55 @@
+//Fonts Import
+@font-face{
+  font-family: 'Bold';
+  src: url("/assets/fonts/Avenir/AvenirNextCyr-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face{
+  font-family: 'Itallic';
+  src: url("/assets/fonts/Avenir/AvenirNextCyr-MediumItalic.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Regular';
+  src: url("/assets/fonts/Avenir/AvenirNextCyr-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Demi';
+  src: url("/assets/fonts/Avenir/AvenirNextCyr-Demi.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+//Fonts
+$default-font: "Regular", sans-serif;
+$bold-font: "Bold", sans-serif;
+$itallic-font: "Itallic", sans-serif;
+$demi-font: "Demi", sans-serif;
+
+  //Font Color
+$default-text-color: #fff;
+$accent-text-color: #2cc6c9;
+$second-font-color: hsla(210, 2%, 81%, 1);
+
+  //Font Size
+$text-large: 60px;
+$text-bigger: 42px;
+$text-big: 30px;
+$text-normal: 24px;
+$text-channel-name: 20px;
+$text-small: 18px;
+$text-mini: 16px;
+$text-tini: 10px;
+$arrow-nav: 80px;
+
+  //icons
+$icons: 'icons';

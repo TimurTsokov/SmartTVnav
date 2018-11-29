@@ -80,7 +80,8 @@ const mapStateToProps = state => {
     return {
         countries: state.signUp.countries,
         countryId: state.signUp.countryId,
-        partnerId: state.signUp.partnerId
+        partnerId: state.signUp.partnerId,
+        showCode: state.signUp.showCode
     };
 };
 

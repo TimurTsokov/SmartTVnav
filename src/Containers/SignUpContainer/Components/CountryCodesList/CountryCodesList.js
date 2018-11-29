@@ -1,6 +1,11 @@
 import React from 'react';
 import classes from './CountryCodesList.scss';
 import {withFocusable} from 'react-tv-navigation';
+import { Platform } from 'react-tv';
+
+console.log('webOS',Platform('webos')) // true
+console.log('tizen',Platform('tizen')) // false
+console.log('orsay',Platform('orsay')) // false
 
 let Selected = '';
 let visible = '';
