@@ -1,14 +1,11 @@
 import React, {Component} from 'react';
-import classes from './Keyboard.scss';
+import './Keyboard.scss';
 import KeyboardKey from './Components/KeyboardKey/KeyboardKey'
-import {Grid} from 'react-key-navigation';
 
 export default class Keyboard extends Component {
-
     render() {
         return (
-            <div className={classes.keyboard}>
-                <Grid rows={4} columns={3}>
+            <div className="keyboard">
                     <KeyboardKey>1</KeyboardKey>
                     <KeyboardKey>2</KeyboardKey>
                     <KeyboardKey>3</KeyboardKey>
@@ -27,7 +24,6 @@ export default class Keyboard extends Component {
                     </KeyboardKey>
                     <KeyboardKey>0</KeyboardKey>
                     <KeyboardKey>OK</KeyboardKey>
-                </Grid>
             </div>
 
         );

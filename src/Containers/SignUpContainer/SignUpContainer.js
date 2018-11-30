@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import classes from './SignUpContainer.scss';
-import globalClasses from '../../index.scss';
+import './SignUpContainer.scss';
+import '../../index.scss';
 import logo from '../../assets/images/logo.svg';
 import {Link, Switch, Route} from 'react-router-dom';
 import {GetCountries, SetPhone} from '../../store/actions/SignUpActions';
@@ -91,7 +91,7 @@ class SignUpContainer extends Component {
 
     render() {
         let selected = false;
-            const {countryId, countries, setPhoneErrorMessage} = this.props,
+        const {countryId, countries, setPhoneErrorMessage} = this.props,
             {codeListVisible, selectedCodeId, invalidPhoneErrorMessage} = this.state,
             countryCodes = countries.map(country => {
                 if ((countryId === country.id && selectedCodeId === null) ||
@@ -100,30 +100,29 @@ class SignUpContainer extends Component {
                 } else {
                     selected = false;
                 }
-            return (
-                <CountryCodesList id={country.id}
-                                  scrollIntoView={this.scrollIntoView}
-                                  focusPath={'code-item-' + country.id}
-                                  selected={selected}
-                                  codeListVisible={codeListVisible}
-                                  showFullCodeList={this.showFullCodeList}
-                                  key={country.id}>
-                    {country.telephone_code}
-                </CountryCodesList>
-            )
-        });
+                return (
+                    <CountryCodesList id={country.id}
+                                      scrollIntoView={this.scrollIntoView}
+                                      focusPath={'code-item-' + country.id}
+                                      selected={selected}
+                                      codeListVisible={codeListVisible}
+                                      showFullCodeList={this.showFullCodeList}
+                                      key={country.id}>
+                        {country.telephone_code}
+                    </CountryCodesList>
+                )
+            });
         return (
-            <div className={classes["signup-container"]}>
-                <img className={classes.logo} src={logo} alt="Sweet TV"/>
+            <div className="signup-container">
+                <img className="logo" src={logo} alt="Sweet TV"/>
                 <h1>Введите свой номер телефона для подключения</h1>
-
                 {invalidPhoneErrorMessage ? <p>{invalidPhoneErrorMessage}</p> : null}
                 {setPhoneErrorMessage ? <p>{setPhoneErrorMessage}</p> : null}
-                <div className={classes.wrap}>
-                    <ul className={classes["country-codes-list"]}>CountryCodes</ul>
+                <div nv-scope="phone-signup-field" className="wrap">
+                    <ul className="country-codes-list">CountryCodes</ul>
                     <Keyboard inputText={this.inputText}/>
-                    <div id='input-field' className={classes["input-field"]}>(___)___-__-__</div>
-                    <button className={[globalClasses.button, classes["button-signup"]].join(' ')}
+                    <div id='input-field' className="input-field">(___)___-__-__</div>
+                    <button nv-el className="button button-signup"
                             onClick={this.props.SetPhone}>Активировать
                     </button>
                 </div>
