@@ -10,7 +10,6 @@ import Keyboard from '../../Components/Keyboard/Keyboard';
 import GeoServerService from "../../modules/services/GeoServerService";
 import ChannelsList from "../../Components/ChannelsList/ChannelsList";
 
-
 const GeoService = new GeoServerService();
 
 class SignUpContainer extends Component {
@@ -29,6 +28,7 @@ class SignUpContainer extends Component {
         // this.props.GetInfo();
         this.props.GetCountries();
     };
+
 
     scrollIntoView = (id) => {
         const element = document.getElementById(id);
@@ -52,12 +52,14 @@ class SignUpContainer extends Component {
 
     inputText = (key) => {
         const content = document.getElementById('input-field').textContent;
-        if (key === 'backspace') {
+        if (typeof key === 'object') {
             if (isNaN(parseFloat(content))) {
                 document.getElementById('input-field').textContent = '';
             } else {
                 document.getElementById('input-field').textContent = content.substring(0, content.length - 1);
             }
+        } else if (key === 'OK') {
+            this.setPhone();
         } else {
             if (isNaN(parseFloat(content))) {
                 document.getElementById('input-field').textContent = '';
@@ -116,8 +118,8 @@ class SignUpContainer extends Component {
             <div className="signup-container">
                 <img className="logo" src={logo} alt="Sweet TV"/>
                 <h1>Введите свой номер телефона для подключения</h1>
-                {invalidPhoneErrorMessage ? <p>{invalidPhoneErrorMessage}</p> : null}
-                {setPhoneErrorMessage ? <p>{setPhoneErrorMessage}</p> : null}
+                {invalidPhoneErrorMessage || setPhoneErrorMessage ?
+                    <p>{invalidPhoneErrorMessage || setPhoneErrorMessage}</p> : null}
                 <div nv-scope="phone-signup-field" className="wrap">
                     <ul className="country-codes-list">CountryCodes</ul>
                     <Keyboard inputText={this.inputText}/>

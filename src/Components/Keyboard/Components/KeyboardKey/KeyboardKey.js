@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './KeyboardKey.scss';
 
-export default class KeyboardKey extends Component {
-    render() {
-        return (
-            <div nv-el className="key">
-                {this.props.children}
-            </div>
-        );
-    }
-}
+const KeyboardKey = (props) => {
+    return (
+        <div onClick={() => props.inputText(props.children)} nv-el className="key">
+            {props.children}
+        </div>
+    );
+};
+
+export default KeyboardKey;
