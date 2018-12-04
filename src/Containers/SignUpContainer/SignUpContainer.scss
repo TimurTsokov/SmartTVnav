@@ -4,11 +4,16 @@
     width: 470px;
   }
   h1 {
+    max-width: 1320px;
     text-transform: uppercase;
     text-align: center;
-    margin: 110px 0 78px 0;
+    margin: 110px auto 78px auto;
     font-family: 'AvenirBold', 'Tahoma';
     font-size: 36px;
+    height: 44px;
+    strong {
+      color: rgba(32, 188, 198, 1);
+    }
   }
   .wrap {
     width: 900px;
@@ -24,10 +29,22 @@
       text-align: center;
       background-color: #15394C;
       font-size: 32px;
+      &.code {
+        letter-spacing: 4px;
+      }
+      &.hidden {
+        display: none;
+      }
     }
     .button-signup {
       float: right;
       margin: 20px 22px 0 0;
+      &.back {
+        text-transform: initial;
+      }
+      &.hidden {
+        display: none;
+      }
     }
   }
   .country-codes-list {
@@ -40,5 +57,32 @@
     background-color: #15394C;
     overflow: hidden;
     border-radius: 42px;
+    &.hidden {
+      display: none;
+    }
+  }
+  .phone-sms-image {
+    margin: 28px 42px;
+    float: right;
+    &.hidden {
+      display: none;
+    }
+  }
+  .error-code {
+    float: right;
+    font-size: 30px;
+    text-align: center;
+    width: 368px;
+    margin: 6px 22px;
+    &.hidden {
+      display: none;
+    }
+  }
+  .contacts {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
   }
 }

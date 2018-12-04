@@ -6,12 +6,12 @@ class GeoServerService extends Service {
     }
 
     GetCountries() {
-        return this.request('GetCountries');
+        this.request('GetCountries');
     }
 
-    // GetInfo() {
-    //     return this.request('GetInfo');
-    // }
+    GetInfo() {
+        return this.request('GetInfo');
+    }
 }
 
 export default GeoServerService;

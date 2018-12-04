@@ -8,13 +8,13 @@ class App extends Component {
             event.target.click();
         });
     };
+
     render() {
         return (
-
             <Router>
-                    <div>
-                        <AuthContainer/>
-                    </div>
+                <React.Fragment>
+                    <AuthContainer/>
+                </React.Fragment>
             </Router>
         );
     }
