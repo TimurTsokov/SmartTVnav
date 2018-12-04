@@ -2,6 +2,7 @@ const initialState = {
     countries: [],
     countryId: undefined,
     partnerId: undefined,
+    signUpStep: 'code'
 };
 
 const SignUpReducer = (state = initialState, action) => {
@@ -27,7 +28,12 @@ const SignUpReducer = (state = initialState, action) => {
                 ...state,
                 setPhoneErrorMessage: null
             };
-
+            break;
+        case 'GO_BACK':
+            return {
+                ...state,
+                signUpStep: 'phone'
+            }
     }
     return state;
 };
