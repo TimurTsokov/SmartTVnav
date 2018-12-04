@@ -10,7 +10,7 @@ stateGo = () => (
 );
 
   render() {
-    return (<div>
+    return (<React.Fragment>
       <header className={classes.Header}>
         <nav>
           <ul>
@@ -29,7 +29,7 @@ stateGo = () => (
       <Switch>
         <Route path="/channels" exact component={ChannelsList}/>
       </Switch>
-    </div>)
+    </React.Fragment>)
   }
 }
 

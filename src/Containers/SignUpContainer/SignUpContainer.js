@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import './SignUpContainer.scss';
 import '../../index.scss';
@@ -8,10 +8,9 @@ import {GetCountries, SetPhone} from '../../store/actions/SignUpActions';
 import CountryCodesList from './Components/CountryCodesList/CountryCodesList';
 import Keyboard from '../../Components/Keyboard/Keyboard';
 import GeoServerService from "../../modules/services/GeoServerService";
-
 const GeoService = new GeoServerService();
 
-class SignUpContainer extends Component {
+class SignUpContainer extends PureComponent {
 
     constructor(props) {
         super(props);
@@ -29,6 +28,9 @@ class SignUpContainer extends Component {
         this.props.GetCountries();
     };
 
+    componentDidMount() {
+        $$nav.on($('.signup-container'), $('key:first') )
+    }
 
     scrollIntoView = (id) => {
         const element = document.getElementById(id);
@@ -39,7 +41,7 @@ class SignUpContainer extends Component {
         if (this.state.codeListVisible) {
             this.setState({
                 codeListVisible: !this.state.codeListVisible,
-                selectedCode: id
+                selectedCodeId: id
             });
         } else {
             this.setState({
@@ -116,25 +118,61 @@ class SignUpContainer extends Component {
     render() {
         let selected = false;
 
+        const Countries = [
+            {id: 1,
+                telephone_code: 380},
+            {id: 2,
+                telephone_code: 7},
+            {id: 3,
+                telephone_code: 356},
+            {id: 5,
+                telephone_code: 384},
+            {id: 6,
+                telephone_code: 384},
+            {id: 7,
+                telephone_code: 384},
+            {id: 8,
+                telephone_code: 384},
+            {id: 9,
+                telephone_code: 384},
+            {id: 10,
+                telephone_code: 384},
+            {id: 11,
+                telephone_code: 384},
+            {id: 12,
+                telephone_code: 384},
+            {id: 13,
+                telephone_code: 384},
+            {id: 14,
+                telephone_code: 384},
+
+
+        ];
+
         const {countryId, countries, setPhoneErrorMessage, signUpStep} = this.props,
             {codeListVisible, selectedCodeId, invalidPhoneErrorMessage, phone} = this.state,
 
             caption = signUpStep === 'phone' ?
                 <React.Fragment>Введите свой <strong>номер телефона</strong> для подключения</React.Fragment> :
-                <React.Fragment>Введите <strong>код</strong> из полученного <strong>SMS сообщения</strong>, отправленный на номер
+                <React.Fragment>Введите <strong>код</strong> из полученного <strong>SMS сообщения</strong>, отправленный
+                    на номер
                     +{phone}</React.Fragment>,
-            countryCodes = countries.map(country => {
-                if ((countryId === country.id && selectedCodeId === null) ||
-                    (selectedCodeId === country.id && !codeListVisible)) {
-                    selected = true;
+            countryCodes = Countries.map(country => {
+                // if ((countryId === country.id && selectedCodeId === null) ||
+                //     (selectedCodeId === country.id && !codeListVisible)) {
+                //     selected = true;
+                // } else {
+                //     selected = false;
+                // }
+                if (country.id === 1) {
+                    selected = true
                 } else {
-                    selected = false;
+                    selected = false
                 }
                 return (
                     <CountryCodesList id={country.id}
-                                      scrollIntoView={this.scrollIntoView}
-                                      focusPath={'code-item-' + country.id}
                                       selected={selected}
+                                      scrollIntoVIew={this.scrollIntoView}
                                       codeListVisible={codeListVisible}
                                       showFullCodeList={this.showFullCodeList}
                                       key={country.id}>
@@ -143,35 +181,35 @@ class SignUpContainer extends Component {
                 )
             });
         return (
-                <div className="signup-container">
-                    <img className="logo" src={logo_image} alt="Sweet TV"/>
-                    <h1>{caption}</h1>
-                    {invalidPhoneErrorMessage || setPhoneErrorMessage ?
-                        <p>{invalidPhoneErrorMessage || setPhoneErrorMessage}</p> : null}
-                    <div nv-scope="signup-field" nv-scope-current className="wrap">
-                        <ul className={"country-codes-list" + (signUpStep === 'code' ? ' hidden' : '')}>CountryCodes</ul>
-                        <Keyboard inputText={this.inputText}/>
-                        <div
-                            id='phone-input-field'
-                            className={"input-field phone" + (signUpStep === 'code' ? ' hidden' : '')}>
-                            (___)___-__-__
-                        </div>
-                        <div
-                            id='code-input-field'
-                            className={"input-field code" + (signUpStep === 'phone' ? ' hidden' : '')}/>
-                        <img className={"phone-sms-image" + (signUpStep === 'phone' ? ' hidden' : '')}
-                             src={phone_sms_image} alt="sms"/>
-                        <button nv-el className={"button button-signup" + (signUpStep === 'code' ? ' hidden' : '')}
-                                onClick={this.props.SetPhone}>Активировать
-                        </button>
-                        <span className="error-code">Ошибка, введите повторно код</span>
-                        <button nv-el className="button button-signup back"
-                                onClick={this.props.GoBack}>Изменить моб. номер
-                        </button>
+            <div className="signup-container">
+                <img className="logo" src={logo_image} alt="Sweet TV"/>
+                <h1>{caption}</h1>
+                {invalidPhoneErrorMessage || setPhoneErrorMessage ?
+                    <p>{invalidPhoneErrorMessage || setPhoneErrorMessage}</p> : null}
+                <div className="wrap">
+                    <ul className={"country-codes-list" + (signUpStep === 'code' ? ' hidden' : '')}>{countryCodes}</ul>
+                    <Keyboard inputText={this.inputText}/>
+                    <div
+                        id='phone-input-field'
+                        className={"input-field phone" + (signUpStep === 'code' ? ' hidden' : '')}>
+                        (___)___-__-__
                     </div>
-                    <span
-                        className="contacts">Если у вас возникли вопросы: <b>2121</b> (бесплатно для Украины) / <b>info@sweet.tv</b></span>
+                    <div
+                        id='code-input-field'
+                        className={"input-field code" + (signUpStep === 'phone' ? ' hidden' : '')}/>
+                    <img className={"phone-sms-image" + (signUpStep === 'phone' ? ' hidden' : '')}
+                         src={phone_sms_image} alt="sms"/>
+                    <button className={"button button-signup" + (signUpStep === 'code' ? ' hidden' : '')}
+                            onClick={this.props.SetPhone}>Активировать
+                    </button>
+                    <span className="error-code">Ошибка, введите повторно код</span>
+                    <button className="button button-signup back"
+                            onClick={this.props.GoBack}>Изменить моб. номер
+                    </button>
                 </div>
+                <span
+                    className="contacts">Если у вас возникли вопросы: <b>2121</b> (бесплатно для Украины) / <b>info@sweet.tv</b></span>
+            </div>
         );
     }
 }

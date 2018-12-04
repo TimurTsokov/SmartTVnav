@@ -12,9 +12,7 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <React.Fragment>
                     <AuthContainer/>
-                </React.Fragment>
             </Router>
         );
     }

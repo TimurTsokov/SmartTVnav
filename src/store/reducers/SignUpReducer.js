@@ -2,7 +2,7 @@ const initialState = {
     countries: [],
     countryId: undefined,
     partnerId: undefined,
-    signUpStep: 'code'
+    signUpStep: 'phone'
 };
 
 const SignUpReducer = (state = initialState, action) => {

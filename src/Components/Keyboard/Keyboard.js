@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './Keyboard.scss';
 import KeyboardKey from './Components/KeyboardKey/KeyboardKey'
 
-const Keyboard = (props) => {
-
+const Keyboard = React.memo((props) => {
     return (
         <div className="keyboard">
             <KeyboardKey inputText={props.inputText}>1</KeyboardKey>
@@ -25,9 +24,8 @@ const Keyboard = (props) => {
             <KeyboardKey inputText={props.inputText}>0</KeyboardKey>
             <KeyboardKey inputText={props.inputText}>OK</KeyboardKey>
         </div>
-
     );
-};
+});
 
 export default Keyboard;
 
