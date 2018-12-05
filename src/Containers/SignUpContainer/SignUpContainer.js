@@ -6,8 +6,11 @@ import logo_image from '../../assets/images/logo.svg';
 import phone_sms_image from '../../assets/images/phone_sms.svg';
 import {GetCountries, SetPhone} from '../../store/actions/SignUpActions';
 import CountryCodesList from './Components/CountryCodesList/CountryCodesList';
+import Nav from 'react-navtree'
 import Keyboard from '../../Components/Keyboard/Keyboard';
+import {resolveNavEvent} from "../../modules/services/NavService";
 import GeoServerService from "../../modules/services/GeoServerService";
+
 const GeoService = new GeoServerService();
 
 class SignUpContainer extends PureComponent {
@@ -16,7 +19,7 @@ class SignUpContainer extends PureComponent {
         super(props);
         this.state = {
             codeListVisible: false,
-            selectedCodeId: null,
+            selectedCodeId: 1,
             invalidPhoneErrorMessage: false,
             phone: null
         };
@@ -29,8 +32,17 @@ class SignUpContainer extends PureComponent {
     };
 
     componentDidMount() {
-        $$nav.on($('.signup-container'), $('key:first') )
+        window.document.addEventListener('keydown', (e) => {
+            if (e.keyCode >= 48 && e.keyCode <= 57 || e.keyCode >= 96 && e.keyCode <= 105) {
+
+            }
+        }, false);
     }
+
+    componentWillUnmount() {
+        window.document.removeEventListener('keydown');
+    }
+
 
     scrollIntoView = (id) => {
         const element = document.getElementById(id);
@@ -115,36 +127,80 @@ class SignUpContainer extends PureComponent {
         }
     };
 
+    _resolveNav = (key, navTree, codeId) => {
+        switch (key) {
+            case 'enter':
+                navTree.el.click();
+                break;
+            case 'left':
+            case 'right':
+                this.setState({
+                    ...this.state,
+                    codeListVisible: false
+                });
+                break;
+            case 'up':
+            case 'down':
+                this.scrollIntoView(codeId)
+        }
+    };
+
     render() {
         let selected = false;
 
         const Countries = [
-            {id: 1,
-                telephone_code: 380},
-            {id: 2,
-                telephone_code: 7},
-            {id: 3,
-                telephone_code: 356},
-            {id: 5,
-                telephone_code: 384},
-            {id: 6,
-                telephone_code: 384},
-            {id: 7,
-                telephone_code: 384},
-            {id: 8,
-                telephone_code: 384},
-            {id: 9,
-                telephone_code: 384},
-            {id: 10,
-                telephone_code: 384},
-            {id: 11,
-                telephone_code: 384},
-            {id: 12,
-                telephone_code: 384},
-            {id: 13,
-                telephone_code: 384},
-            {id: 14,
-                telephone_code: 384},
+            {
+                id: 1,
+                telephone_code: 380
+            },
+            {
+                id: 2,
+                telephone_code: 7
+            },
+            {
+                id: 3,
+                telephone_code: 356
+            },
+            {
+                id: 5,
+                telephone_code: 384
+            },
+            {
+                id: 6,
+                telephone_code: 384
+            },
+            {
+                id: 7,
+                telephone_code: 384
+            },
+            {
+                id: 8,
+                telephone_code: 384
+            },
+            {
+                id: 9,
+                telephone_code: 384
+            },
+            {
+                id: 10,
+                telephone_code: 384
+            },
+            {
+                id: 11,
+                telephone_code: 384
+            },
+            {
+                id: 12,
+                telephone_code: 384
+            },
+            {
+                id: 13,
+                telephone_code: 384
+            },
+            {
+                id: 14,
+                telephone_code: 384
+            },
 
 
         ];
@@ -164,7 +220,7 @@ class SignUpContainer extends PureComponent {
                 // } else {
                 //     selected = false;
                 // }
-                if (country.id === 1) {
+                if (country.id === this.state.selectedCodeId) {
                     selected = true
                 } else {
                     selected = false
@@ -172,6 +228,7 @@ class SignUpContainer extends PureComponent {
                 return (
                     <CountryCodesList id={country.id}
                                       selected={selected}
+                                      _resolveNav={this._resolveNav}
                                       scrollIntoVIew={this.scrollIntoView}
                                       codeListVisible={codeListVisible}
                                       showFullCodeList={this.showFullCodeList}
@@ -199,13 +256,21 @@ class SignUpContainer extends PureComponent {
                         className={"input-field code" + (signUpStep === 'phone' ? ' hidden' : '')}/>
                     <img className={"phone-sms-image" + (signUpStep === 'phone' ? ' hidden' : '')}
                          src={phone_sms_image} alt="sms"/>
-                    <button className={"button button-signup" + (signUpStep === 'code' ? ' hidden' : '')}
-                            onClick={this.props.SetPhone}>Активировать
-                    </button>
+                    <Nav className={"nav button button-signup" + (signUpStep === 'code' ? ' hidden' : '')}
+                         func={resolveNavEvent}
+                         component={'button'}
+                         onClick={this.props.SetPhone}>Активировать
+                    </Nav>
                     <span className="error-code">Ошибка, введите повторно код</span>
-                    <button className="button button-signup back"
-                            onClick={this.props.GoBack}>Изменить моб. номер
-                    </button>
+                    <Nav className="nav button button-signup back"
+                         onNav={(path) => {
+                             console.log(path)
+                         }}
+                         component={'button'}
+                         defaultFocused
+                         func={resolveNavEvent}
+                         onClick={this.props.GoBack}>Изменить моб. номер
+                    </Nav>
                 </div>
                 <span
                     className="contacts">Если у вас возникли вопросы: <b>2121</b> (бесплатно для Украины) / <b>info@sweet.tv</b></span>

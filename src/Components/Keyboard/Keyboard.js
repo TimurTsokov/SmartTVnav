@@ -3,6 +3,7 @@ import './Keyboard.scss';
 import KeyboardKey from './Components/KeyboardKey/KeyboardKey'
 
 const Keyboard = React.memo((props) => {
+
     return (
         <div className="keyboard">
             <KeyboardKey inputText={props.inputText}>1</KeyboardKey>

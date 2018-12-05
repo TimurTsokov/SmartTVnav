@@ -1,16 +1,19 @@
 import React from 'react';
 import './CountryCodesList.scss';
+import Nav from 'react-navtree';
 
 const CountryCodesList = React.memo((props) => {
+
     return (
-        <li id={props.id}
-            className={"code-item" + (props.selected ? " selected" : "")
-            + (props.codeListVisible ? " visible" : "")}
-            nv-el="true"
-            onClick={() => props.showFullCodeList(props.id)}>
+        <Nav id={props.id}
+             component={'li'}
+             tabIndex="1"
+             func={(key, navTree) => {props._resolveNav(key, navTree, props.id)}}
+             className={"code-item nav" + (props.selected ? " selected" : "")
+             + (props.codeListVisible ? " visible" : "")}
+             onClick={() => props.showFullCodeList(props.id)}>
             +{props.children}
-        </li>
-        // <FocusableItem id={props.id}
+        </Nav>
     );
 });
 

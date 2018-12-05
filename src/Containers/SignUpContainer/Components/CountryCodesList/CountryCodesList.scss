@@ -5,24 +5,18 @@
   text-align: center;
   font-size: 32px;
   border-radius: 42px;
-  &.visible{
+  &.visible {
     display: block;
   }
   &:focus,
-  &.selected {
+  &.selected,
+  &.nav-focused {
     display: block;
-    background-color: rgba(32, 188, 198, 0.35);
-    padding-top: 22px;
-    height: 85px;
+    background-color: rgba(32, 188, 198, 1);
+    padding: 22px 0;
     outline: none;
-    border: 3px solid #20BCC6;
   }
   &.selected {
     background-color: initial;
-    border: 3px solid #15394C;
-    &:focus {
-      background-color: rgba(32, 188, 198, 0.35);
-      border: 3px solid #20BCC6;
-    }
   }
 }
