@@ -13,8 +13,8 @@ const Card = ({genre}) => {
     )
 };
 
-// Card.propTypes = {
-//     property: PropTypes.object.isRequired
-// };
+ Card.propTypes = {
+     property: PropTypes.object.isRequired
+ };
 
 export default Card;

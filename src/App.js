@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import AuthContainer from './Containers/AuthContainer/AuthContainer';
-import GenresList from './Containers/CinemaGenres/GenresList'
+import CinemaGenres from './Containers/CinemaGenres/CinemaGenres'
 
 class App extends Component {
 
@@ -20,7 +20,7 @@ class App extends Component {
             //   </React.Fragment>
             //   </Router>
 
-                <GenresList/>
+                <CinemaGenres/>
         );
     }
 }

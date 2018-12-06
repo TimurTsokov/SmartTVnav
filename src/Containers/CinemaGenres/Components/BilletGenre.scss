@@ -10,10 +10,10 @@
     &:last-child{
       margin-right: 0;
     }
-    &.focus {
+   /* &.focus {
       transform: scale(1.05);
       box-shadow: 10px 10px 40px #20BCC6;
-    }
+    }*/
   }
   &_picture{
     width: 105%;
@@ -37,5 +37,8 @@
     text-align: center;
     background: linear-gradient(180deg, #15394C 0%, #020C13 100%);
   }
-
+}
+.nav-focused{
+  transform: scale(1.05);
+  box-shadow: 10px 10px 40px #20BCC6;
 }
