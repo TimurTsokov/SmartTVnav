@@ -3,11 +3,14 @@
   &__list{
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0;
     position: relative;
-    &:before{
-      content: '';
+    pointer-events: none;
+    .prev{
+      //content: '';
+      cursor: pointer;
       position: absolute;
       display: block;
       background-image: url('./image/left.svg');
@@ -16,9 +19,11 @@
       top: 50%;
       left: -35px;
       transform: translate(0, -50%);
+      pointer-events: all;
     }
-    &:after{
-      content: '';
+    .next{
+      //content: '';
+      cursor: pointer;
       position: absolute;
       display: block;
       background-image: url('./image/right.svg');
@@ -27,6 +32,7 @@
       top: 50%;
       right: -35px;
       transform: translate(0, -50%);
+      pointer-events: all;
     }
   }
 }
