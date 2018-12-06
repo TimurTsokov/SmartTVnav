@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './GenresList.scss';
 import Card from './Components/Card';
 import data from './Components/data';
+import Nav from 'react-navtree';
 
 // class component
 class GenresList extends Component {
