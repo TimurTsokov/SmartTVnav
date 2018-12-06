@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './CinemaGenres.scss';
 import BilletGenre from './Components/BilletGenre'
-import Card from "./Components/Card";
+// import Card from "./Components/Card";
 // import data from "./Components/data";
 // import imgNun from "./image/NUN.jpg";
 // import {Focusable, HorizontalList} from 'react-key-navigation';
@@ -26,7 +26,8 @@ class CinemaGenres extends Component {
         super(props);
         this.state = {
             genres: data.genres,
-            genre: data.genres[0]
+            genre: data.genres[0],
+            listStyle: 0
         }
     }
 
@@ -46,13 +47,32 @@ class CinemaGenres extends Component {
         console.log(newId)
     };
 
+    resolveFunc = (key) => {
+        switch (key) {
+            case 'left':
+                this.setState({
+                    ...this.state,
+                    listStyle: this.state.listStyle + 170
+                })
+                break;
+            case 'right':
+                this.setState({
+                    ...this.state,
+                    listStyle: this.state.listStyle - 170
+                })
+                break;
+        }
+        console.log(key)
+    }
+
     render() {
         const genres = this.state.genres.map(genre => {
             return (
                 <BilletGenre
                     key={genre.id}
-                    genre={genre}
-                    style={{'transform': `translateX(-${genre.id * (100 / genre.length)}%)`}}>
+                    resolveFunc={this.resolveFunc}
+                    id={genre.id}
+                    genre={genre}>
                     <img className="genres__list_picture" src={genre.link} alt={genre.label}/>
                     <p className="genres__list_text">{genre.label}</p>
                 </BilletGenre>
@@ -60,11 +80,10 @@ class CinemaGenres extends Component {
         });
         return (
             <div className="genres">
-                <ul className="genres__list">
-
+                <ul className="genres__list" style={{marginLeft: this.state.listStyle + 'px'}}>
                     <span className="prev"
-                        onClick={() => this.prevProperty()}
-                        disabled={this.state.genre.id === 0}
+                          onClick={() => this.prevProperty()}
+                          disabled={this.state.genre.id === 0}
                     >Prev</span>
                     <span className="next"
                           onClick={() => this.nextProperty()}

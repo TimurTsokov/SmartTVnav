@@ -18,15 +18,20 @@ window.document.addEventListener('keydown', (e) => {
 
     switch (e.keyCode) {
         case 40:
-            key = 'down'; break
+            key = 'down';
+            break
         case 38:
-            key = 'up'; break
+            key = 'up';
+            break
         case 37:
-            key = 'left'; break
+            key = 'left';
+            break
         case 39:
-            key = 'right'; break
+            key = 'right';
+            break
         case 27:
-            key = 'enter'; break
+            key = 'enter';
+            break
         default:
     }
     if (key) {
