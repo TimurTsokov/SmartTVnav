@@ -23,13 +23,13 @@ const config = {
             test: /\.html$/,
             use: 'html-loader'
         }, {
-            test: /\.js$/,
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             use: [{
                 loader: 'babel-loader',
                 options: {
                     // presets: ['env', 'react']
-                    presets: ["react", "stage-2", "env", "react-app"]
+                    presets: ["env", "react", "stage-2", "react-app"]
                 }
             }]
         }, {

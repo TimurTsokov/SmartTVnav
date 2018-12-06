@@ -2,24 +2,32 @@
   margin: 287px 70px 123px 70px;
   &__list{
     display: flex;
-    align-content: space-between;
+    justify-content: space-around;
     padding: 0;
     margin: 0;
-    &_picture{
-      width: 110%;
-      height: 541px;
+    position: relative;
+    &:before{
+      content: '';
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, 0);
+      display: block;
+      background-image: url('./image/left.svg');
+      height: 98px;
+      width: 26px;
+      top: 50%;
+      left: -35px;
+      transform: translate(0, -50%);
     }
-    &_text{
+    &:after{
+      content: '';
       position: absolute;
-      color: #ffffff;
-      bottom: 0;
-      font-size: 30px;
-      text-align: center;
-      background: linear-gradient(180deg, #15394C 0%, #020C13 100%);
+      display: block;
+      background-image: url('./image/right.svg');
+      height: 98px;
+      width: 26px;
+      top: 50%;
+      right: -35px;
+      transform: translate(0, -50%);
     }
   }
 }
+
