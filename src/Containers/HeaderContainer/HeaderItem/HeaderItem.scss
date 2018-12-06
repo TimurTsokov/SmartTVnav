@@ -1,0 +1,17 @@
+.menu__item {
+	display: inline-block;
+	font-size: 48px;
+	color: #fff;
+	transition: background-color .4s ease-in;
+	padding: 0 20px;
+	border: 2px solid transparent;
+	border-radius: 50px;
+	box-sizing: border-box;
+	&:not(:first-of-type){
+		margin-left: 58px;
+	}
+	&.active{
+		color: #20BCC6;
+		font-weight: 700;
+	}
+}

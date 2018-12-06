@@ -21,7 +21,7 @@ class AuthContainer extends Component {
             <div className={classes["auth-container"]}>
                 <Switch>
                     <Route path="/signup/" exact component={SignUpContainer}/>
-                    <Route path="/main/" exact component={MainPageContainer}/>
+
                 </Switch>
             </div>
         );
@@ -41,3 +41,5 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AuthContainer));
+
+{/*<Route path="/main/" exact component={MainPageContainer}/>*/}

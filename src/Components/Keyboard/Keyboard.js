@@ -3,6 +3,35 @@ import './Keyboard.scss';
 import KeyboardKey from './Components/KeyboardKey/KeyboardKey'
 
 const Keyboard = (props) => {
+    (() => {
+        window.onkeydown = (e) => {
+            let key = parseInt(e.keyCode);
+            console.log(props);
+            const content = document.getElementById(props.step + '-input-field').textContent;
+
+            if (key >= 48 && key <= 57 || key >= 96 && key <= 105) {
+                if (isNaN(parseFloat(content))) {
+                    document.getElementById(props.step + '-input-field').textContent = '';
+                }
+                if (props.step == 'phone'){
+                    if (document.getElementById(props.step + '-input-field').textContent.length < 9) {
+                        document.getElementById(props.step + '-input-field').textContent += e.key;
+                    }
+                } else{
+                    if (document.getElementById(props.step + '-input-field').textContent.length < 4) {
+                        document.getElementById(props.step + '-input-field').textContent += e.key;
+                    }
+                }
+
+            } else if (key == 8) {
+                if (isNaN(parseFloat(content))) {
+                    document.getElementById(props.step + '-input-field').textContent = '';
+                } else {
+                    document.getElementById(props.step + '-input-field').textContent = content.substring(0, content.length - 1);
+                }
+            }
+        };
+    })();
 
     return (
         <div className="keyboard">

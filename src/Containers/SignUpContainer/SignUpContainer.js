@@ -8,6 +8,7 @@ import {GetCountries, SetPhone} from '../../store/actions/SignUpActions';
 import CountryCodesList from './Components/CountryCodesList/CountryCodesList';
 import Keyboard from '../../Components/Keyboard/Keyboard';
 import GeoServerService from "../../modules/services/GeoServerService";
+import HeaderContainer from '../HeaderContainer/HeaderContainer';
 
 const GeoService = new GeoServerService();
 
@@ -144,13 +145,14 @@ class SignUpContainer extends Component {
             });
         return (
                 <div className="signup-container">
+                    <HeaderContainer/>
                     <img className="logo" src={logo_image} alt="Sweet TV"/>
                     <h1>{caption}</h1>
                     {invalidPhoneErrorMessage || setPhoneErrorMessage ?
                         <p>{invalidPhoneErrorMessage || setPhoneErrorMessage}</p> : null}
                     <div nv-scope="signup-field" nv-scope-current className="wrap">
                         <ul className={"country-codes-list" + (signUpStep === 'code' ? ' hidden' : '')}>CountryCodes</ul>
-                        <Keyboard inputText={this.inputText}/>
+                        <Keyboard inputText={this.inputText} step={signUpStep}/>
                         <div
                             id='phone-input-field'
                             className={"input-field phone" + (signUpStep === 'code' ? ' hidden' : '')}>

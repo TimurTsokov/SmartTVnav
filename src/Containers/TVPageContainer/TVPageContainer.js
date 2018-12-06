@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
 
-class MainPageContainer extends Component {
+class TvPageContainer extends Component {
 
     render() {
         return (
             <div>
                 <HeaderContainer/>
-                <h1>Main</h1>
-
+                <h1>TvPageContainer</h1>
             </div>
         );
     }
 }
 
-export default MainPageContainer;
+export default TvPageContainer;
