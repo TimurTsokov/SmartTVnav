@@ -21,10 +21,12 @@ class SignUpContainer extends PureComponent {
             codeListVisible: false,
             selectedCodeId: 1,
             invalidPhoneErrorMessage: false,
+            phoneInputVal: '',
+            codeInputVal: '',
             phone: null
         };
         this.showFullCodeList = this.showFullCodeList.bind(this);
-    }
+    };
 
     componentWillMount() {
         // this.props.GetInfo();
@@ -34,15 +36,32 @@ class SignUpContainer extends PureComponent {
     componentDidMount() {
         window.document.addEventListener('keydown', (e) => {
             if (e.keyCode >= 48 && e.keyCode <= 57 || e.keyCode >= 96 && e.keyCode <= 105) {
-
+                if (this.props.signUpStep === 'phone') {
+                    if (this.state.phoneInputVal.length < 10) {
+                        let val = this.state.phoneInputVal;
+                        val += e.key;
+                        this.setState({
+                            ...this.state,
+                            phoneInputVal: val
+                        })
+                    }
+                } else {
+                    if (this.state.codeInputVal.length < 4) {
+                        let val = this.state.codeInputVal;
+                        val += e.key;
+                        this.setState({
+                            ...this.state,
+                            codeInputVal: val
+                        })
+                    }
+                }
             }
         }, false);
-    }
+    };
 
     componentWillUnmount() {
         window.document.removeEventListener('keydown');
-    }
-
+    };
 
     scrollIntoView = (id) => {
         const element = document.getElementById(id);
@@ -56,48 +75,47 @@ class SignUpContainer extends PureComponent {
                 selectedCodeId: id
             });
         } else {
-            this.setState({
-                ...this.state,
-                codeListVisible: !this.state.codeListVisible
-            });
+            setTimeout(() => {
+                this.setState({
+                    ...this.state,
+                    codeListVisible: !this.state.codeListVisible
+                });
+                this.scrollIntoView(id)
+            }, 0)
         }
-        this.scrollIntoView(id)
     };
 
-    inputText = (key) => {
-
-        let inputId = null,
-            maxLength = 9;
-
+    _inputText = (key) => {
         if (this.props.signUpStep === 'phone') {
-            inputId = 'phone-input-field'
-        } else {
-            maxLength = 4;
-            inputId = 'code-input-field'
-        }
+            let {phoneInputVal} = this.state;
 
-        const content = document.getElementById(inputId).textContent;
-
-        if (typeof key === 'object') {
-            if (isNaN(parseFloat(content))) {
-                document.getElementById(inputId).textContent = '';
-            } else {
-                document.getElementById(inputId).textContent = content.substring(0, content.length - 1);
-            }
-        } else if (key === 'OK') {
-            if (this.props.signUpStep === 'phone') {
+            if (typeof key === 'object') {
+                this.setState({
+                    ...this.state, phoneInputVal: phoneInputVal.slice(0, -1)
+                })
+            } else if (key === 'OK') {
                 this.setPhone();
             } else {
-                //this.setCode()
+                if (phoneInputVal.length < 10) {
+                    this.setState({
+                        ...this.state, phoneInputVal: phoneInputVal += key
+                    });
+                }
             }
         } else {
-            if (isNaN(parseFloat(content))) {
-                document.getElementById(inputId).textContent = '';
-            }
-            if (document.getElementById(inputId).textContent.length < maxLength) {
-                document.getElementById(inputId).textContent += key;
-                if (maxLength === 4 && document.getElementById(inputId).textContent.length === 4) {
-                    //this.setCode()
+            let {codeInputVal} = this.state;
+
+            if (typeof key === 'object') {
+                this.setState({
+                    ...this.state, codeInputVal: codeInputVal.slice(0, -1)
+                })
+            } else if (key === 'OK') {
+                //this.setCode()
+            } else {
+                if (codeInputVal.length < 4) {
+                    this.setState({
+                        ...this.state, codeInputVal: codeInputVal += key
+                    });
                 }
             }
         }
@@ -146,6 +164,7 @@ class SignUpContainer extends PureComponent {
     };
 
     render() {
+        console.log('render');
         let selected = false;
 
         const Countries = [
@@ -183,7 +202,7 @@ class SignUpContainer extends PureComponent {
             },
             {
                 id: 10,
-                telephone_code: 384
+                telephone_code: 3855
             },
             {
                 id: 11,
@@ -201,8 +220,6 @@ class SignUpContainer extends PureComponent {
                 id: 14,
                 telephone_code: 384
             },
-
-
         ];
 
         const {countryId, countries, setPhoneErrorMessage, signUpStep} = this.props,
@@ -238,22 +255,24 @@ class SignUpContainer extends PureComponent {
                 )
             });
         return (
-            <div className="signup-container">
+            <div className="signup-container container-fluid">
                 <img className="logo" src={logo_image} alt="Sweet TV"/>
                 <h1>{caption}</h1>
                 {invalidPhoneErrorMessage || setPhoneErrorMessage ?
                     <p>{invalidPhoneErrorMessage || setPhoneErrorMessage}</p> : null}
                 <div className="wrap">
-                    <ul className={"country-codes-list" + (signUpStep === 'code' ? ' hidden' : '')}>{countryCodes}</ul>
-                    <Keyboard inputText={this.inputText}/>
+                    <ul className={"form-control country-codes-list" + (signUpStep === 'code' ? ' hidden' : '')}>{countryCodes}</ul>
+                    <Keyboard inputText={this._inputText}/>
                     <div
                         id='phone-input-field'
                         className={"input-field phone" + (signUpStep === 'code' ? ' hidden' : '')}>
-                        (___)___-__-__
+                        {this.state.phoneInputVal || '(___)___-__-__'}
                     </div>
                     <div
                         id='code-input-field'
-                        className={"input-field code" + (signUpStep === 'phone' ? ' hidden' : '')}/>
+                        className={"input-field code" + (signUpStep === 'phone' ? ' hidden' : '')}>
+                        {this.state.codeInputVal}
+                    </div>
                     <img className={"phone-sms-image" + (signUpStep === 'phone' ? ' hidden' : '')}
                          src={phone_sms_image} alt="sms"/>
                     <Nav className={"nav button button-signup" + (signUpStep === 'code' ? ' hidden' : '')}

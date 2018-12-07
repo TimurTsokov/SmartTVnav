@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactTV from 'react-tv';
 import ReactDOM from 'react-dom'
 import './index.scss';
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
