@@ -138,11 +138,13 @@ export default class Slider extends Component {
         return (
             <div className="slider-arrows">
                 <a className="arrow left"
-                   onClick={() => this.slideLeft()}>
+                   onClick={() => this.slideLeft()}
+                   disabled={this.state.genres.id === 1}>
                     <img src={require('./image/left.svg')} />
                 </a>
                 <a className="arrow right"
-                   onClick={() => this.slideRight()}>
+                   onClick={() => this.slideRight()}
+                   disabled={this.state.genres.id === this.state.genres.length - 1}>
                     <img src={require('./image/right.svg')} />
                 </a>
             </div>

@@ -31,6 +31,7 @@ const Slider = ({genre, width, height}) => {
     return (
         <Nav defaultFocused={genre.id === 1}
              className="slide" style={styles}>
+            <span className="text">{genre.label}</span>
         </Nav>
     )
 };
