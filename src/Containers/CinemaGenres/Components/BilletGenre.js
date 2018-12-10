@@ -18,10 +18,10 @@ import PropTypes from 'prop-types';
 //
 // export default BilletGenre;
 
-const Slider = ({image, width, height}, props) => {
-    const backgroundImage = require(`./img/${image}`);
+const Slider = ({genre, width, height}) => {
+    // const backgroundImage = require(`${genre.link}`);
     const styles = {
-        backgroundImage: `url(${backgroundImage})`,
+        backgroundImage: `url(${genre.path})`,
         backgroundPosition: 'center top',
         backgroundRepeat: 'no-repeat',
         float: 'left',
@@ -29,8 +29,8 @@ const Slider = ({image, width, height}, props) => {
         height: `${height}px`
     };
     return (
-        <Nav efaultFocused={props.id === 1}
-            className="slide" style={styles}>
+        <Nav defaultFocused={genre.id === 1}
+             className="slide" style={styles}>
         </Nav>
     )
 };
@@ -39,7 +39,7 @@ Slider.defaultProps = {
     height: 600
 };
 Slider.propTypes = {
-    image: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired
 };
