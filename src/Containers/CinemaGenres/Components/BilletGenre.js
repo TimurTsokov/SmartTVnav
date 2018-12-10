@@ -21,7 +21,7 @@ const BilletGenre = (props) => {
             </Nav>
         );
 
-}
+};
     // render() {
     //     return (
     //         <Nav defaultFocused={true}
@@ -36,7 +36,5 @@ const BilletGenre = (props) => {
     //         //   </Focusable>
     //     );
     // }
-
-
 
 export default BilletGenre;

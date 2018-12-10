@@ -53,17 +53,17 @@ class CinemaGenres extends Component {
                 this.setState({
                     ...this.state,
                     listStyle: this.state.listStyle + 170
-                })
+                });
                 break;
             case 'right':
                 this.setState({
                     ...this.state,
                     listStyle: this.state.listStyle - 170
-                })
+                });
                 break;
         }
         console.log(key)
-    }
+    };
 
     render() {
         const genres = this.state.genres.map(genre => {
