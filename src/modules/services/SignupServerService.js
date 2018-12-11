@@ -1,10 +1,18 @@
-import Service from '../Service';
 import Device from "../Device";
+import axios from "axios";
 
-class SignupServerService extends Service {
-    constructor() {
-        super('SignupServerService');
+const TV_SERVER_URL = "http://tv-server.trinity-tv.net/server/",
+    service = 'SignupServerService';
+
+class SignupServerService {
+
+    _url(method) {
+        return TV_SERVER_URL + service + "/" + method + ".json";
     }
+
+    request(method, data) {
+        return axios.post(this._url(method), JSON.stringify(data) || "");
+    };
 
     SetPhone(phone) {
         let data = {

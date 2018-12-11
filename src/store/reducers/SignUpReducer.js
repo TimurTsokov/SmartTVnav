@@ -1,38 +1,54 @@
 const initialState = {
     countries: [],
+    isAuthorized: false,
     countryId: undefined,
     partnerId: undefined,
-    signUpStep: 'code'
+    signUpStep: null,
+    errorMessage: ''
 };
 
 const SignUpReducer = (state = initialState, action) => {
     switch (action.type) {
+        case 'SHOW_SIGN_UP':
+            return {
+                ...state,
+                signUpStep: 'phone'
+            };
+        case 'SHOW_MAIN_PAGE':
+            return {
+                ...state,
+                isAuthorized: true
+            };
         case 'GET_INFO':
-            if (action.payload.status === 'OK') {
-                return {
-                    ...state,
-                    countryId: action.payload.country_id
-                }
-            }
-            break;
+            return {
+                ...state,
+                countryId: action.payload
+            };
         case 'GET_COUNTRIES':
-            if (action.payload.status === 'OK') {
-                return {
-                    ...state,
-                    countries: action.payload.countries
-                }
-            }
-            break;
+            return {
+                ...state,
+                countries: action.payload
+            };
         case 'HIDE_ERROR_MESSAGE':
             return {
                 ...state,
-                setPhoneErrorMessage: null
+                errorMessage: ''
             };
-            break;
+        case 'SHOW_ERROR_MESSAGE':
+            console.log('showError');
+            return {
+                ...state,
+                errorMessage: action.payload
+            };
         case 'GO_BACK':
             return {
                 ...state,
                 signUpStep: 'phone'
+            };
+        case 'SET_PHONE':
+            return {
+                ...state,
+                signUpStep: 'code'
             }
     }
     return state;

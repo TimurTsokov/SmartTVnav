@@ -1,17 +1,14 @@
-import React, {PureComponent} from 'react';
+import React, {PureComponent, Fragment} from 'react';
 import {connect} from 'react-redux';
 import './SignUpContainer.scss';
 import '../../index.scss';
 import logo_image from '../../assets/images/logo.svg';
 import phone_sms_image from '../../assets/images/phone_sms.svg';
-import {GetCountries, SetPhone} from '../../store/actions/SignUpActions';
+import {Auth, GetCountries, SetPhone, SetCode, GetInfo} from '../../store/actions/SignUpActions';
 import CountryCodesList from './Components/CountryCodesList/CountryCodesList';
 import Nav from 'react-navtree'
 import Keyboard from '../../Components/Keyboard/Keyboard';
 import {resolveNavEvent} from "../../modules/services/NavService";
-import GeoServerService from "../../modules/services/GeoServerService";
-
-const GeoService = new GeoServerService();
 
 class SignUpContainer extends PureComponent {
 
@@ -19,23 +16,36 @@ class SignUpContainer extends PureComponent {
         super(props);
         this.state = {
             codeListVisible: false,
-            selectedCodeId: 1,
+            selectedCodeId: null,
             invalidPhoneErrorMessage: false,
             phoneInputVal: '',
             codeInputVal: '',
             phone: null
         };
-        this.showFullCodeList = this.showFullCodeList.bind(this);
+        this._showFullCodeList = this._showFullCodeList.bind(this);
     };
 
     componentWillMount() {
-        // this.props.GetInfo();
-        this.props.GetCountries();
+        this.props.Auth().then(() => {
+            if (this.props.signUpStep) {
+                this.props.GetInfo();
+                this.props.GetCountries();
+            } else {
+                this.props._setState('signUpContainer', 'mainPageContainer')
+            }
+        });
+        // this._retryAuth = setTimeout(() => {
+        //     this.props.Auth().then(() => {
+        //         if (!this.props.needSignUp) {
+        //             this.props.history.push({pathname: '/main/'})
+        //         }
+        //     });
+        // }, 6000)
     };
 
     componentDidMount() {
         window.document.addEventListener('keydown', (e) => {
-            if (e.keyCode >= 48 && e.keyCode <= 57 || e.keyCode >= 96 && e.keyCode <= 105) {
+            if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105)) {
                 if (this.props.signUpStep === 'phone') {
                     if (this.state.phoneInputVal.length < 10) {
                         let val = this.state.phoneInputVal;
@@ -59,16 +69,23 @@ class SignUpContainer extends PureComponent {
         }, false);
     };
 
+    componentWillUpdate() {
+        if (this.props.isAuthorized) {
+            this.props._setState('signUpContainer', 'mainPageContainer');
+        }
+    }
+
     componentWillUnmount() {
         window.document.removeEventListener('keydown');
+        // clearInterval(this._retryAuth);
     };
 
-    scrollIntoView = (id) => {
+    _scrollIntoView = (id) => {
         const element = document.getElementById(id);
         element.scrollIntoView();
     };
 
-    showFullCodeList = (id) => {
+    _showFullCodeList = (id) => {
         if (this.state.codeListVisible) {
             this.setState({
                 codeListVisible: !this.state.codeListVisible,
@@ -80,7 +97,7 @@ class SignUpContainer extends PureComponent {
                     ...this.state,
                     codeListVisible: !this.state.codeListVisible
                 });
-                this.scrollIntoView(id)
+                this._scrollIntoView(id)
             }, 0)
         }
     };
@@ -94,7 +111,7 @@ class SignUpContainer extends PureComponent {
                     ...this.state, phoneInputVal: phoneInputVal.slice(0, -1)
                 })
             } else if (key === 'OK') {
-                this.setPhone();
+                this._setPhone();
             } else {
                 if (phoneInputVal.length < 10) {
                     this.setState({
@@ -110,22 +127,27 @@ class SignUpContainer extends PureComponent {
                     ...this.state, codeInputVal: codeInputVal.slice(0, -1)
                 })
             } else if (key === 'OK') {
-                //this.setCode()
+                //this._setCode()
             } else {
                 if (codeInputVal.length < 4) {
                     this.setState({
                         ...this.state, codeInputVal: codeInputVal += key
                     });
+
+                    if (codeInputVal.length === 4) {
+                        setTimeout(() => {
+                            this._setCode(this.state.phone, parseInt(this.state.codeInputVal));
+                        }, 50)
+                    }
                 }
             }
         }
     };
 
-    setPhone = () => {
-        const inputContent = document.getElementById('phone-input-field').textContent,
-            code = document.getElementById(this.props.countryId).textContent;
-        if (!isNaN(parseFloat(inputContent))) {
-            const phoneNumber = parseFloat(code) + inputContent;
+    _setPhone = () => {
+        if (!isNaN(parseFloat(this.state.phoneInputVal))) {
+            const code = document.querySelector('.selected').textContent.substring(1);
+            const phoneNumber = code + this.state.phoneInputVal;
             this.props.SetPhone(phoneNumber);
             this.setState({
                 ...this.state,
@@ -145,6 +167,10 @@ class SignUpContainer extends PureComponent {
         }
     };
 
+    _setCode = (phone, code) => {
+        this.props.SetCode(phone, code);
+    };
+
     _resolveNav = (key, navTree, codeId) => {
         switch (key) {
             case 'enter':
@@ -159,136 +185,78 @@ class SignUpContainer extends PureComponent {
                 break;
             case 'up':
             case 'down':
-                this.scrollIntoView(codeId)
+                this._scrollIntoView(codeId);
+                break;
+            default:
+                return
         }
     };
 
     render() {
-        console.log('render');
-        let selected = false;
+        let selected = false,
+            caption = '';
 
-        const Countries = [
-            {
-                id: 1,
-                telephone_code: 380
-            },
-            {
-                id: 2,
-                telephone_code: 7
-            },
-            {
-                id: 3,
-                telephone_code: 356
-            },
-            {
-                id: 5,
-                telephone_code: 384
-            },
-            {
-                id: 6,
-                telephone_code: 384
-            },
-            {
-                id: 7,
-                telephone_code: 384
-            },
-            {
-                id: 8,
-                telephone_code: 384
-            },
-            {
-                id: 9,
-                telephone_code: 384
-            },
-            {
-                id: 10,
-                telephone_code: 3855
-            },
-            {
-                id: 11,
-                telephone_code: 384
-            },
-            {
-                id: 12,
-                telephone_code: 384
-            },
-            {
-                id: 13,
-                telephone_code: 384
-            },
-            {
-                id: 14,
-                telephone_code: 384
-            },
-        ];
+        if (this.props.signUpStep === 'phone') {
+            caption = <Fragment>Введите свой <strong>номер телефона</strong> для подключения</Fragment>
+        } else if (this.props.signUpStep === 'code') {
+            caption = <Fragment>Введите <strong>код</strong> из полученного <strong>SMS сообщения</strong>, отправленный
+                на номер + {this.state.phone}</Fragment>
+        }
 
-        const {countryId, countries, setPhoneErrorMessage, signUpStep} = this.props,
-            {codeListVisible, selectedCodeId, invalidPhoneErrorMessage, phone} = this.state,
+        const countryCodes = this.props.countries.map(country => {
+            selected = (this.props.countryId === country.id && this.state.selectedCodeId === null) ||
+                (this.state.selectedCodeId === country.id && !this.state.codeListVisible);
 
-            caption = signUpStep === 'phone' ?
-                <React.Fragment>Введите свой <strong>номер телефона</strong> для подключения</React.Fragment> :
-                <React.Fragment>Введите <strong>код</strong> из полученного <strong>SMS сообщения</strong>, отправленный
-                    на номер
-                    +{phone}</React.Fragment>,
-            countryCodes = Countries.map(country => {
-                // if ((countryId === country.id && selectedCodeId === null) ||
-                //     (selectedCodeId === country.id && !codeListVisible)) {
-                //     selected = true;
-                // } else {
-                //     selected = false;
-                // }
-                if (country.id === this.state.selectedCodeId) {
-                    selected = true
-                } else {
-                    selected = false
-                }
-                return (
-                    <CountryCodesList id={country.id}
-                                      selected={selected}
-                                      _resolveNav={this._resolveNav}
-                                      scrollIntoVIew={this.scrollIntoView}
-                                      codeListVisible={codeListVisible}
-                                      showFullCodeList={this.showFullCodeList}
-                                      key={country.id}>
-                        {country.telephone_code}
-                    </CountryCodesList>
-                )
-            });
+            return (
+                <CountryCodesList id={country.id}
+                                  selected={selected}
+                                  resolveNav={this._resolveNav}
+                                  scrollIntoVIew={this._scrollIntoView}
+                                  codeListVisible={this.state.codeListVisible}
+                                  showFullCodeList={this._showFullCodeList}
+                                  key={country.id}>
+                    {country.telephone_code}
+                </CountryCodesList>
+            )
+        });
         return (
             <div className="signup-container container-fluid">
                 <img className="logo" src={logo_image} alt="Sweet TV"/>
                 <h1>{caption}</h1>
-                {invalidPhoneErrorMessage || setPhoneErrorMessage ?
-                    <p>{invalidPhoneErrorMessage || setPhoneErrorMessage}</p> : null}
+                {this.state.invalidPhoneErrorMessage || this.props.setPhoneErrorMessage ?
+                    <p>{this.state.invalidPhoneErrorMessage || this.props.setPhoneErrorMessage}</p> : null}
                 <div className="wrap">
-                    <ul className={"form-control country-codes-list" + (signUpStep === 'code' ? ' hidden' : '')}>{countryCodes}</ul>
+                    <ul className={"form-control country-codes-list" + (this.props.signUpStep === 'code' ? ' hidden' : '')}>
+                        {countryCodes}
+                    </ul>
                     <Keyboard inputText={this._inputText}/>
                     <div
                         id='phone-input-field'
-                        className={"input-field phone" + (signUpStep === 'code' ? ' hidden' : '')}>
+                        className={"input-field phone" + (this.props.signUpStep === 'phone' ? ' visible' : '')}>
                         {this.state.phoneInputVal || '(___)___-__-__'}
                     </div>
                     <div
                         id='code-input-field'
-                        className={"input-field code" + (signUpStep === 'phone' ? ' hidden' : '')}>
+                        className={"input-field code" + (this.props.signUpStep === 'code' ? ' visible' : '')}>
                         {this.state.codeInputVal}
                     </div>
-                    <img className={"phone-sms-image" + (signUpStep === 'phone' ? ' hidden' : '')}
+                    <img className={"phone-sms-image" + (this.props.signUpStep  === 'code' && !this.props.errorMessage ? ' visible' : '')}
                          src={phone_sms_image} alt="sms"/>
-                    <Nav className={"nav button button-signup" + (signUpStep === 'code' ? ' hidden' : '')}
-                         func={resolveNavEvent}
-                         component={'button'}
-                         onClick={this.props.SetPhone}>Активировать
+                    <Nav className={"nav button button-signup" + (this.props.signUpStep === 'phone' ? ' visible' : '')}
+                         func={(key) => resolveNavEvent(key)}
+                         onClick={this._setPhone}
+                        // onMouseEnter={(e) => { e.stopPropagation(); this.navTree.focus() }}
+                         component={'button'}>Активировать
                     </Nav>
-                    <span className="error-code">Ошибка, введите повторно код</span>
-                    <Nav className="nav button button-signup back"
-                         onNav={(path) => {
-                             console.log(path)
-                         }}
-                         component={'button'}
-                         defaultFocused
-                         func={resolveNavEvent}
-                         onClick={this.props.GoBack}>Изменить моб. номер
+                    <span className="error-code">{this.props.errorMessage}</span>
+                    <Nav
+                        className={"nav button button-signup back" + (this.props.signUpStep === 'code' && this.props.errorMessage ? ' visible' : '')}
+                        component={'button'}
+                        // ref={(nav) => { this.navTree = nav && nav.tree }}
+                        // onMouseEnter={(e) => { e.stopPropagation(); this.navTree.focus() }}
+                        defaultFocused
+                        func={resolveNavEvent}
+                        onClick={this.props.GoBack}>Изменить моб. номер
                     </Nav>
                 </div>
                 <span
@@ -300,19 +268,23 @@ class SignUpContainer extends PureComponent {
 
 const mapStateToProps = state => {
     return {
+        isAuthorized: state.signUp.isAuthorized,
         countries: state.signUp.countries,
         countryId: state.signUp.countryId,
         partnerId: state.signUp.partnerId,
         setPhoneErrorMessage: state.signUp.setPhoneErrorMessage,
-        signUpStep: state.signUp.signUpStep
+        signUpStep: state.signUp.signUpStep,
+        errorMessage: state.signUp.errorMessage
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        GetCountries: () => GeoService.GetCountries(),
-        GetInfo: () => GeoService.GetInfo(),
-        SetPhone: () => dispatch(SetPhone()),
+        Auth: () => dispatch(Auth()),
+        GetCountries: () => dispatch(GetCountries()),
+        GetInfo: () => dispatch(GetInfo()),
+        SetPhone: (phone) => dispatch(SetPhone(phone)),
+        SetCode: (phone, code) => dispatch(SetCode(phone, code)),
         HideErrorMessage: () => dispatch({type: 'HIDE_ERROR_MESSAGE'}),
         GoBack: () => dispatch({type: 'GO_BACK'})
     };

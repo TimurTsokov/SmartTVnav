@@ -1,16 +1,28 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
+import SignUpContainer from "./Containers/SignUpContainer/SignUpContainer";
 
-import AuthContainer from './Containers/AuthContainer/AuthContainer';
+class App extends PureComponent {
 
-class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            signUpContainer: true,
+            mainPageContainer: false
+        }
+    }
 
+    _setState = (prevContainer, nextContainer) => {
+        this.setState({
+            ...this.state,
 
+        })
+    };
 
     render() {
         return (
             <Router>
-                    <AuthContainer/>
+                {this.state.signUpContainer ? <SignUpContainer _setState={this._setState}/> : null}
             </Router>
         );
     }

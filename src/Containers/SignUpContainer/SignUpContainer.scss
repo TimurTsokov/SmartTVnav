@@ -20,6 +20,7 @@
     position: relative;
     margin: 0 auto;
     .input-field {
+      display: none;
       width: 368px;
       height: 85px;
       padding: 22px 0 0 0;
@@ -32,18 +33,19 @@
       &.code {
         letter-spacing: 4px;
       }
-      &.hidden {
-        display: none;
+      &.visible {
+        display: initial;
       }
     }
     .button-signup {
+      display: none;
       float: right;
       margin: 20px 22px 0 0;
       &.back {
         text-transform: initial;
       }
-      &.hidden {
-        display: none;
+      &.visible {
+        display: initial;
       }
     }
   }
@@ -62,10 +64,11 @@
     }
   }
   .phone-sms-image {
+    display: none;
     margin: 28px 42px;
     float: right;
-    &.hidden {
-      display: none;
+    &.visible {
+      display: initial;
     }
   }
   .error-code {

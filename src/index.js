@@ -1,16 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 import './index.scss';
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
 import App from './App';
-import AuthReducer from './store/reducers/AuthReducer'
-import SignUpReducer from './store/reducers/SignUpReducer'
+import AuthReducer from './store/reducers/AuthReducer';
+import SignUpReducer from './store/reducers/SignUpReducer';
 import registerServiceWorker from './registerServiceWorker';
-import Nav, {NavTree} from 'react-navtree'
+import Nav, {NavTree} from 'react-navtree';
 import thunk from 'redux-thunk';
+import axios from "axios";
 
 let navTree = new NavTree();
+
+axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 window.document.addEventListener('keydown', (e) => {
     let key;
@@ -36,8 +39,7 @@ window.document.addEventListener('keydown', (e) => {
         default:
     }
     if (key) {
-        console.log(key);
-        navTree.resolve(key)
+        navTree.resolve(key);
     }
 }, false);
 
@@ -49,5 +51,5 @@ const rootReducer = combineReducers({
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
-ReactDOM.render(<Nav tree={navTree}><Provider store={store}><App/></Provider></Nav>, document.getElementById('root'));
+ReactDOM.render(<Nav className="container" tree={navTree}><Provider store={store}><App/></Provider></Nav>, document.getElementById('root'));
 registerServiceWorker();

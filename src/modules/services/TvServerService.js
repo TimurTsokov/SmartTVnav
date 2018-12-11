@@ -1,26 +1,32 @@
-import Service from 'src/modules/Service';
-import Device from 'src/modules/Device';
+import axios from "axios";
+import Device from '../Device';
 
-class TvServerService extends Service {
-    constructor() {
-        super('TvServerService');
+const TV_SERVER_URL = "http://tv-server.trinity-tv.net/server/",
+    service = 'TvServerService';
+
+class TvServerService {
+
+    _url(method) {
+        return TV_SERVER_URL + service + "/" + method + ".json";
     }
 
-    Ping(sequence = 1) {
-        let data = {
-            sequence: sequence
-        };
+    request(method, data) {
+        return axios.post(this._url(method), JSON.stringify(data) || "");
+    };
 
-        this.request('Ping', data);
-    }
+    // Ping(sequence = 1) {
+    //     let data = {
+    //         sequence: sequence
+    //     };
+    //     this.request('Ping', data);
+    // }
 
-    Auth() {
+     Auth() {
         let data = {
             device: Device.getObject()
         };
-
-        this.request('Auth', data)
-    }
+        return this.request('Auth', data)
+    };
 
     AuthCheck() {
 
@@ -95,6 +101,8 @@ class TvServerService extends Service {
     SetPushToken() {
 
     }
+
+
 }
 
 export default TvServerService;
