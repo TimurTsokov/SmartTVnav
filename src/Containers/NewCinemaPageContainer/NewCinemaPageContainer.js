@@ -6,7 +6,6 @@ class NewCinemaPageContainer extends Component {
     render() {
         return (
             <div>
-                <HeaderContainer/>
                 <h1>NewCinemaPage</h1>
             </div>
         );

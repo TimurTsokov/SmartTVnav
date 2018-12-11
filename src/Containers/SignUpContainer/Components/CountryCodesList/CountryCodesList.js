@@ -1,7 +1,5 @@
 import React from 'react';
 import './CountryCodesList.scss';
-import "smarttv-navigation";
-
 let Selected = '';
 let visible = '';
 
@@ -18,7 +16,6 @@ const CountryCodesList = (props) => {
             //onClick={props.showFullCodeList()}
             value={props.children}
             onFocus={() => props.scrollIntoView(props.id)}
-            nv-el
             scrollIntoView={props.scrollIntoView}
             onEnterPress={() => props.showFullCodeList(props.id)}>
             +{props.children}

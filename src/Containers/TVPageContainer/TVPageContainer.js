@@ -6,7 +6,6 @@ class TvPageContainer extends Component {
     render() {
         return (
             <div>
-                <HeaderContainer/>
                 <h1>TvPageContainer</h1>
             </div>
         );

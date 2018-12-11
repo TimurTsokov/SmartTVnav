@@ -2,20 +2,18 @@ import React, {Component} from 'react';
 import  './HeaderItem.scss'
 import Nav from 'react-navtree';
 
-export default class HeaderItem extends Component {
+const HeaderItem = (props) => {
 
-    constructor(props) {
-        super(props)
-        this.state = {tab: 'main'}
-    }
-
-    render() {
+    // constructor(props) {
+    //     super(props)
+    //     this.state = {tab: 'main'}
+    // }
         return (
             <Nav
-                navId={this.props.children}
-                className={"menu__item" + (this.state.tab === this.props.children ? 'active' : '')}
-                onEnterPress = {this.props.keyPress("/" + this.props.children)} >
+                className={"menu__item active"}
+                func = {(key) => { if (key === 'enter')  props.keyPress(this.props.children)}}>
+                {props.children}
             </Nav>
         );
-    }
 };
+export default HeaderItem;

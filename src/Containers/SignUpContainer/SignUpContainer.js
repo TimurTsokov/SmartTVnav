@@ -146,33 +146,7 @@ class SignUpContainer extends Component {
         return (
                 <div className="signup-container">
                     <HeaderContainer/>
-                    <img className="logo" src={logo_image} alt="Sweet TV"/>
-                    <h1>{caption}</h1>
-                    {invalidPhoneErrorMessage || setPhoneErrorMessage ?
-                        <p>{invalidPhoneErrorMessage || setPhoneErrorMessage}</p> : null}
-                    <div nv-scope="signup-field" nv-scope-current className="wrap">
-                        <ul className={"country-codes-list" + (signUpStep === 'code' ? ' hidden' : '')}>CountryCodes</ul>
-                        <Keyboard inputText={this.inputText} step={signUpStep}/>
-                        <div
-                            id='phone-input-field'
-                            className={"input-field phone" + (signUpStep === 'code' ? ' hidden' : '')}>
-                            (___)___-__-__
-                        </div>
-                        <div
-                            id='code-input-field'
-                            className={"input-field code" + (signUpStep === 'phone' ? ' hidden' : '')}/>
-                        <img className={"phone-sms-image" + (signUpStep === 'phone' ? ' hidden' : '')}
-                             src={phone_sms_image} alt="sms"/>
-                        <button nv-el className={"button button-signup" + (signUpStep === 'code' ? ' hidden' : '')}
-                                onClick={this.props.SetPhone}>Активировать
-                        </button>
-                        <span className="error-code">Ошибка, введите повторно код</span>
-                        <button nv-el className="button button-signup back"
-                                onClick={this.props.GoBack}>Изменить моб. номер
-                        </button>
-                    </div>
-                    <span
-                        className="contacts">Если у вас возникли вопросы: <b>2121</b> (бесплатно для Украины) / <b>info@sweet.tv</b></span>
+
                 </div>
         );
     }
@@ -199,3 +173,31 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpContainer);
+
+// {/*<img className="logo" src={logo_image} alt="Sweet TV"/>*/}
+// {/*<h1>{caption}</h1>*/}
+// {/*{invalidPhoneErrorMessage || setPhoneErrorMessage ?*/}
+//     {/*<p>{invalidPhoneErrorMessage || setPhoneErrorMessage}</p> : null}*/}
+// {/*<div nv-scope="signup-field" nv-scope-current className="wrap">*/}
+//     {/*<ul className={"country-codes-list" + (signUpStep === 'code' ? ' hidden' : '')}>CountryCodes</ul>*/}
+//     {/*<Keyboard inputText={this.inputText} step={signUpStep}/>*/}
+//     {/*<div*/}
+//     {/*id='phone-input-field'*/}
+//     {/*className={"input-field phone" + (signUpStep === 'code' ? ' hidden' : '')}>*/}
+//     {/*(___)___-__-__*/}
+//     {/*</div>*/}
+//     {/*<div*/}
+//     {/*id='code-input-field'*/}
+//     {/*className={"input-field code" + (signUpStep === 'phone' ? ' hidden' : '')}/>*/}
+//     {/*<img className={"phone-sms-image" + (signUpStep === 'phone' ? ' hidden' : '')}*/}
+//     {/*src={phone_sms_image} alt="sms"/>*/}
+//     {/*<button nv-el className={"button button-signup" + (signUpStep === 'code' ? ' hidden' : '')}*/}
+//     {/*onClick={this.props.SetPhone}>Активировать*/}
+//     {/*</button>*/}
+//     {/*<span className="error-code">Ошибка, введите повторно код</span>*/}
+//     {/*<button nv-el className="button button-signup back"*/}
+//     {/*onClick={this.props.GoBack}>Изменить моб. номер*/}
+//     {/*</button>*/}
+//     {/*</div>*/}
+//     {/*<span*/}
+//     {/*className="contacts">Если у вас возникли вопросы: <b>2121</b> (бесплатно для Украины) / <b>info@sweet.tv</b></span>*/}
