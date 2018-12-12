@@ -1,4 +1,4 @@
-import './custom/webOS'
+ import './custom/webOS'
 class Device {
     constructor() {
     }

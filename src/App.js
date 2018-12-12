@@ -6,6 +6,7 @@ import MainPageContainer from './Containers/MainPageContainer/MainPageContainer'
 import NewCinemaPageContainer from './Containers/NewCinemaPageContainer/NewCinemaPageContainer';
 import TVPageContainer from './Containers/TVPageContainer/TVPageContainer';
 import CinemaPageContainer from './Containers/CinemaPageContainer/CinemaPageContainer';
+import ExitFromApp from './Containers/ExitFromApp/ExitFromApp';
 import HeaderContainer from "./Containers/HeaderContainer/HeaderContainer";
 import Device from "./modules/Device";
 import CinemaGenres from './Containers/CinemaGenres/CinemaGenres'
@@ -50,6 +51,7 @@ class App extends Component {
                         { menuPath === 'newcinema' ? <NewCinemaPageContainer /> : ""}
                         { menuPath === 'tv' ? <TVPageContainer /> : ""}
                         { menuPath === 'cinema' ? <CinemaGenres/> : ""}
+                        { menuPath === 'exit' ? <ExitFromApp/> : ""}
                     </React.Fragment>
                     : ''
                 }
