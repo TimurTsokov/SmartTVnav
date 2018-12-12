@@ -1,3 +1,4 @@
+
 class Device {
     constructor() {
     }
@@ -5,7 +6,7 @@ class Device {
     static getObject() {
         return {
             type: "DT_SmartTV",
-            mac: "00:11:22:33:44:50"
+            mac: "00:11:22:33:44:62"
         }
     }
 }
