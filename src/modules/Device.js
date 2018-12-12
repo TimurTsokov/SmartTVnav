@@ -6,7 +6,9 @@ class Device {
 
     static getObject() {
         const userAgent = navigator.userAgent,
-            match = userAgent.match(/Web0S/);
+            match = userAgent.match(/Web0S/),
+            isPhilips = userAgent.match(/Philips/),
+            oipfConf = document.getElementById('oipfConfiguration');
        /// const webOS = window.webOS ;
         let device = {
                 type: "DT_SmartTV",
@@ -20,8 +22,16 @@ class Device {
             onDeviceLang = 'uk';
 
         function getDeviceSubType() {
-
             try {
+                if (typeof window.tizen === 'object') {
+                    // try {
+                    //     if (webapis.productinfo.getModelCode().indexOf(17) != -1 || webapis.productinfo.getModelCode().indexOf(18) != -1) {
+                    //         ShowVoucherCountService.getDeviceCount();
+                    //     }
+                    //     LastViewedChannelServiceSamsung.getDeviceChannel();
+                    // } catch (e){}
+                    return 'DST_SAMSUNG';
+                }
                 if (typeof window.webos === 'object' || match != null) {
                     return 'DST_LG';
                 }
@@ -84,13 +94,40 @@ class Device {
                         } catch (e) {
                         }
                     }
-                case 'DST_LG':
+                case 'DST_SAMSUNG':
+                    try {
+                        device.uuid = webapis.productinfo.getDuid();
+                        device.mac = webapis.network.getMac();
+                        device.model = webapis.productinfo.getRealModel() + '(' + webapis.productinfo.getModelCode() + ')';
+                        // device.firmware = webapis.productinfo.getFirmware();
+
+                        //Get display resolution
+                        tizen.systeminfo.getPropertyValue('DISPLAY', function (data) {
+
+                            device.screen_info = {};
+
+                            device.screen_info.width = data.resolutionWidth;
+                            device.screen_info.height = data.resolutionHeight;
+                            device.ready = true;
+                        });
+
+                        //Get device Language
+                        tizen.systeminfo.getPropertyValue('LOCALE', function (data) {
+                            if (data.language) {
+                                onDeviceLang = data.language.slice(0, 2);
+                            }
+                        });
+
+                    } catch (e) {
+                    }
+                    break;
+                case 'DST_BROWSER':
                     console.log('1111');
                     break;
             }
         }
         init();
-        console.log('webOS', webOS);
+        //console.log('webOS', webOS);
         return device;
 
     }

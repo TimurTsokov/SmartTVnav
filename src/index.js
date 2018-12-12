@@ -9,7 +9,7 @@ import SignUpReducer from './store/reducers/SignUpReducer'
 import registerServiceWorker from './registerServiceWorker';
 import Nav, {NavTree, navVertical} from 'react-navtree';
 import thunk from 'redux-thunk';
-import "smarttv-navigation";
+
 
 let navTree = new NavTree();
     const rootReducer = combineReducers({
