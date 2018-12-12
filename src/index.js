@@ -10,7 +10,6 @@ import registerServiceWorker from './registerServiceWorker';
 import Nav, {NavTree, navVertical} from 'react-navtree';
 import thunk from 'redux-thunk';
 
-
 let navTree = new NavTree();
     const rootReducer = combineReducers({
         auth: AuthReducer,

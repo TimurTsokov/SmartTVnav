@@ -116,7 +116,7 @@ class SignUpContainer extends Component {
 
     render() {
         let selected = false;
-
+        console.log('this.props SignUp ', this.props);
         const {countryId, countries, setPhoneErrorMessage, signUpStep} = this.props,
             {codeListVisible, selectedCodeId, invalidPhoneErrorMessage, phone} = this.state,
 
@@ -145,7 +145,7 @@ class SignUpContainer extends Component {
             });
         return (
                 <div className="signup-container">
-                    <HeaderContainer/>
+
 
                 </div>
         );
