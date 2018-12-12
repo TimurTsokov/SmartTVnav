@@ -56,6 +56,11 @@ export default class HeaderContainer extends Component  {
                         Телевидение
 
                     </HeaderItem>
+                    <HeaderItem menuItem="exit" menuActive={this.changeActive} currentItem = {tab} changeMenuItem = {this.props.changePath}>
+
+                        Выход
+
+                    </HeaderItem>
 
                     <span className="header__arrow header__arrow--right"><img src={arrow_image} alt="arrow right"/></span>
                 </Nav>

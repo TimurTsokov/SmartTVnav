@@ -4,7 +4,6 @@ import Nav, {navHorizontal} from 'react-navtree';
 //import Navigation from "../../../Components/Navigation/Navigation";
 //import PropTypes from 'prop-types';
 import '../CinemaGenres.scss'
-import ''
 
 const Slide = ({genre, width, height, resolveFunc}) => {
 
