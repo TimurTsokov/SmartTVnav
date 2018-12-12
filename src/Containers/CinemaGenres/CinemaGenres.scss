@@ -1,45 +1,82 @@
-.genres{
-  margin: 287px 70px 123px 70px;
-  &__list{
-    //display: flex;
-    //justify-content: space-around;
-    //flex-wrap: wrap;
-    //padding: 0;
-    margin: 0;
-    position: relative;
-    overflow-x: visible;
-    /* overflow-y: hidden; */
-    overflow-y: visible;
-    height: 739px;
-    padding: 26px 0 0 0;
-    width: 1850px;
-    white-space: nowrap;
-    .prev{
-      //content: '';
-      cursor: pointer;
-      position: absolute;
-      display: block;
-      background-image: url('./image/left.svg');
-      height: 98px;
-      width: 26px;
-      top: 50%;
-      left: -35px;
-      transform: translate(0, -50%);
-      pointer-events: all;
+.slider{
+  margin: 203px 0;
+
+}
+.slider-arrows {
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+  .arrow {
+    margin-top: 350px;
+    &:hover,
+    &:focus{
+      transform: scale(1.1);
     }
-    .next{
-      //content: '';
-      cursor: pointer;
-      position: absolute;
-      display: block;
-      background-image: url('./image/right.svg');
+    img {
       height: 98px;
       width: 26px;
-      top: 50%;
-      right: -35px;
-      transform: translate(0, -50%);
-      pointer-events: all;
+
     }
   }
+  a {
+    cursor: pointer;
+    display: block;
+    opacity: 0.8;
+    position: absolute;
+  }
+  .arrow.right {
+    right: 0;
+    margin-right: 30px;
+  }
+  .arrow.left{
+    margin-left: 20px;
+  }
+}
+
+.slider-items {
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  padding: 75px;
+  text-align: center;
+}
+
+.slider-items .slide:not(:nth-child(5)) {
+  margin-right: 60px;
+}
+
+.slider-items .slide:nth-child(1) {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 40px #20BCC6;
+}
+
+.slider-items{
+  .slide {
+    //width: 105%;
+    //height: 630px;
+    position: relative;
+    margin-bottom: 55px;
+    z-index: 5;
+    border-radius: 8px;
+    width: 300px;
+    height: 670px;
+    display: inline-block;
+  }
+}
+
+.text {
+  margin: 0;
+  z-index: 10;
+  padding-top: 45px;
+  position: absolute;
+  color: #ffffff;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  height: 130px;
+  font-size: 30px;
+  text-align: center;
+  background: linear-gradient(180deg, #15394C 0%, #020C13 100%);
+  border-radius: 0px 0px 8px 8px;
 }
 

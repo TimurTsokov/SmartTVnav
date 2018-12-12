@@ -14,31 +14,31 @@ import Nav, {NavTree} from 'react-navtree'
 let navTree = new NavTree();
 
 window.document.addEventListener('keydown', (e) => {
-    let key
+    let key;
 
     switch (e.keyCode) {
         case 40:
             key = 'down';
-            break
+            break;
         case 38:
             key = 'up';
-            break
+            break;
         case 37:
             key = 'left';
-            break
+            break;
         case 39:
             key = 'right';
-            break
-        case 27:
+            break;
+        case 13:
             key = 'enter';
-            break
+            break;
         default:
     }
     if (key) {
-        e.preventDefault()
+        e.preventDefault();
         navTree.resolve(key)
     }
-}, false)
+}, false);
 
 const rootReducer = combineReducers({
     auth: AuthReducer,
