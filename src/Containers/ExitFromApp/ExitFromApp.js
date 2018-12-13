@@ -40,7 +40,7 @@ class ExitFromApp extends Component {
     resolveFunc = (key, navTree) => {
         switch (key) {
             case 'enter':
-                navTree.el.click()
+                navTree.el.click();
                 break;
         }
     };
@@ -54,7 +54,7 @@ class ExitFromApp extends Component {
                 <div className="exit__group">
                     <h1>Вы точно хотите выйти из приложения?</h1>
                     <div className="exit__items">
-                        <Nav className="exit__items_item" id="yes"
+                        <Nav className="exit__items_item"
                              func={(key, navTree) => {
                                  this.resolveFunc(key, navTree);
                              }}
@@ -65,7 +65,7 @@ class ExitFromApp extends Component {
                              func={(key, navTree) => {
                                  this.resolveFunc(key, navTree);
                              }}
-                            className="exit__items_item" id="no"
+                            className="exit__items_item"
                              onClick={() => this.displayNone()}
                         >НЕТ
                         </Nav>
