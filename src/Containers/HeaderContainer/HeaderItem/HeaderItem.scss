@@ -1,0 +1,39 @@
+.menu__item {
+	display: inline-block;
+	font-size: 48px;
+	color: #fff;
+	transition: background-color .4s ease-in;
+	padding: 0 20px;
+	border: 2px solid transparent;
+	border-radius: 50px;
+	box-sizing: border-box;
+	margin-left: 38px;
+	&.active{
+		color: #20BCC6;
+		font-weight: 700;
+		& svg{
+			fill: #20BCC6;
+		}
+	}
+	&.nav-focused{
+		background-color: rgba(32, 188, 198, .5);
+		border-color: #20BCC6;
+		&.active{
+			color: #fff;
+			& svg{
+				fill: #fff;
+			}
+		}
+	}
+	&:last-of-type{
+		margin-right: 38px;
+	}
+
+}
+svg {
+	display: inline-block;
+	margin-bottom: 6px;
+	width: 64px;
+	height: 39px;
+	fill: #fff;
+}

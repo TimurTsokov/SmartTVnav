@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
 
-class MainPageContainer extends Component {
+class NewCinemaPageContainer extends Component {
 
     render() {
         return (
             <div>
-                <h1>Main</h1>
+                <h1>NewCinemaPage</h1>
             </div>
         );
     }
 }
 
-export default MainPageContainer;
+export default NewCinemaPageContainer;
