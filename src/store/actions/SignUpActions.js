@@ -1,21 +1,10 @@
-import axios from 'axios';
-import Device from '../../modules/Device';
-import SignupServerService from "../../modules/services/SignupServerService";
-import GeoServerService from "../../modules/services/GeoServerService";
-import TvServerService from "../../modules/services/TvServerService";
+import SignupServerService from "../../modules/ServerServices/SignupServerService";
+import GeoServerService from "../../modules/ServerServices/GeoServerService";
+import TvServerService from "../../modules/ServerServices/TvServerService";
 
-const server = 'http://tv-server.trinity-tv.net/server/';
 const SignupService = new SignupServerService(),
     GeoService = new GeoServerService(),
     TvService = new TvServerService();
-
-const MakeRequest = (service, method, data) => {
-    axios.defaults.headers.post['Content-Type'] = 'application/json';
-    return axios.post(server + service + '/' + method + '.json', JSON.stringify(data || ''))
-        .then(response => {
-            return response
-        })
-};
 
 export function GetInfo() {
     return dispatch => {
@@ -56,9 +45,13 @@ export function GetCountries() {
 export function SetPhone(phone) {
     return dispatch => {
         return SignupService.SetPhone(phone).then(response => {
-            switch (response.statusText) {
+            console.log(response);
+            switch (response.data.status) {
                 case 'OK':
                     dispatch({type: 'SET_PHONE'});
+                    break;
+                case 'NoAttempts':
+                    dispatch({type: 'SHOW_ERROR_ATTEMPTS_LIMIT', payload: 'Превышено количество попыток авторизации. Попробуйте еще раз'});
             }
         });
     };
@@ -72,8 +65,14 @@ export function SetCode(phone, code) {
                     dispatch({type: 'SHOW_MAIN_PAGE'});
                     break;
                 case 'CodeInvalid':
-                    dispatch({type: 'SHOW_ERROR_MESSAGE', payload: 'Введен неверный код. Попробуйте еще раз'});
+                    dispatch({type: 'SHOW_ERROR_INVALID_CODE', payload: 'Введен неверный код. Попробуйте еще раз'});
                     break;
+                case 'NoAttempts':
+                    dispatch({type: 'SHOW_ERROR_ATTEMPTS_LIMIT', payload: 'Превышено количество попыток авторизации. Попробуйте еще раз'});;
+                    break;
+                default:
+                    //Expired
+                    dispatch({type: 'SHOW_ERROR_ATTEMPTS_LIMIT', payload: 'Срок действия кода истек. Поппробуйте еще раз'});
             }
         });
     };

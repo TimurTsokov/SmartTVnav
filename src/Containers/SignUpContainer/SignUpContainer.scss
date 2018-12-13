@@ -10,7 +10,7 @@
     margin: 110px auto 78px auto;
     font-family: 'AvenirBold', 'Tahoma';
     font-size: 36px;
-    height: 44px;
+    height: 20px;
     strong {
       color: rgba(32, 188, 198, 1);
     }
@@ -71,8 +71,14 @@
       display: initial;
     }
   }
+  .error-phone {
+    font-size: 30px;
+    height: 24px;
+    text-align: center;
+  }
   .error-code {
     float: right;
+    height: 86px;
     font-size: 30px;
     text-align: center;
     width: 368px;

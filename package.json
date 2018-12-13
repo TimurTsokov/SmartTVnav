@@ -107,6 +107,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "babel-polyfill": "^6.26.0",
     "ifdef-loader": "^2.0.3",
     "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0"

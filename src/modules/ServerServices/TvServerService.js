@@ -1,5 +1,5 @@
 import axios from "axios";
-import Device from '../Device';
+import Device from '../Services/Device';
 
 const TV_SERVER_URL = "http://tv-server.trinity-tv.net/server/",
     service = 'TvServerService';

@@ -2,9 +2,11 @@ const initialState = {
     countries: [],
     isAuthorized: false,
     countryId: undefined,
-    partnerId: undefined,
     signUpStep: null,
-    errorMessage: ''
+    invalidCodeErrorMessage: '',
+    codeLimitErrorMessage: '',
+    buttonBackVisible: false,
+    codeInputVal: ''
 };
 
 const SignUpReducer = (state = initialState, action) => {
@@ -32,13 +34,22 @@ const SignUpReducer = (state = initialState, action) => {
         case 'HIDE_ERROR_MESSAGE':
             return {
                 ...state,
-                errorMessage: ''
+                invalidCodeErrorMessage: '',
+                codeLimitErrorMessage: ''
             };
-        case 'SHOW_ERROR_MESSAGE':
-            console.log('showError');
+        case 'SHOW_ERROR_INVALID_CODE':
             return {
                 ...state,
-                errorMessage: action.payload
+                invalidCodeErrorMessage: action.payload,
+                buttonBackVisible: true,
+                codeInputVal: ''
+            };
+        case 'SHOW_ERROR_ATTEMPTS_LIMIT':
+            return {
+                ...state,
+                signUpStep: 'phone',
+                codeLimitErrorMessage: action.payload,
+                codeInputVal: ''
             };
         case 'GO_BACK':
             return {
@@ -48,7 +59,15 @@ const SignUpReducer = (state = initialState, action) => {
         case 'SET_PHONE':
             return {
                 ...state,
-                signUpStep: 'code'
+                signUpStep: 'code',
+                invalidCodeErrorMessage: '',
+                codeLimitErrorMessage: '',
+                buttonBackVisible: false
+            };
+        case 'INPUT_CODE':
+            return {
+                ...state,
+                codeInputVal: action.payload
             }
     }
     return state;

@@ -8,7 +8,7 @@ import {Auth, GetCountries, SetPhone, SetCode, GetInfo} from '../../store/action
 import CountryCodesList from './Components/CountryCodesList/CountryCodesList';
 import Nav from 'react-navtree'
 import Keyboard from '../../Components/Keyboard/Keyboard';
-import {resolveNavEvent} from "../../modules/services/NavService";
+import {resolveNavEvent} from "../../modules/Services/NavService";
 
 class SignUpContainer extends PureComponent {
 
@@ -19,7 +19,6 @@ class SignUpContainer extends PureComponent {
             selectedCodeId: null,
             invalidPhoneErrorMessage: false,
             phoneInputVal: '',
-            codeInputVal: '',
             phone: null
         };
         this._showFullCodeList = this._showFullCodeList.bind(this);
@@ -56,27 +55,34 @@ class SignUpContainer extends PureComponent {
                         })
                     }
                 } else {
-                    if (this.state.codeInputVal.length < 4) {
-                        let val = this.state.codeInputVal;
-                        val += e.key;
-                        this.setState({
-                            ...this.state,
-                            codeInputVal: val
-                        })
+                    let {codeInputVal} = this.props;
+                    if (codeInputVal.length < 4) {
+                        this.props.inputCode(codeInputVal += e.key)
+                    }
+                    if (codeInputVal.length === 4) {
+                        setTimeout(() => {
+                            this._setCode(this.state.phone, parseInt(this.props.codeInputVal));
+                        }, 50)
                     }
                 }
             }
         }, false);
     };
 
-    componentWillUpdate() {
+    componentDidUpdate() {
         if (this.props.isAuthorized) {
-            this.props._setState('signUpContainer', 'mainPageContainer');
+            this.props._setState();
+        }
+        if (this.props.invalidCodeErrorMessage || this.props.codeLimitErrorMessage) {
+            clearTimeout(this._hideErrorMessage);
+            this._hideErrorMessage = setTimeout(() => {
+                this.props.HideErrorMessage();
+            }, 4000);
         }
     }
 
     componentWillUnmount() {
-        window.document.removeEventListener('keydown');
+        window.document.removeEventListener('keydown', this);
         // clearInterval(this._retryAuth);
     };
 
@@ -92,6 +98,7 @@ class SignUpContainer extends PureComponent {
                 selectedCodeId: id
             });
         } else {
+
             setTimeout(() => {
                 this.setState({
                     ...this.state,
@@ -120,23 +127,18 @@ class SignUpContainer extends PureComponent {
                 }
             }
         } else {
-            let {codeInputVal} = this.state;
+            let {codeInputVal} = this.props;
 
             if (typeof key === 'object') {
-                this.setState({
-                    ...this.state, codeInputVal: codeInputVal.slice(0, -1)
-                })
+                this.props.inputCode(codeInputVal.slice(0, -1));
             } else if (key === 'OK') {
                 //this._setCode()
             } else {
                 if (codeInputVal.length < 4) {
-                    this.setState({
-                        ...this.state, codeInputVal: codeInputVal += key
-                    });
-
+                    this.props.inputCode(codeInputVal += key);
                     if (codeInputVal.length === 4) {
                         setTimeout(() => {
-                            this._setCode(this.state.phone, parseInt(this.state.codeInputVal));
+                            this._setCode(this.state.phone, parseInt(this.props.codeInputVal));
                         }, 50)
                     }
                 }
@@ -221,15 +223,15 @@ class SignUpContainer extends PureComponent {
         });
         return (
             <div className="signup-container container-fluid">
-                <img className="logo" src={logo_image} alt="Sweet TV"/>
+                {this.props.signUpStep ? <img className="logo" src={logo_image} alt="Sweet TV"/> : ''}
                 <h1>{caption}</h1>
-                {this.state.invalidPhoneErrorMessage || this.props.setPhoneErrorMessage ?
-                    <p>{this.state.invalidPhoneErrorMessage || this.props.setPhoneErrorMessage}</p> : null}
+                <p className="error-phone">{this.state.invalidPhoneErrorMessage || this.props.codeLimitErrorMessage ?
+                    this.state.invalidPhoneErrorMessage || this.props.codeLimitErrorMessage : ''}</p>
                 <div className="wrap">
                     <ul className={"form-control country-codes-list" + (this.props.signUpStep === 'code' ? ' hidden' : '')}>
                         {countryCodes}
                     </ul>
-                    <Keyboard inputText={this._inputText}/>
+                    {this.props.signUpStep ? <Keyboard inputText={this._inputText}/> : ''}
                     <div
                         id='phone-input-field'
                         className={"input-field phone" + (this.props.signUpStep === 'phone' ? ' visible' : '')}>
@@ -238,19 +240,21 @@ class SignUpContainer extends PureComponent {
                     <div
                         id='code-input-field'
                         className={"input-field code" + (this.props.signUpStep === 'code' ? ' visible' : '')}>
-                        {this.state.codeInputVal}
+                        {this.props.codeInputVal}
                     </div>
-                    <img className={"phone-sms-image" + (this.props.signUpStep  === 'code' && !this.props.errorMessage ? ' visible' : '')}
-                         src={phone_sms_image} alt="sms"/>
+                    <img
+                        className={"phone-sms-image" + (this.props.signUpStep === 'code' && !this.props.buttonBackVisible ? ' visible' : '')}
+                        src={phone_sms_image} alt="sms"/>
                     <Nav className={"nav button button-signup" + (this.props.signUpStep === 'phone' ? ' visible' : '')}
-                         func={(key) => resolveNavEvent(key)}
+                         func={(key, navTree) => resolveNavEvent(key, navTree)}
                          onClick={this._setPhone}
                         // onMouseEnter={(e) => { e.stopPropagation(); this.navTree.focus() }}
                          component={'button'}>Активировать
                     </Nav>
-                    <span className="error-code">{this.props.errorMessage}</span>
+                    <span
+                        className="error-code">{this.props.signUpStep === 'code' ? this.props.invalidCodeErrorMessage : ''}</span>
                     <Nav
-                        className={"nav button button-signup back" + (this.props.signUpStep === 'code' && this.props.errorMessage ? ' visible' : '')}
+                        className={"nav button button-signup back" + (this.props.signUpStep === 'code' && this.props.buttonBackVisible ? ' visible' : '')}
                         component={'button'}
                         // ref={(nav) => { this.navTree = nav && nav.tree }}
                         // onMouseEnter={(e) => { e.stopPropagation(); this.navTree.focus() }}
@@ -259,8 +263,8 @@ class SignUpContainer extends PureComponent {
                         onClick={this.props.GoBack}>Изменить моб. номер
                     </Nav>
                 </div>
-                <span
-                    className="contacts">Если у вас возникли вопросы: <b>2121</b> (бесплатно для Украины) / <b>info@sweet.tv</b></span>
+                {this.props.signUpStep ? <span
+                    className="contacts">Если у вас возникли вопросы: <b>2121</b> (бесплатно для Украины) / <b>info@sweet.tv</b></span> : ''}
             </div>
         );
     }
@@ -271,10 +275,12 @@ const mapStateToProps = state => {
         isAuthorized: state.signUp.isAuthorized,
         countries: state.signUp.countries,
         countryId: state.signUp.countryId,
-        partnerId: state.signUp.partnerId,
         setPhoneErrorMessage: state.signUp.setPhoneErrorMessage,
         signUpStep: state.signUp.signUpStep,
-        errorMessage: state.signUp.errorMessage
+        invalidCodeErrorMessage: state.signUp.invalidCodeErrorMessage,
+        codeLimitErrorMessage: state.signUp.codeLimitErrorMessage,
+        codeInputVal: state.signUp.codeInputVal,
+        buttonBackVisible: state.signUp.buttonBackVisible
     };
 };
 
@@ -285,6 +291,7 @@ const mapDispatchToProps = dispatch => {
         GetInfo: () => dispatch(GetInfo()),
         SetPhone: (phone) => dispatch(SetPhone(phone)),
         SetCode: (phone, code) => dispatch(SetCode(phone, code)),
+        inputCode: (val) => dispatch({type: 'INPUT_CODE', payload: val}),
         HideErrorMessage: () => dispatch({type: 'HIDE_ERROR_MESSAGE'}),
         GoBack: () => dispatch({type: 'GO_BACK'})
     };
