@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 /*import HeaderContainer from '../HeaderContainer/HeaderContainer';*/
 import './ExitFromApp.scss'
-
+import Device from '../../modules/Device';
+import logo from '../../assets/images/logo.svg'
 /*import {webOS} from '../../modules/Device'*/
-
+import Nav, {navHorizontal} from 'react-navtree';
 
 class ExitFromApp extends Component {
 
-    functionExit(device) {
+    functionExit() {
+        let device = Device.getObject();
 
-        switch (device.sub_type()) {
+        switch (device.sub_type) {
             case 'DST_LG':
                 try {
                     webOS.platformBack();
@@ -35,18 +37,39 @@ class ExitFromApp extends Component {
             display: 'none'
         };*/
     }
+    resolveFunc = (key, navTree) => {
+        switch (key) {
+            case 'enter':
+                navTree.el.click()
+                break;
+        }
+    };
 
     render() {
         return (
             <div className="exit" id="exitBox">
-                <h1>Вы точно хотите выйти из приложения</h1>
-                <div className="exit__items">
-                    <button className="exit__items_item"
-                            onClick={() => this.functionExit()}
-                    >ДА</button>
-                    <button className="exit__items_item"
-                            onClick={() => this.displayNone()}
-                    >НЕТ</button>
+                <div className="header__logo">
+                    <img src={logo} alt="Sweet TV"/>
+                </div>
+                <div className="exit__group">
+                    <h1>Вы точно хотите выйти из приложения?</h1>
+                    <div className="exit__items">
+                        <Nav className="exit__items_item" id="yes"
+                             func={(key, navTree) => {
+                                 this.resolveFunc(key, navTree);
+                             }}
+                                onClick={() => this.functionExit()}
+                        >ДА
+                        </Nav>
+                        <Nav defaultFocused={true}
+                             func={(key, navTree) => {
+                                 this.resolveFunc(key, navTree);
+                             }}
+                            className="exit__items_item" id="no"
+                             onClick={() => this.displayNone()}
+                        >НЕТ
+                        </Nav>
+                    </div>
                 </div>
             </div>
         );
