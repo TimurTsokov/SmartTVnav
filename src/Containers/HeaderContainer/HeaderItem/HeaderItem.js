@@ -4,7 +4,6 @@ import Nav from 'react-navtree';
 
 const HeaderItem = (props) => {
     let classNames = "menu__item";
-    console.log(props);
     return (
         <Nav
             defaultFocused={props.menuItem === "main"}

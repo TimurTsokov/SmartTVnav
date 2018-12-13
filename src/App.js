@@ -14,20 +14,15 @@ class App extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            header: true,
-            signUp: false,
-            initApp: true,
-            menuPath: false
+            SignUpContainer: true,
+            menuPath: false,
+            isVisible: {
+                Header: true,
+            }
         }
     };
 
-    componentDidMount() {
-        document.body.addEventListener('nv-enter', function (event) {
-            event.target.click();
-        });
-    };
-
-    changePath = (tab) => {
+    _setState = (tab) => {
         this.setState({
             ...this.state,
             menuPath: tab,
@@ -36,21 +31,23 @@ class App extends PureComponent {
     };
 
     render() {
-        const {header, signUp, initApp, menuPath} = this.state;
+        const {
+            Header,
+            SignUpContainer,
+            menuPath
+        } = this.state;
+
         return (
             <Fragment>
-                { header === true ? <HeaderContainer changePath = { this.changePath }  selectedItem='main'/> : ""}
-                { signUp === true ? <SignUpContainer changePath = { this.changePath } /> : ""}
-                { initApp === true ?
-                    <Fragment>
-                        { menuPath === 'search' ? <SearchPageContainer /> : ""}
-                        { menuPath === 'main' ? <MainPageContainer /> : ""}
-                        { menuPath === 'newcinema' ? <NewCinemaPageContainer /> : ""}
-                        { menuPath === 'tv' ? <TVPageContainer /> : ""}
-                        { menuPath === 'cinema' ? <CinemaGenres/> : ""}
-                    </Fragment>
-                    : ''
-                }
+                {Header === true ? <HeaderContainer _setState={this._setState} selectedItem='main'/> : ""}
+                {SignUpContainer === true ? <SignUpContainer _setState={this._setState}/> : ""}
+                <Fragment>
+                    {menuPath === 'search' ? <SearchPageContainer/> : ""}
+                    {menuPath === 'main' ? <MainPageContainer/> : ""}
+                    {menuPath === 'newcinema' ? <NewCinemaPageContainer/> : ""}
+                    {menuPath === 'tv' ? <TVPageContainer/> : ""}
+                    {menuPath === 'cinema' ? <CinemaGenres/> : ""}
+                </Fragment>
             </Fragment>
         );
     }

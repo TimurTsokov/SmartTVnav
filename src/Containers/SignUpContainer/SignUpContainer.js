@@ -14,6 +14,7 @@ class SignUpContainer extends PureComponent {
 
     constructor(props) {
         super(props);
+        console.log(props);
         this.state = {
             codeListVisible: false,
             selectedCodeId: null,
@@ -30,7 +31,7 @@ class SignUpContainer extends PureComponent {
                 this.props.GetInfo();
                 this.props.GetCountries();
             } else {
-                this.props.changePath('signUpContainer', 'mainPageContainer')
+                this.props._setState('signUpContainer', 'mainPageContainer')
             }
         });
         // this._retryAuth = setTimeout(() => {
@@ -71,7 +72,7 @@ class SignUpContainer extends PureComponent {
 
     componentDidUpdate() {
         if (this.props.isAuthorized) {
-            this.props.changePath();
+            this.props._setState('main');
         }
         if (this.props.invalidCodeErrorMessage || this.props.codeLimitErrorMessage) {
             clearTimeout(this._hideErrorMessage);

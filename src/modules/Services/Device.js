@@ -173,7 +173,7 @@ class Device {
                     device.model = userAgent;
                     break;
                 case 'DST_BROWSER':
-                    device.mac = 'A1:A2:A3:A4:A5:1C';
+                    device.mac = 'A1:A2:A3:A4:A5:3C';
                     break;
             }
         }
