@@ -14,7 +14,7 @@ import CinemaGenres from './Containers/CinemaGenres/CinemaGenres'
 class App extends Component {
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             header: true,
             signUp: true,
@@ -51,7 +51,7 @@ class App extends Component {
                         { menuPath === 'newcinema' ? <NewCinemaPageContainer /> : ""}
                         { menuPath === 'tv' ? <TVPageContainer /> : ""}
                         { menuPath === 'cinema' ? <CinemaGenres/> : ""}
-                        { menuPath === 'exit' ? <ExitFromApp/> : ""}
+                        { menuPath === 'exit' ? <ExitFromApp className="qwerty"/> : ""}
                     </React.Fragment>
                     : ''
                 }

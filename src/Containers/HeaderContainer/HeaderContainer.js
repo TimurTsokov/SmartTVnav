@@ -14,7 +14,7 @@ export default class HeaderContainer extends Component  {
 
     changeActive = (path) => {
         this.setState({
-            ...this.state,
+            /*...this.state,*/
             tab: path
         });
     };

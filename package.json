@@ -110,6 +110,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "babel-polyfill": "^6.26.0",
     "babel-preset-stage-2": "^6.24.1",
     "html-loader": "^0.5.5",
     "ifdef-loader": "^2.0.3",

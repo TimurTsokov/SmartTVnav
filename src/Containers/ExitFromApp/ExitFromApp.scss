@@ -1,6 +1,6 @@
 .exit {
-  display: flex;
-  flex-direction: column;
+  display: inline-block;
+  //flex-direction: column;
   //outline: 1px solid red;
   //margin-top: 125px;
   text-align: center;
@@ -36,3 +36,12 @@
     }
   }
 }
+.exit.visible{
+  display: none;
+}
+//#exitBox{
+//  display: inline-block;
+//}
+//#onBox{
+//  display: none;
+//}

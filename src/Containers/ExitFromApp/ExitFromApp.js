@@ -8,35 +8,78 @@ import Nav, {navHorizontal} from 'react-navtree';
 
 class ExitFromApp extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            classNew: false
+        }
+    };
+
+    //
+    // changeDisplay() {
+    //     this.setState({...this.state, display: 'inline-block'});
+    // };
+
+
     functionExit() {
         let device = Device.getObject();
-
         switch (device.sub_type) {
             case 'DST_LG':
                 try {
                     webOS.platformBack();
+
                 } catch (e) {
                 }
                 break;
-            /* case 'DST_SAMSUNG':
-                 try {
-                     tizen.application.getCurrentApplication().exit();
-                 } catch(e) {
-                 }
-                 break;*/
+            /*case 'DST_SAMSUNG':
+                try {
+                    tizen.application.getCurrentApplication().exit();
+                } catch(e) {
+                }
+                break;*/
             default:
                 window.close();
         }
+        /*  props.menuPath === 'main';*/
+        /*this.setState({...this.state, menuPath: 'main',});*/
+
     };
 
-    displayNone() {
-        let quit = document.getElementById("exitBox");
-        quit.style.display = 'none';
+    toggleClass = () => {
+        /*let quit = document.getElementById("exitBox");
+        quit.style.display = 'none';*/
+        this.setState({
+            ...this.state,
+            classNew: !this.classNew
+        })
+    };
 
-        /*const styles = {
-            display: 'none'
-        };*/
-    }
+    /* funcGoBack () {
+       document.location = '../'
+   }*/
+
+    //------------------------------------ from App AngularJS
+    // goBackTo(props) {
+    //     switch (this.state.previousState) {
+    //         case 'network_disconnected':
+    //             // $state.go('main');
+    //             props.menuItem === 'main';
+    //             break;
+    //         case 'signUp':
+    //             // $state.go('auth');
+    //             props.menuItem === 'auth';
+    //             break;
+    //         default:
+    //             window.history.back();
+    //     }
+    //     props.previousState = '';
+    // };
+
+//---------------------------------------------------
+    /*const styles = {
+        display: 'none'
+    };*/
+
     resolveFunc = (key, navTree) => {
         switch (key) {
             case 'enter':
@@ -46,8 +89,11 @@ class ExitFromApp extends Component {
     };
 
     render() {
+        const {classNew} = this.state;
+        console.log(classNew);
+        let classNames = 'exit';
         return (
-            <div className="exit" id="exitBox">
+            <div className={(classNew ? classNames + ' visible' : classNames)} id="exitBox">
                 <div className="header__logo">
                     <img src={logo} alt="Sweet TV"/>
                 </div>
@@ -58,15 +104,15 @@ class ExitFromApp extends Component {
                              func={(key, navTree) => {
                                  this.resolveFunc(key, navTree);
                              }}
-                                onClick={() => this.functionExit()}
+                             onClick={() => this.functionExit()}
                         >ДА
                         </Nav>
                         <Nav defaultFocused={true}
                              func={(key, navTree) => {
                                  this.resolveFunc(key, navTree);
                              }}
-                            className="exit__items_item"
-                             onClick={() => this.displayNone()}
+                             className="exit__items_item"
+                             onClick={() => this.toggleClass()}
                         >НЕТ
                         </Nav>
                     </div>

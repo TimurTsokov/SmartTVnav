@@ -26,36 +26,6 @@ export default class Slider extends Component {
         }
     }
 
-  /*  getValue = (val, values, dir) => {
-        let pos = values.indexOf(val)
-
-        let shiftPos = dir === 'next' ? 1 : -1
-
-        let newPos
-
-        if (pos === -1) {
-            newPos = shiftPos > 0 ? 0 : values.length - 1
-        } else {
-            newPos = pos + shiftPos
-        }
-
-        if (newPos >= 0 && newPos < values.length) {
-            return values[newPos]
-        } else {
-            return false
-        }
-    };*/
-
-    // navHorizontal = (key, navTree) => {
-    //
-    //     let {focusedNode, nodesId} = navTree;
-    //
-    //     if (key === 'left' || key === 'right') {
-    //         return this.getValue(focusedNode, nodesId, key === 'left' ? 'prev' : 'next')
-    //     } else {
-    //         return focusedNode !== null ? false : nodesId[0]
-    //     }
-    // };
     resolveFunc = (key) => {
         switch (key) {
             case 'left':
@@ -65,7 +35,7 @@ export default class Slider extends Component {
                 this.slideRight();
                 break;
         }
-         // console.log(key)
+
     };
     slideLeft() {
         let last = this.state.genres.slice(-1);
