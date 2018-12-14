@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
 import './CinemaGenres.scss';
-// import BilletGenre from './Components/BilletGenre'
-// import Card from "./Components/Card";
-// import data from "./Components/data";
-// import imgNun from "./image/NUN.jpg";
-// import {Focusable, HorizontalList} from 'react-key-navigation';
 import Slide from './Components/BilletGenre'
-import Nav, {navHorizontal, navVertical} from "react-navtree";
 
 export default class Slider extends Component {
     constructor(props) {
@@ -116,7 +110,7 @@ export default class Slider extends Component {
 
     render() {
         return (
-            <div className="slider">
+            <div className={"cinema-genres" + (this.props.visible ? ' visible' : '')}>
                 {this.renderNavigation()}
                 {this.renderSlides()}
             </div>

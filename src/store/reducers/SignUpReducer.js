@@ -12,10 +12,13 @@ const initialState = {
 const SignUpReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SHOW_SIGN_UP':
-            return {
-                ...state,
-                signUpStep: 'phone'
-            };
+            if (!state.signUpStep) {
+                return {
+                    ...state,
+                    signUpStep: 'phone'
+                };
+            }
+            break;
         case 'SHOW_MAIN_PAGE':
             return {
                 ...state,

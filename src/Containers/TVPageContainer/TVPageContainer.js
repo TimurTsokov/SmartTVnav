@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import NavBar from '../NavBar/NavBar';
+import './TVPageContainer.scss'
 
 class TvPageContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className={"container tv" + (this.props.visible ? ' visible' : '')}>
                 <h1>TvPageContainer</h1>
             </div>
         );

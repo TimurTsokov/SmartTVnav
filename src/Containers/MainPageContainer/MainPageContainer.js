@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import NavBar from '../NavBar/NavBar';
+import './MainPageContainer.scss';
 
 class MainPageContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className={"container main-page" + (this.props.visible ? ' visible' : '')}>
                 <h1>Main</h1>
             </div>
         );

@@ -1,7 +1,11 @@
-.slider{
+.cinema-genres {
+  display: none;
   margin: 203px 0;
-
+  &.visible {
+    display: initial;
+  }
 }
+
 .slider-arrows {
   position: absolute;
   width: 100%;
@@ -9,7 +13,7 @@
   .arrow {
     margin-top: 350px;
     &:hover,
-    &:focus{
+    &:focus {
       transform: scale(1.1);
     }
     img {
@@ -28,7 +32,7 @@
     right: 0;
     margin-right: 30px;
   }
-  .arrow.left{
+  .arrow.left {
     margin-left: 20px;
   }
 }
@@ -50,7 +54,7 @@
   box-shadow: 10px 10px 40px #20BCC6;
 }
 
-.slider-items{
+.slider-items {
   .slide {
     //width: 105%;
     //height: 630px;

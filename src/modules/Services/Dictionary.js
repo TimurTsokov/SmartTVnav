@@ -1,4 +1,4 @@
-
+import LanguageService from './LanguageService';
 
 const russian = {
     buttons: {
@@ -11,3 +11,7 @@ const ukrainian = {
         activate: 'Активувати'
     }
 };
+
+export function lang() {
+    
+}

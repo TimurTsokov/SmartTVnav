@@ -34,7 +34,7 @@ class SignUpContainer extends PureComponent {
                 this.props._setState(cnst.MAIN_PAGE)
             }
         });
-        this._retryAuth = setTimeout(() => {
+        this._retryAuth = setInterval(() => {
             this.props.Auth().then(() => {
                 if (this.props.isAuthorized) {
                     this.props._setState(cnst.MAIN_PAGE)
@@ -249,6 +249,7 @@ class SignUpContainer extends PureComponent {
                     <Nav className={"nav button button-signup" + (this.props.signUpStep === 'phone' ? ' visible' : '')}
                          func={(key, navTree) => resolveNavEvent(key, navTree)}
                          onClick={this._setPhone}
+                         defaultFocused
                         // onMouseEnter={(e) => { e.stopPropagation(); this.navTree.focus() }}
                          component={'button'}>Активировать
                     </Nav>
@@ -259,7 +260,6 @@ class SignUpContainer extends PureComponent {
                         component={'button'}
                         // ref={(nav) => { this.navTree = nav && nav.tree }}
                         // onMouseEnter={(e) => { e.stopPropagation(); this.navTree.focus() }}
-                        defaultFocused
                         func={resolveNavEvent}
                         onClick={this.props.GoBack}>Изменить моб. номер
                     </Nav>

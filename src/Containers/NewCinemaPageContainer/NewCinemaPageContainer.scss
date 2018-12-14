@@ -1,0 +1,6 @@
+.new-cinema {
+  display: none;
+  &.visible {
+    display: initial;
+  }
+}
