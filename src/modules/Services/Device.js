@@ -173,14 +173,13 @@ class Device {
                     device.model = userAgent;
                     break;
                 case 'DST_BROWSER':
-                    device.mac = 'A1:A2:A3:A4:A5:3C';
+                    device.mac = 'A1:A2:43:A4:D5:6C';
                     break;
             }
         }
         init();
-        //console.log('webOS', webOS);
-        return device;
 
+        return device;
     }
 }
 

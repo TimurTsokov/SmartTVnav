@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import HeaderContainer from '../HeaderContainer/HeaderContainer';
 
 class NewCinemaPageContainer extends Component {
 

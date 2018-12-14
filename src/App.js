@@ -6,48 +6,51 @@ import MainPageContainer from './Containers/MainPageContainer/MainPageContainer'
 import NewCinemaPageContainer from './Containers/NewCinemaPageContainer/NewCinemaPageContainer';
 import TVPageContainer from './Containers/TVPageContainer/TVPageContainer';
 import CinemaPageContainer from './Containers/CinemaPageContainer/CinemaPageContainer';
-import HeaderContainer from "./Containers/HeaderContainer/HeaderContainer";
-import CinemaGenres from './Containers/CinemaGenres/CinemaGenres'
+import NavBar from "./Containers/NavBar/NavBar";
+import CinemaGenres from './Containers/CinemaGenres/CinemaGenres';
+import * as cnst from './modules/Services/Constants';
 
 class App extends PureComponent {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            SignUpContainer: true,
-            menuPath: false,
-            isVisible: {
-                Header: true,
-            }
+            currentPage: cnst.SIGN_UP,
+            navBar: false
         }
     };
 
-    _setState = (tab) => {
+    _setState = (currentPage, navBarVisible) => {
         this.setState({
             ...this.state,
-            menuPath: tab,
-            signUp: false
+            currentPage: currentPage
+            // navBar: navBarVisible || false
         });
     };
 
     render() {
-        const {
-            Header,
-            SignUpContainer,
-            menuPath
-        } = this.state;
+        const {currentPage} = this.state;
+        let navBar = false;
+
+        switch (currentPage) {
+            case cnst.SIGN_UP:
+                navBar = false;
+                break;
+            default:
+                navBar = true;
+        }
 
         return (
             <Fragment>
-                {Header === true ? <HeaderContainer _setState={this._setState} selectedItem='main'/> : ""}
-                {SignUpContainer === true ? <SignUpContainer _setState={this._setState}/> : ""}
-                <Fragment>
-                    {menuPath === 'search' ? <SearchPageContainer/> : ""}
-                    {menuPath === 'main' ? <MainPageContainer/> : ""}
-                    {menuPath === 'newcinema' ? <NewCinemaPageContainer/> : ""}
-                    {menuPath === 'tv' ? <TVPageContainer/> : ""}
-                    {menuPath === 'cinema' ? <CinemaGenres/> : ""}
-                </Fragment>
+                <NavBar _setState={this._setState}
+                        currentPage={currentPage}
+                        visible={navBar}/>
+                {currentPage === cnst.SIGN_UP && <SignUpContainer _setState={this._setState}/>}
+                {currentPage === cnst.SEARCH && <SearchPageContainer/>}
+                {currentPage === cnst.MAIN_PAGE && <MainPageContainer/>}
+                {currentPage === cnst.NEW_CINEMA && <NewCinemaPageContainer/>}
+                {currentPage === cnst.CHANNELS && <TVPageContainer/>}
+                {currentPage === cnst.CINEMA && <CinemaGenres/>}
             </Fragment>
         );
     }

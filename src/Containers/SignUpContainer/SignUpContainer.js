@@ -9,12 +9,12 @@ import CountryCodesList from './Components/CountryCodesList/CountryCodesList';
 import Nav from 'react-navtree'
 import Keyboard from '../../Components/Keyboard/Keyboard';
 import {resolveNavEvent} from "../../modules/Services/NavService";
+import * as cnst from '../../modules/Services/Constants'
 
 class SignUpContainer extends PureComponent {
 
-    constructor(props) {
-        super(props);
-        console.log(props);
+    constructor() {
+        super();
         this.state = {
             codeListVisible: false,
             selectedCodeId: null,
@@ -31,16 +31,16 @@ class SignUpContainer extends PureComponent {
                 this.props.GetInfo();
                 this.props.GetCountries();
             } else {
-                this.props._setState('signUpContainer', 'mainPageContainer')
+                this.props._setState(cnst.MAIN_PAGE)
             }
         });
-        // this._retryAuth = setTimeout(() => {
-        //     this.props.Auth().then(() => {
-        //         if (!this.props.needSignUp) {
-        //             this.props.history.push({pathname: '/main/'})
-        //         }
-        //     });
-        // }, 6000)
+        this._retryAuth = setTimeout(() => {
+            this.props.Auth().then(() => {
+                if (this.props.isAuthorized) {
+                    this.props._setState(cnst.MAIN_PAGE)
+                }
+            });
+        }, 6000)
     };
 
     componentDidMount() {
@@ -72,7 +72,7 @@ class SignUpContainer extends PureComponent {
 
     componentDidUpdate() {
         if (this.props.isAuthorized) {
-            this.props._setState('main');
+            this.props._setState(cnst.MAIN_PAGE);
         }
         if (this.props.invalidCodeErrorMessage || this.props.codeLimitErrorMessage) {
             clearTimeout(this._hideErrorMessage);
@@ -84,7 +84,7 @@ class SignUpContainer extends PureComponent {
 
     componentWillUnmount() {
         window.document.removeEventListener('keydown', this);
-        // clearInterval(this._retryAuth);
+        clearInterval(this._retryAuth);
     };
 
     _scrollIntoView = (id) => {

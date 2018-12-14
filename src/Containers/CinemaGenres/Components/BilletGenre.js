@@ -1,8 +1,5 @@
 import React from 'react';
-// import { Focusable } from 'react-key-navigation';
 import Nav, {navHorizontal} from 'react-navtree';
-//import Navigation from "../../../Components/Navigation/Navigation";
-//import PropTypes from 'prop-types';
 import '../CinemaGenres.scss'
 
 const Slide = ({genre, width, height, resolveFunc}) => {
