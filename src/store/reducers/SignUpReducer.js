@@ -6,7 +6,8 @@ const initialState = {
     invalidCodeErrorMessage: '',
     codeLimitErrorMessage: '',
     buttonBackVisible: false,
-    codeInputVal: ''
+    codeInputVal: '',
+    authToken: null
 };
 
 const SignUpReducer = (state = initialState, action) => {
@@ -22,7 +23,8 @@ const SignUpReducer = (state = initialState, action) => {
         case 'SHOW_MAIN_PAGE':
             return {
                 ...state,
-                isAuthorized: true
+                isAuthorized: true,
+                authToken: action.payload
             };
         case 'GET_INFO':
             return {

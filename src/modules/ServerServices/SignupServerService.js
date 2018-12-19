@@ -1,7 +1,7 @@
-import Device from "../Services/Device";
+import deviceService from "../Services/DeviceService";
 import axios from "axios";
-
-const TV_SERVER_URL = "http://tv-server.trinity-tv.net/server/",
+const DeviceService = new deviceService,
+    TV_SERVER_URL = "http://tv-server.trinity-tv.net/server/",
     service = 'SignupServerService';
 
 class SignupServerService {
@@ -17,7 +17,7 @@ class SignupServerService {
     SetPhone(phone) {
         let data = {
             phone: phone,
-            device: Device.getObject()
+            device: DeviceService.device
         };
 
         return this.request('SetPhone', data);
@@ -34,7 +34,7 @@ class SignupServerService {
 
     GetPartnerCode() {
         let data = {
-            device: Device.getObject()
+            device: DeviceService.device
         };
 
         return this.request('GetPartnerCode', data);

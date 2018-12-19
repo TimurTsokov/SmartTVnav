@@ -44,7 +44,7 @@ class App extends PureComponent {
                 {navBar && <NavBar _setState={this._setState} currentPage={currentPage}/>}
                 {currentPage === cnst.SIGN_UP && <SignUpContainer _setState={this._setState}/>}
                 {this.state[cnst.SEARCH] && <SearchPageContainer visible={currentPage === cnst.SEARCH}/>}
-                {this.state[cnst.MAIN_PAGE] && <MainPageContainer visible={currentPage === cnst.MAIN_PAGE}/>}
+                {this.state[cnst.MAIN_PAGE] && <MainPageContainer _setState={this._setState} visible={currentPage === cnst.MAIN_PAGE}/>}
                 {this.state[cnst.NEW_CINEMA] && <NewCinemaPageContainer visible={currentPage === cnst.NEW_CINEMA}/>}
                 {this.state[cnst.CHANNELS] && <TVPageContainer visible={currentPage === cnst.CHANNELS}/>}
                 {this.state[cnst.CINEMA] && <CinemaGenres visible={currentPage === cnst.CINEMA}/>}

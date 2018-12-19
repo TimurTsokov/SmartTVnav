@@ -3,7 +3,6 @@ import './NavBarItem.scss'
 import Nav from 'react-navtree';
 
 const NavBarItem = React.memo((props) => {
-    console.log(props.currentPage === props.itemName);
     return (
         <Nav onClick={() => props._setState(props.itemName)}
              defaultFocused={props.currentPage === props.itemName}

@@ -1,12 +1,20 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import './NavBar.scss';
 import logo_image from '../../assets/images/logo.svg';
 import arrow_image from '../../assets/images/arrowHeader.svg';
 import NavBarItem from './NavBarItem/NavBarItem'
 import Nav, {navHorizontal} from 'react-navtree';
 import * as cnst from '../../modules/Services/Constants';
+import Dictionary from '../../modules/Services/Dictionary';
 
-export default class NavBar extends Component {
+const dictionary = new Dictionary;
+
+
+class NavBar extends PureComponent {
+
+    componentWillMount() {
+        this.lang = dictionary.getLang();
+    }
 
     render() {
         return (
@@ -25,22 +33,22 @@ export default class NavBar extends Component {
                     <NavBarItem itemName={cnst.MAIN_PAGE}
                                 currentPage={this.props.currentPage}
                                 _setState={this.props._setState}>
-                        Главная
+                        {this.lang.navBar.main}
                     </NavBarItem>
                     <NavBarItem itemName={cnst.NEW_CINEMA}
                                 currentPage={this.props.currentPage}
                                 _setState={this.props._setState}>
-                        Новинки
+                        {this.lang.navBar.newMovies}
                     </NavBarItem>
                     <NavBarItem itemName={cnst.CINEMA}
                                 currentPage={this.props.currentPage}
                                 _setState={this.props._setState}>
-                        Кинозал
+                        {this.lang.navBar.cinema}
                     </NavBarItem>
                     <NavBarItem itemName={cnst.CHANNELS}
                                 currentPage={this.props.currentPage}
                                 _setState={this.props._setState}>
-                        Телевидение
+                        {this.lang.navBar.tv}
                     </NavBarItem>
                     <span className="header__arrow header__arrow--right"><img src={arrow_image}
                                                                               alt=">"/></span>
@@ -49,3 +57,5 @@ export default class NavBar extends Component {
         )
     };
 }
+
+export default NavBar;

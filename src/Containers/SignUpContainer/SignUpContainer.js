@@ -6,10 +6,13 @@ import logo_image from '../../assets/images/logo.svg';
 import phone_sms_image from '../../assets/images/phone_sms.svg';
 import {Auth, GetCountries, SetPhone, SetCode, GetInfo} from '../../store/actions/SignUpActions';
 import CountryCodesList from './Components/CountryCodesList/CountryCodesList';
-import Nav from 'react-navtree'
+import Nav from 'react-navtree';
 import Keyboard from '../../Components/Keyboard/Keyboard';
 import {resolveNavEvent} from "../../modules/Services/NavService";
-import * as cnst from '../../modules/Services/Constants'
+import * as cnst from '../../modules/Services/Constants';
+import LanguageService from '../../modules/Services/LanguageService';
+
+const LangService = new LanguageService;
 
 class SignUpContainer extends PureComponent {
 
@@ -26,6 +29,7 @@ class SignUpContainer extends PureComponent {
     };
 
     componentWillMount() {
+        LangService.initLang();
         this.props.Auth().then(() => {
             if (this.props.signUpStep) {
                 this.props.GetInfo();
