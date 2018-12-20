@@ -1,10 +1,17 @@
 .movies-items{
-  height: 451px;
-  overflow: hidden;
+  width: 2020px;
+  //height: 557px;
+  //overflow: hidden;
   margin: -120px 0 0 110px;
 }
-.collection__title{
-  font-size: 38px;
-  font-weight: 700;
-  margin: 10px 0;
+
+.collection{
+  overflow: hidden;
+  width: 1918px;
+  height: 1078px;
+  &_title{
+    font-size: 38px;
+    font-weight: 700;
+    margin: 10px 0;
+  }
 }

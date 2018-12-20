@@ -12,7 +12,8 @@ const LangService = new LanguageService,
             main: 'Главная',
             newMovies: 'Новинки',
             cinema: 'Кинозал',
-            tv: 'Телевидение'
+            tv: 'Телевидение',
+            exit: 'Выход'
         }
     },
 
@@ -24,7 +25,8 @@ const LangService = new LanguageService,
             main: 'Головна',
             newMovies: 'Новинки',
             cinema: 'Кінозал',
-            tv: 'Телебачення'
+            tv: 'Телебачення',
+            exit: 'Вихiд'
         }
     };
 

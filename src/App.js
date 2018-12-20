@@ -41,7 +41,6 @@ class App extends PureComponent {
         }
 
         return (
-
                 <Router>
                     <Fragment>
                         {navBar && <NavBar _setState={this._setState} currentPage={currentPage}/>}

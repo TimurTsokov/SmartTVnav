@@ -50,6 +50,11 @@ class NavBar extends PureComponent {
                                 _setState={this.props._setState}>
                         {this.lang.navBar.tv}
                     </NavBarItem>
+                    <NavBarItem itemName={cnst.EXIT}
+                                currentPage={this.props.currentPage}
+                                _setState={this.props._setState}>
+                        {this.lang.navBar.exit}
+                    </NavBarItem>
                     <span className="header__arrow header__arrow--right"><img src={arrow_image}
                                                                               alt=">"/></span>
                 </Nav>
