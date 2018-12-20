@@ -22,7 +22,7 @@ export function Auth() {
         return TvService.Auth().then(response => {
             switch (response.data.status) {
                 case 'OK':
-                    dispatch({type: 'SHOW_MAIN_PAGE'});
+                    dispatch({type: 'SHOW_MAIN_PAGE', payload: response.data.auth_token});
                     break;
                 case 'WrongUser':
                     dispatch({type: 'SHOW_SIGN_UP'})

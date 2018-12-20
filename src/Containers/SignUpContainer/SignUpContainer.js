@@ -5,11 +5,12 @@ import '../../index.scss';
 import logo_image from '../../assets/images/logo.svg';
 import phone_sms_image from '../../assets/images/phone_sms.svg';
 import {Auth, GetCountries, SetPhone, SetCode, GetInfo} from '../../store/actions/SignUpActions';
+import {GetConfuguration} from '../../store/actions/MoviesActions';
 import CountryCodesList from './Components/CountryCodesList/CountryCodesList';
-import Nav from 'react-navtree'
+import Nav from 'react-navtree';
 import Keyboard from '../../Components/Keyboard/Keyboard';
 import {resolveNavEvent} from "../../modules/Services/NavService";
-import * as cnst from '../../modules/Services/Constants'
+import * as cnst from '../../modules/Services/Constants';
 
 class SignUpContainer extends PureComponent {
 
@@ -72,7 +73,7 @@ class SignUpContainer extends PureComponent {
 
     componentDidUpdate() {
         if (this.props.isAuthorized) {
-            this.props._setState(cnst.MAIN_PAGE);
+            this.props._setState(cnst.CINEMA);
         }
         if (this.props.invalidCodeErrorMessage || this.props.codeLimitErrorMessage) {
             clearTimeout(this._hideErrorMessage);
@@ -292,6 +293,7 @@ const mapDispatchToProps = dispatch => {
         GetInfo: () => dispatch(GetInfo()),
         SetPhone: (phone) => dispatch(SetPhone(phone)),
         SetCode: (phone, code) => dispatch(SetCode(phone, code)),
+        GetConfuguration:  () =>  dispatch(GetConfuguration()),
         inputCode: (val) => dispatch({type: 'INPUT_CODE', payload: val}),
         HideErrorMessage: () => dispatch({type: 'HIDE_ERROR_MESSAGE'}),
         GoBack: () => dispatch({type: 'GO_BACK'})

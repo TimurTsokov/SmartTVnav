@@ -1,0 +1,112 @@
+.banner {
+  background: linear-gradient(90deg, #020C13 -5.54%, rgba(2, 12, 19, 0) 76.78%), linear-gradient(180deg, rgba(2, 12, 19, 0) 76.4%, #030D13 100%), url(image/superfam2.png);
+  background-repeat: no-repeat;
+  background-position: right top;
+  height: 640px;
+  &__items {
+    width: 975px;
+    margin-top: 137px;
+    position: absolute;
+    background: linear-gradient(90deg, #0B222F 76.5%, rgba(21, 57, 76, 0) 99.38%);
+    padding: 14px 0;
+    font-size: 34px;
+    z-index: 10;
+    .sort, .filter {
+      display: inline-block;
+      border-radius: 50px;
+      border: 2px solid transparent;
+      margin-left: 125px;
+      position: relative;
+      padding: 0 15px 0 60px;
+      cursor: pointer;
+      &:before {
+        content: '';
+        background-image: url("image/sort.svg");
+        width: 31px;
+        height: 29px;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+
+    }
+    .filter {
+      margin-left: 35px;
+      position: absolute;
+      top: 17px;
+      left: 463px;
+      &:before {
+        background-image: url("image/filter.svg");
+      }
+    }
+    .sort.active,
+    .filter.active{
+      font-weight: bold;
+      color: #20BCC6;
+      fill: #20BCC6;
+    }
+    .sort.active:before{
+      background-image: url("image/sort_blue.svg");
+    }
+    .filter.active:before{
+      background-image: url("image/filter_blue.svg");
+    }
+
+    .sort.nav-focused, .item.nav-focused,
+    .filter.nav-focused{
+      background-color: rgba(32, 188, 198, 0.5);
+      border-color: #20BCC6;
+      font-weight: bold;
+    }
+
+    &_list{
+     display: none;
+      margin: 0 0 0 125px;
+      padding: 0;
+      list-style-type: none;
+      &.display{
+        display: block;
+        height: 330px;
+      }
+      & .item:first-child{
+        margin-top: 23px;
+      }
+      .item{
+        border-radius: 50px;
+        border: 2px solid transparent;
+        margin-bottom: 20px;
+        width: 300px;
+        padding-left: 15px;
+      }
+    }
+
+  }
+
+  &__info {
+    margin-top: 223px;
+    position: absolute;
+    width: 780px;
+    height: 225px;
+    background: linear-gradient(90deg, #15394C 0%, #020C13 51.08%, rgba(2, 12, 19, 0) 83.37%);
+    padding: 30px 0 0 90px;
+    &_title {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 0 0 20px 0;
+      display: inline-block;
+      text-transform: uppercase;
+    }
+    &_quote {
+      font-size: 32px;
+      color: #E7BD53;
+      margin: 0 0 20px 0;
+    }
+    &_text{
+      font-size: 32px;
+      span{
+        margin-right: 25px;
+      }
+    }
+  }
+}

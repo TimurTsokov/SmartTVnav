@@ -1,6 +1,7 @@
 import Device from "../Services/Device";
 import axios from "axios";
 
+
 const TV_SERVER_URL = "http://tv-server.trinity-tv.net/server/",
     service = 'SignupServerService';
 

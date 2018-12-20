@@ -7,6 +7,7 @@ import NewCinemaPageContainer from './Containers/NewCinemaPageContainer/NewCinem
 import TVPageContainer from './Containers/TVPageContainer/TVPageContainer';
 import CinemaPageContainer from './Containers/CinemaPageContainer/CinemaPageContainer';
 import NavBar from "./Containers/NavBar/NavBar";
+import ExitFromApp from './Containers/NavBar/ExitFromApp/ExitFromApp';
 import CinemaGenres from './Containers/CinemaGenres/CinemaGenres';
 import * as cnst from './modules/Services/Constants';
 
@@ -41,17 +42,22 @@ class App extends PureComponent {
         }
 
         return (
-            <Fragment>
-                <NavBar _setState={this._setState}
-                        currentPage={currentPage}
-                        visible={navBar}/>
-                {currentPage === cnst.SIGN_UP && <SignUpContainer _setState={this._setState}/>}
-                {currentPage === cnst.SEARCH && <SearchPageContainer/>}
-                {currentPage === cnst.MAIN_PAGE && <MainPageContainer/>}
-                {currentPage === cnst.NEW_CINEMA && <NewCinemaPageContainer/>}
-                {currentPage === cnst.CHANNELS && <TVPageContainer/>}
-                {currentPage === cnst.CINEMA && <CinemaGenres/>}
-            </Fragment>
+
+                <Router>
+                    <Fragment>
+                    <NavBar _setState={this._setState}
+                            currentPage={currentPage}
+                            visible={navBar}/>
+                    {currentPage === cnst.SIGN_UP && <SignUpContainer _setState={this._setState}/>}
+                    {currentPage === cnst.SEARCH && <SearchPageContainer/>}
+                    {currentPage === cnst.MAIN_PAGE && <MainPageContainer/>}
+                    {currentPage === cnst.NEW_CINEMA && <NewCinemaPageContainer/>}
+                    {currentPage === cnst.CHANNELS && <TVPageContainer/>}
+                    {currentPage === cnst.CINEMA && <CinemaGenres/>}
+                    {currentPage === cnst.EXIT && <ExitFromApp />}
+                    </Fragment>
+                </Router>
+
         );
     }
 }

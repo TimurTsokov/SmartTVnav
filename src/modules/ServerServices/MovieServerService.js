@@ -1,20 +1,43 @@
-import Service from 'src/modules/Service';
+import Device from "../Services/Device";
+import TvServerService from './TvServerService';
+import axios from "axios";
 
-class MovieServerService extends Service {
-    constructor() {
-        super('MovieServerService');
+const TvService = new TvServerService,
+    TV_SERVER_URL = "http://tv-server.trinity-tv.net/server/",
+    service = 'MovieServerService';
+
+class MovieServerService {
+
+    _url(method) {
+        return TV_SERVER_URL + service + "/" + method + ".json";
     }
 
-    GetGenreMovies() {
+    request(method, data) {
+        return axios.post(this._url(method), JSON.stringify(data) || "");
+    };
 
+    GetGenreMovies(itemID, authToken) {
+        let data = {
+            auth: authToken,
+            genre_id: parseInt(itemID)
+        };
+        return this.request('GetGenreMovies', data)
     }
 
-    GetMovieInfo() {
-
+    GetMovieInfo(moviesID, authToken) {
+        let data = {
+            auth: authToken,
+            movies: moviesID,
+            limit: 40
+        };
+        return this.request('GetMovieInfo', data)
     }
 
-    GetConfiguration() {
-
+    GetConfiguration(authToken) {
+        let data = {
+            auth: authToken
+        };
+        return this.request('GetConfiguration', data)
     }
 
     GetRecommendedMovies() {

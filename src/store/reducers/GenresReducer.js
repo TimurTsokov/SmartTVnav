@@ -1,14 +1,27 @@
 const initialState = {
-    genres: null
+    genres: null,
+    moviesID: null,
+    movies: null
 };
 
-const MovieGenresReducer = (state = initialState, action) => {
+const GenresReducer = (state = initialState, action) => {
     let first, last, rest, genres;
     switch (action.type) {
         case 'GET_CONFIGURATION':
             return {
                 ...state,
                 genres: action.payload
+            };
+        case 'GET_GENRE_MOVIES':
+            return {
+                ...state,
+                moviesID: action.payload
+
+            };
+        case 'GET_MOVIE_INFO':
+            return {
+                ...state,
+                movies: action.payload
             };
         case 'GO_LEFT':
             last = state.genres.slice(-1);
@@ -29,4 +42,4 @@ const MovieGenresReducer = (state = initialState, action) => {
     return state;
 };
 
-export default MovieGenresReducer;
+export default GenresReducer;
