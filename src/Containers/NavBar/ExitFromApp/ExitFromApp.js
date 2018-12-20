@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 /*import NavBar from '../NavBar/NavBar';*/
 import './ExitFromApp.scss'
-import Device from '../../../modules/Services/Device';
+import DeviceService from '../../../modules/Services/DeviceService';
 import logo from '../../../assets/images/logo.svg'
 /*import {webOS} from '../../modules/Device'*/
 import Nav, {navHorizontal} from 'react-navtree';
@@ -9,7 +9,7 @@ import Nav, {navHorizontal} from 'react-navtree';
 class ExitFromApp extends Component {
 
     functionExit() {
-        let device = Device.getObject();
+        let device = DeviceService.device;
         switch (device.sub_type) {
             case 'DST_LG':
                 try {

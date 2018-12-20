@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import NavBar from '../NavBar/NavBar';
+import './SearchPageContainer.scss'
 
 class SearchPageContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className={'container search' + (this.props.visible ? ' visible' : '')}>
                 <h1>SearchPageContainer</h1>
             </div>
         );

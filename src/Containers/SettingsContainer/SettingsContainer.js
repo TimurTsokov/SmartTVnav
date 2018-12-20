@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import './SettingsContainer.scss.scss';
+import './SettingsContainer.scss';
 
 class SettingsContainer extends PureComponent {
     constructor() {

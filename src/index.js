@@ -8,6 +8,7 @@ import App from './App';
 import AuthReducer from './store/reducers/AuthReducer';
 import SignUpReducer from './store/reducers/SignUpReducer';
 import GenresReducer from './store/reducers/GenresReducer';
+import ChannelsReducer from './store/reducers/ChannelsReducer';
 import registerServiceWorker from './registerServiceWorker';
 import Nav, {NavTree} from 'react-navtree';
 import thunk from 'redux-thunk';
@@ -48,7 +49,9 @@ window.document.addEventListener('keydown', (e) => {
 const rootReducer = combineReducers({
     auth: AuthReducer,
     signUp: SignUpReducer,
-    movieGenres: GenresReducer
+    movieGenres: GenresReducer,
+    signUp: SignUpReducer,
+    tv: ChannelsReducer
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

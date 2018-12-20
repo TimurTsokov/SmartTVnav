@@ -11,6 +11,9 @@ import Nav from 'react-navtree';
 import Keyboard from '../../Components/Keyboard/Keyboard';
 import {resolveNavEvent} from "../../modules/Services/NavService";
 import * as cnst from '../../modules/Services/Constants';
+import LanguageService from '../../modules/Services/LanguageService';
+
+const LangService = new LanguageService;
 
 class SignUpContainer extends PureComponent {
 
@@ -27,6 +30,7 @@ class SignUpContainer extends PureComponent {
     };
 
     componentWillMount() {
+        LangService.initLang();
         this.props.Auth().then(() => {
             if (this.props.signUpStep) {
                 this.props.GetInfo();
@@ -35,7 +39,7 @@ class SignUpContainer extends PureComponent {
                 this.props._setState(cnst.MAIN_PAGE)
             }
         });
-        this._retryAuth = setTimeout(() => {
+        this._retryAuth = setInterval(() => {
             this.props.Auth().then(() => {
                 if (this.props.isAuthorized) {
                     this.props._setState(cnst.MAIN_PAGE)
@@ -73,7 +77,7 @@ class SignUpContainer extends PureComponent {
 
     componentDidUpdate() {
         if (this.props.isAuthorized) {
-            this.props._setState(cnst.CINEMA);
+            this.props._setState(cnst.MAIN_PAGE);
         }
         if (this.props.invalidCodeErrorMessage || this.props.codeLimitErrorMessage) {
             clearTimeout(this._hideErrorMessage);
@@ -250,6 +254,7 @@ class SignUpContainer extends PureComponent {
                     <Nav className={"nav button button-signup" + (this.props.signUpStep === 'phone' ? ' visible' : '')}
                          func={(key, navTree) => resolveNavEvent(key, navTree)}
                          onClick={this._setPhone}
+                         defaultFocused
                         // onMouseEnter={(e) => { e.stopPropagation(); this.navTree.focus() }}
                          component={'button'}>Активировать
                     </Nav>

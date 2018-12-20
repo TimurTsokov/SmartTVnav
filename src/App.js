@@ -16,16 +16,15 @@ class App extends PureComponent {
     constructor() {
         super();
         this.state = {
-            currentPage: cnst.SIGN_UP,
-            navBar: false
+            currentPage: cnst.SIGN_UP
         }
     };
 
     _setState = (currentPage, navBarVisible) => {
         this.setState({
             ...this.state,
+            [currentPage]: true,
             currentPage: currentPage
-            // navBar: navBarVisible || false
         });
     };
 
@@ -45,16 +44,14 @@ class App extends PureComponent {
 
                 <Router>
                     <Fragment>
-                    <NavBar _setState={this._setState}
-                            currentPage={currentPage}
-                            visible={navBar}/>
-                    {currentPage === cnst.SIGN_UP && <SignUpContainer _setState={this._setState}/>}
-                    {currentPage === cnst.SEARCH && <SearchPageContainer/>}
-                    {currentPage === cnst.MAIN_PAGE && <MainPageContainer/>}
-                    {currentPage === cnst.NEW_CINEMA && <NewCinemaPageContainer/>}
-                    {currentPage === cnst.CHANNELS && <TVPageContainer/>}
-                    {currentPage === cnst.CINEMA && <CinemaGenres/>}
-                    {currentPage === cnst.EXIT && <ExitFromApp />}
+                        {navBar && <NavBar _setState={this._setState} currentPage={currentPage}/>}
+                        {currentPage === cnst.SIGN_UP && <SignUpContainer _setState={this._setState}/>}
+                        {this.state[cnst.SEARCH] && <SearchPageContainer visible={currentPage === cnst.SEARCH}/>}
+                        {this.state[cnst.MAIN_PAGE] && <MainPageContainer _setState={this._setState} visible={currentPage === cnst.MAIN_PAGE}/>}
+                        {this.state[cnst.NEW_CINEMA] && <NewCinemaPageContainer visible={currentPage === cnst.NEW_CINEMA}/>}
+                        {this.state[cnst.CHANNELS] && <TVPageContainer visible={currentPage === cnst.CHANNELS}/>}
+                        {this.state[cnst.CINEMA] && <CinemaGenres visible={currentPage === cnst.CINEMA}/>}
+                        {this.state[cnst.EXIT] && <ExitFromApp visible={currentPage === cnst.EXIT}/>}
                     </Fragment>
                 </Router>
 

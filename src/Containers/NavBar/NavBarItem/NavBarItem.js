@@ -2,23 +2,20 @@ import React from 'react';
 import './NavBarItem.scss'
 import Nav from 'react-navtree';
 
-const NavBarItem = (props) => {
-    let classNames = "menu__item";
+const NavBarItem = React.memo((props) => {
     return (
-        <Nav
-            defaultFocused = {props.menuItem === "main" ? true : false}
-            className = {classNames + (props.currentItem === props.menuItem ? ' active' : '')}
-            navId = {props.menuItem}
+        <Nav onClick={() => props._setState(props.itemName)}
+             defaultFocused={props.currentPage === props.itemName}
+            className={"menu__item" + (props.currentPage === props.itemName ? ' active' : '')}
             func={(key) => {
                 if (key === 'enter') {
-                    props.menuActive(props.menuItem);
-                    props.changeMenuItem(props.menuItem);
-                    }
+                    props._setState(props.itemName);
                 }
+            }
             }>
             {props.children}
         </Nav>
     );
-};
+});
+
 export default NavBarItem;
-// this.props.changePath(tab)

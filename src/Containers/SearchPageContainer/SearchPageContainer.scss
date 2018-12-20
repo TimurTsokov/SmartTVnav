@@ -1,0 +1,6 @@
+.search {
+  display: none;
+  &.visible {
+    display: initial;
+  }
+}

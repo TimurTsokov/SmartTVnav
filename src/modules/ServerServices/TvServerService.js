@@ -1,7 +1,10 @@
 import axios from "axios";
-import Device from '../Services/Device';
+import deviceService from '../Services/DeviceService';
+import LanguageService from '../Services/LanguageService';
 
-const TV_SERVER_URL = "http://tv-server.trinity-tv.net/server/",
+const DeviceService = new deviceService,
+    LangService = new LanguageService,
+    TV_SERVER_URL = "http://tv-server.trinity-tv.net/server/",
     service = 'TvServerService';
 
 class TvServerService {
@@ -14,17 +17,13 @@ class TvServerService {
         return axios.post(this._url(method), JSON.stringify(data) || "");
     };
 
-    // Ping(sequence = 1) {
-    //     let data = {
-    //         sequence: sequence
-    //     };
-    //     this.request('Ping', data);
-    // }
-
-     Auth() {
+    Auth() {
+        const locale = LangService.getLang() || DeviceService.deviceSystemLang || 'uk';
         let data = {
-            device: Device.getObject()
+            device: DeviceService.device,
+            locale: locale
         };
+
         return this.request('Auth', data)
     };
 
@@ -40,10 +39,18 @@ class TvServerService {
 
     }
 
-    GetChannels() {
-        let data = {};
+    GetChannels(authToken) {
+        let data = {
+            auth: authToken,
+            epg_limit_next: 100,
+            epg_limit_prev: 80,
+            need_categories: true,
+            need_epg: true,
+            need_icons: false,
+            need_offsets: false
+        };
 
-        this.request('GetChannels', data);
+        return this.request('GetChannels', data);
     }
 
     GetChannelsRating() {
@@ -54,12 +61,34 @@ class TvServerService {
 
     }
 
-    OpenStream() {
+    OpenStream(authToken, channelId, epgId) {
+        let accept_scheme = ['HTTP_HLS', 'HTTP_UDP'];
+        let data = {
+            auth: authToken,
+            channel_id: parseInt(channelId),
+            multistream: false,
+            accept_scheme: accept_scheme,
+            epg_id: epgId
+        };
 
+        return this.request('OpenStream', data).then(response => {
+            switch (response.data.result) {
+                case 'OK':
+                    return response.data;
+            }
+        }).catch(error => {
+            console.error(error);
+            throw error;
+        });
     }
 
-    UpdateStream() {
+    UpdateStream(authToken, streamId) {
+        let data = {
+            auth: authToken,
+            stream_id: streamId
+        };
 
+        return this.request('UpdateStream', data)
     }
 
     CloseStream() {

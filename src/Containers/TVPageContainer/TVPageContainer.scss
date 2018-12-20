@@ -1,0 +1,6 @@
+.tv {
+  display: none;
+  &.visible {
+    display: initial;
+  }
+}

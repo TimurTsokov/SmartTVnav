@@ -1,4 +1,4 @@
-import Device from "../Services/Device";
+import DeviceService from '../../modules/Services/DeviceService';
 import TvServerService from './TvServerService';
 import axios from "axios";
 
@@ -28,7 +28,8 @@ class MovieServerService {
         let data = {
             auth: authToken,
             movies: moviesID,
-            limit: 40
+            limit: 10,
+            offset: 0
         };
         return this.request('GetMovieInfo', data)
     }
