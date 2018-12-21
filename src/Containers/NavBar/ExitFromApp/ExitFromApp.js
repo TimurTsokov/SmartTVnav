@@ -53,7 +53,7 @@ class ExitFromApp extends Component {
                              func={(key, navTree) => {
                                  this.resolveFunc(key, navTree);
                              }}
-                        onClick={() =>{this.props._setState(cnst.MAIN_PAGE); this.functionExit()}}
+                        onClick={() =>{this.props.changePath(cnst.MAIN_PAGE); this.functionExit()}}
                         >ДА
                         </Nav>
                         <Nav defaultFocused={true}
@@ -61,7 +61,7 @@ class ExitFromApp extends Component {
                                  this.resolveFunc(key, navTree);
                              }}
                              className="exit__items_item"
-                             onClick={() => this.props._setState()}
+                             onClick={() => this.props.changePath()}
                         >НЕТ
                         </Nav>
                     </div>
