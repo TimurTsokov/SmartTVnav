@@ -5,6 +5,7 @@ import DeviceService from '../../../modules/Services/DeviceService';
 import logo from '../../../assets/images/logo.svg'
 /*import {webOS} from '../../modules/Device'*/
 import Nav, {navHorizontal} from 'react-navtree';
+import * as cnst from "../../../modules/Services/Constants";
 
 class ExitFromApp extends Component {
 
@@ -52,7 +53,7 @@ class ExitFromApp extends Component {
                              func={(key, navTree) => {
                                  this.resolveFunc(key, navTree);
                              }}
-                        onClick={() =>{this.props.changePath('main'); this.functionExit()}}
+                        onClick={() =>{this.props._setState(cnst.MAIN_PAGE); this.functionExit()}}
                         >ДА
                         </Nav>
                         <Nav defaultFocused={true}
@@ -60,7 +61,7 @@ class ExitFromApp extends Component {
                                  this.resolveFunc(key, navTree);
                              }}
                              className="exit__items_item"
-                             onClick={() => this.props.changePath()}
+                             onClick={() => this.props._setState()}
                         >НЕТ
                         </Nav>
                     </div>

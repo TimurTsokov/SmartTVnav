@@ -13,10 +13,12 @@ import * as cnst from './modules/Services/Constants';
 
 class App extends PureComponent {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            currentPage: cnst.SIGN_UP
+            currentPage: cnst.SIGN_UP,
+            menuPath: false,
+            prevPath: cnst.MAIN_PAGE,
         }
     };
 
@@ -24,7 +26,9 @@ class App extends PureComponent {
         this.setState({
             ...this.state,
             [currentPage]: true,
-            currentPage: currentPage
+            currentPage: currentPage,
+            prevPath: this.state.menuPath || cnst.MAIN_PAGE,
+            menuPath: currentPage || this.state.prevPath,
         });
     };
 
@@ -50,7 +54,7 @@ class App extends PureComponent {
                         {this.state[cnst.NEW_CINEMA] && <NewCinemaPageContainer visible={currentPage === cnst.NEW_CINEMA}/>}
                         {this.state[cnst.CHANNELS] && <TVPageContainer visible={currentPage === cnst.CHANNELS}/>}
                         {this.state[cnst.CINEMA] && <CinemaGenres visible={currentPage === cnst.CINEMA}/>}
-                        {this.state[cnst.EXIT] && <ExitFromApp visible={currentPage === cnst.EXIT}/>}
+                        {this.state[cnst.EXIT] && <ExitFromApp changePath={this._setState} visible={currentPage === cnst.EXIT}/>}
                     </Fragment>
                 </Router>
 

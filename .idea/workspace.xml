@@ -2,42 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5cfb8352-6a61-4c68-b48b-90e995cbf85c" name="Default Changelist" comment="Merge branch 'develop' of https://git.mytrinity.com.ua/smarttv/SmartTV3 into develop&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/src/Containers/Player/Player.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Containers/Player/Player.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Containers/TVPageContainer/Components/CategoryList/CategoryList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Containers/TVPageContainer/Components/CategoryListItem/CategoryListItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Containers/TVPageContainer/Components/ChannelListItem/ChannelListItem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Services/DeviceService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/Services/PlayerService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/actions/ChannelsActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/store/reducers/ChannelsReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/build.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/CinemaGenres/CinemaGenres.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/CinemaGenres/CinemaGenres.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/MainPageContainer/MainPageContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/MainPageContainer/MainPageContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/MainPageContainer/MainPageContainer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/MainPageContainer/MainPageContainer.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Containers/NavBar/ExitFromApp/ExitFromApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/NavBar/ExitFromApp/ExitFromApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/NavBar/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/NavBar/NavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/NavBar/NavBar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/NavBar/NavBar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/NavBar/NavBarItem/NavBarItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/NavBar/NavBarItem/NavBarItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/NewCinemaPageContainer/NewCinemaPageContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/NewCinemaPageContainer/NewCinemaPageContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/NewCinemaPageContainer/NewCinemaPageContainer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/NewCinemaPageContainer/NewCinemaPageContainer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/SearchPageContainer/SearchPageContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/SearchPageContainer/SearchPageContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/SearchPageContainer/SearchPageContainer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/SearchPageContainer/SearchPageContainer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/SettingsContainer/SettingsContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/SettingsContainer/SettingsContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/SignUpContainer/SignUpContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/SignUpContainer/SignUpContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/TVPageContainer/TVPageContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/TVPageContainer/TVPageContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/TVPageContainer/TVPageContainer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/TVPageContainer/TVPageContainer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/ServerServices/MovieServerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/ServerServices/MovieServerService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/ServerServices/SignupServerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/ServerServices/SignupServerService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/ServerServices/TvServerService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/ServerServices/TvServerService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Service.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Services/Device.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Services/Dictionary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Services/Dictionary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/Services/LanguageService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/Services/LanguageService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/SignUpReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/SignUpReducer.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,42 +12,62 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="223127756">
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="18" />
+          <entry key="scss" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="18" />
+          <entry key="SCSS" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="142" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="142" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="react-player" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.50715137">
+    <splitter split-orientation="horizontal" split-proportion="0.5163148">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/modules/ServerServices/SignupServerService.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="238">
-                  <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-                  <folding>
-                    <element signature="e#0#54#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/modules/ServerServices/TvServerService.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1394">
-                  <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-                  <folding>
-                    <element signature="e#0#26#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Containers/TVPageContainer/TVPageContainer.js">
+            <entry file="file://$PROJECT_DIR$/src/App.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1581">
-                  <caret line="93" selection-start-line="93" selection-end-line="93" />
+                <state relative-caret-position="474">
+                  <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#0#53#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Containers/NavBar/NavBar.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="561">
+                  <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
                   <folding>
                     <element signature="e#0#43#0" expanded="true" />
                   </folding>
@@ -89,10 +76,63 @@
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/Containers/TVPageContainer/Components/ChannelListItem/ChannelListItem.js">
+            <entry file="file://$PROJECT_DIR$/src/Containers/NavBar/NavBarItem/NavBarItem.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+                <state relative-caret-position="85">
+                  <caret line="7" column="62" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="62" />
+                  <folding>
+                    <element signature="e#0#26#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Containers/NavBar/NavBarItem/NavBarItem.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="170">
+                  <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Containers/CinemaPageContainer/CinemaPageContainer.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="289">
+                  <caret line="17" selection-start-line="17" selection-end-line="17" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Containers/CinemaPageContainer/MovieBlock/MovieBlockComponent.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="391">
+                  <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+                  <folding>
+                    <element signature="e#0#39#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/index.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="646">
+                  <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/Containers/CinemaPageContainer/CinemaPageContainer.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state>
+                  <folding>
+                    <element signature="e#0#53#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -110,7 +150,7 @@
             <entry file="file://$PROJECT_DIR$/src/store/actions/ChannelsActions.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="323">
-                  <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+                  <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
                 </state>
               </provider>
             </entry>
@@ -119,20 +159,15 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/index.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="629">
-                  <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Containers/NavBar/ExitFromApp/ExitFromApp.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="68" />
+                <state relative-caret-position="355">
+                  <caret line="56" column="27" lean-forward="true" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+                  <folding>
+                    <element signature="e#83#110#0" expanded="true" />
+                    <element signature="e#278#327#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -150,18 +185,14 @@
             <entry file="file://$PROJECT_DIR$/src/store/reducers/ChannelsReducer.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="289">
-                  <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+                  <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/modules/Services/PlayerService.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret lean-forward="true" />
-                </state>
-              </provider>
+              <provider selected="true" editor-type-id="text-editor" />
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
@@ -173,13 +204,13 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/modules/ServerServices/MovieServerService.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="578">
-                  <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+                <state relative-caret-position="493">
+                  <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
                   <folding>
-                    <element signature="e#0#40#0" expanded="true" />
+                    <element signature="e#0#65#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -219,9 +250,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>navHorizontal</find>
-      <find>isAuth</find>
-      <find>match</find>
       <find>services/d</find>
       <find>import De</find>
       <find>Device</find>
@@ -249,13 +277,16 @@
       <find>setlang</find>
       <find>player</find>
       <find>device</find>
+      <find>DeviceService</find>
+      <find>cnst.MAIN_PAGE</find>
+      <find>NavBarItem</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="1ce5273a164c268a571242618a0475eb5d02d1a2" />
+        <entry key="$PROJECT_DIR$" value="react-nav3-kino" />
       </map>
     </option>
   </component>
@@ -293,7 +324,6 @@
         <option value="$PROJECT_DIR$/src/modules/ServerServices/SignupServerService.js" />
         <option value="$PROJECT_DIR$/src/modules/Services/DeviceService.js" />
         <option value="$PROJECT_DIR$/src/Containers/MainPageContainer/MainPageContainer.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/Containers/SignUpContainer/SignUpContainer.js" />
         <option value="$PROJECT_DIR$/src/modules/Services/Dictionary.js" />
         <option value="$PROJECT_DIR$/src/Containers/NavBar/NavBar.js" />
@@ -315,15 +345,57 @@
         <option value="$PROJECT_DIR$/src/Containers/Player/Player.js" />
         <option value="$PROJECT_DIR$/src/Containers/TVPageContainer/TVPageContainer.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/Containers/NavBar/ExitFromApp/ExitFromApp.js" />
         <option value="$PROJECT_DIR$/src/modules/ServerServices/MovieServerService.js" />
+        <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/src/Containers/NavBar/ExitFromApp/ExitFromApp.js" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
+    </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="width" value="1298" />
     <option name="height" value="1399" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>CoffeeScript</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Node.jsJavaScript</id>
+          </State>
+          <State>
+            <id>Probable bugsCoffeeScript</id>
+          </State>
+          <State>
+            <id>TypeScript</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -331,56 +403,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Containers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Containers" type="462c0819:PsiDirectoryNode" />
-              <item name="NavBar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Containers" type="462c0819:PsiDirectoryNode" />
-              <item name="NavBar" type="462c0819:PsiDirectoryNode" />
-              <item name="ExitFromApp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="ServerServices" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -503,6 +525,55 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Containers" type="462c0819:PsiDirectoryNode" />
+              <item name="MovieContainer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Containers" type="462c0819:PsiDirectoryNode" />
+              <item name="NavBar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SmartTV3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SmartTV3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="Services" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -515,7 +586,8 @@
     <property name="node.js.selected.package.eslint" value="D:\SmartTV3\node_modules\eslint" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="typescript.add.unambiguous.imports.on.the.fly" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -541,7 +613,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="js.build_tools.gulp">
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
@@ -570,17 +642,26 @@
       <workItem from="1545053779904" duration="56875000" />
       <workItem from="1545228839733" duration="4180000" />
       <workItem from="1545313567695" duration="361000" />
+      <workItem from="1545376294602" duration="2111000" />
     </task>
+    <task id="LOCAL-00001" summary="update movieBlock style v1">
+      <created>1545320575181</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1545320575181</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="310429000" />
+    <option name="totallyTimeSpent" value="314032000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="2062" height="1126" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16333666" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16684435" />
       <window_info id="Structure" order="1" weight="0.24980111" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -592,7 +673,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5015911" side_tool="true" weight="0.41443634" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4984089" visible="true" weight="0.16271885" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4984089" visible="true" weight="0.26807564" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" weight="0.3295362" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
@@ -631,85 +712,15 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list />
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list />
-          </value>
-        </entry>
-      </map>
-    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update movieBlock style v1" />
+    <option name="LAST_COMMIT_MESSAGE" value="update movieBlock style v1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Containers/CinemaGenres/Components/BilletGenre.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="56" lean-forward="true" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Containers/CinemaPageContainer/CinemaPageContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="36" selection-start-line="1" selection-start-column="36" selection-end-line="1" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Containers/SignUpContainer/Components/CountryCodesList/CountryCodesList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/Services/Constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Containers/NavBar/NavBar.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Containers/MainPageContainer/MainPageContainer.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Containers/NewCinemaPageContainer/NewCinemaPageContainer.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Containers/CinemaGenres/CinemaGenres.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -719,8 +730,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Containers/CinemaGenres/CinemaGenres.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="112" column="82" selection-start-line="112" selection-start-column="82" selection-end-line="112" selection-end-column="82" />
+        <state relative-caret-position="1496">
+          <caret line="88" column="37" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -769,30 +780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Containers/NavBar/NavBarItem/NavBarItem.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="66" lean-forward="true" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Containers/NavBar/NavBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-334">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -867,9 +854,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -877,9 +861,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1394">
           <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -887,6 +868,111 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Containers/TVPageContainer/TVPageContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Containers/Player/Player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Containers/SignUpContainer/SignUpContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Containers/CinemaGenres/Components/BilletGenre.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Containers/CinemaPageContainer/MovieBlock/MovieBlockComponent.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Containers/NavBar/NavBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Containers/NavBar/NavBarItem/NavBarItem.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="62" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Containers/NavBar/NavBarItem/NavBarItem.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Containers/CinemaPageContainer/CinemaPageContainer.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Containers/CinemaPageContainer/MovieBlock/MovieBlockComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Containers/CinemaPageContainer/CinemaPageContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -900,37 +986,14 @@
     <entry file="file://$PROJECT_DIR$/src/store/actions/ChannelsActions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Containers/TVPageContainer/TVPageContainer.js">
+    <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Containers/Player/Player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Containers/SignUpContainer/SignUpContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3604">
-          <caret line="212" lean-forward="true" selection-start-line="212" selection-end-line="212" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="629">
+          <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -944,21 +1007,27 @@
     <entry file="file://$PROJECT_DIR$/src/store/reducers/ChannelsReducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/Services/PlayerService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/modules/ServerServices/PromoServerService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/ServerServices/MovieServerService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -975,26 +1044,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
+    <entry file="file://$PROJECT_DIR$/src/modules/Services/Constants.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
+        <state relative-caret-position="474">
+          <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Containers/NavBar/ExitFromApp/ExitFromApp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/ServerServices/MovieServerService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="355">
+          <caret line="56" column="27" lean-forward="true" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#83#110#0" expanded="true" />
+            <element signature="e#278#327#0" expanded="true" />
           </folding>
         </state>
       </provider>
