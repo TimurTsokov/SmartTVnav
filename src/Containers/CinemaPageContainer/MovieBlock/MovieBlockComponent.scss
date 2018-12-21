@@ -9,14 +9,15 @@
   background-size: cover;
   border: 3px solid transparent;
   margin-bottom: 30px;
+  margin-right: 20px;
   &.nav-focused{
     border-color:#20BCC6;
     box-shadow: 0px 0px 20px #20BCC6;
     transform: scale(1.05);
   }
-  &:not(:first-of-type){
-    margin-left: 24px;
-  }
+  /*&:not(:first-of-type){
+    margin-right: 24px;
+  }*/
   &-info{
     background: linear-gradient(180deg, #15394C 16.6%, #0B1E28 65.2%);
     border-radius: 0px 0px 10px 10px;

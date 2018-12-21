@@ -30,14 +30,6 @@ class App extends PureComponent {
         });
     };
 
-  /*  changePath = (tab) => {
-        this.setState({
-            ...this.state,
-            prevPath: this.state.menuPath || cnst.MAIN_PAGE,
-            menuPath: tab || this.state.prevPath,
-        });
-    };*/
-
     render() {
         const {currentPage} = this.state;
         let navBar = false;

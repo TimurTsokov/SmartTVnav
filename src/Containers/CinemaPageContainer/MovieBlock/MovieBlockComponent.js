@@ -39,7 +39,6 @@ const MovieBlockComponent  = ({movie, resolveFunc, genres}) => {
                             </div> : ""
                     }
 
-
                 </div>
 
             </Nav>

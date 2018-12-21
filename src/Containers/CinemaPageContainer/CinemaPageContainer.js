@@ -47,7 +47,6 @@ class CinemaPageContainer extends PureComponent {
                                                  movie={movie}
                                                  key={index}
                                                  genres={genres}
-
                             />
                         );
                     }) : ''}
@@ -59,7 +58,6 @@ class CinemaPageContainer extends PureComponent {
                                                  movie={movie}
                                                  key={index}
                                                  genres={genres}
-
                             />
                         );
                     }) : ''}
