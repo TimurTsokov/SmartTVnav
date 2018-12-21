@@ -6,16 +6,16 @@ import {GetGenreMovies, GetMovieInfo} from "../../store/actions/MoviesActions";
 import connect from "react-redux/es/connect/connect";
 
 
-
 class CinemaPageContainer extends PureComponent {
 
     componentWillMount() {
         const {itemID, authToken} = this.props;
         this.props.GetGenreMovies(itemID, authToken).then(() => {
-            const { moviesID } = this.props;
+            const {moviesID} = this.props;
             this.props.GetMovieInfo(moviesID, authToken);
         })
     };
+
     resolveFunc = (key, id) => {
         switch (key) {
             case 'left':
@@ -31,12 +31,12 @@ class CinemaPageContainer extends PureComponent {
         // console.log(key)
     };
 
-    openMovie(id){
+    openMovie(id) {
         this.props.history.push({pathname: '/' + id})
     }
 
     renderMovies() {
-        const { movies, genres } = this.props;
+        const {movies, genres} = this.props;
         return (
             <div className="movies-items">
                 <h3 className="collection__title">Лучшая подборка мультфильмов</h3>
@@ -44,14 +44,27 @@ class CinemaPageContainer extends PureComponent {
                     movies.map((movie, index) => {
                         return (
                             <MovieBlockComponent resolveFunc={this.resolveFunc}
-                                   movie={movie}
-                                   key={index}
-                                   genres={genres}
+                                                 movie={movie}
+                                                 key={index}
+                                                 genres={genres}
 
                             />
                         );
                     }) : ''}
-            </div>)
+                <h3 className="collection__title">Мультфильмы ноября 2018</h3>
+                {movies != undefined ?
+                    movies.map((movie, index) => {
+                        return (
+                            <MovieBlockComponent resolveFunc={this.resolveFunc}
+                                                 movie={movie}
+                                                 key={index}
+                                                 genres={genres}
+
+                            />
+                        );
+                    }) : ''}
+            </div>
+        )
     };
 
     render() {
@@ -68,6 +81,7 @@ class CinemaPageContainer extends PureComponent {
         );
     }
 }
+
 const mapStateToProps = state => {
     return {
         moviesID: state.movieGenres.moviesID,
@@ -78,7 +92,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        GetGenreMovies:  (id, authToken) =>  dispatch(GetGenreMovies(id, authToken)),
+        GetGenreMovies: (id, authToken) => dispatch(GetGenreMovies(id, authToken)),
         GetMovieInfo: (moviesID, authToken) => dispatch(GetMovieInfo(moviesID, authToken)),
         slideLeft: () => dispatch({type: 'GO_LEFT'}),
         slideRight: () => dispatch({type: 'GO_RIGHT'})
@@ -89,7 +103,7 @@ const mapDispatchToProps = dispatch => {
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CinemaPageContainer));
 
 //<Route path="/:id"
-       //render = {({match, history}) => {
-          // onst {id} = match.params;
-         //  return  <MovieContainer itemID={id}/>
-      //}}/>
+//render = {({match, history}) => {
+// onst {id} = match.params;
+//  return  <MovieContainer itemID={id}/>
+//}}/>

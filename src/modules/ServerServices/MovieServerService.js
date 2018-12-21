@@ -28,7 +28,7 @@ class MovieServerService {
         let data = {
             auth: authToken,
             movies: moviesID,
-            limit: 10,
+            limit: 7,
             offset: 0
         };
         return this.request('GetMovieInfo', data)

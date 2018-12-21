@@ -17,8 +17,7 @@ class App extends PureComponent {
         super(props);
         this.state = {
             currentPage: cnst.SIGN_UP,
-            menuPath: false,
-            prevPath: cnst.MAIN_PAGE,
+            prevPage: cnst.SIGN_UP
         }
     };
 
@@ -26,7 +25,8 @@ class App extends PureComponent {
         this.setState({
             ...this.state,
             [currentPage]: true,
-            currentPage: currentPage
+            currentPage: currentPage || this.state.prevPage,
+            prevPage: this.state.currentPage
         });
     };
 
@@ -60,7 +60,7 @@ class App extends PureComponent {
                         {this.state[cnst.NEW_CINEMA] && <NewCinemaPageContainer visible={currentPage === cnst.NEW_CINEMA}/>}
                         {this.state[cnst.CHANNELS] && <TVPageContainer visible={currentPage === cnst.CHANNELS}/>}
                         {this.state[cnst.CINEMA] && <CinemaGenres visible={currentPage === cnst.CINEMA}/>}
-                        {this.state[cnst.EXIT] && <ExitFromApp changePath={this.changePath} visible={currentPage === cnst.EXIT}/>}
+                        {this.state[cnst.EXIT] && <ExitFromApp _setState={this._setState} visible={currentPage === cnst.EXIT}/>}
                     </Fragment>
                 </Router>
 

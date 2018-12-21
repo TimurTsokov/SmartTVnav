@@ -1,20 +1,24 @@
 import React, {Component} from 'react';
 /*import NavBar from '../NavBar/NavBar';*/
 import './ExitFromApp.scss'
-import DeviceService from '../../../modules/Services/DeviceService';
+import deviceService from '../../../modules/Services/DeviceService';
 import logo from '../../../assets/images/logo.svg'
 /*import {webOS} from '../../modules/Device'*/
 import Nav, {navHorizontal} from 'react-navtree';
 import * as cnst from "../../../modules/Services/Constants";
 
+
+const DeviceService = new deviceService,
+    device = DeviceService.device;
+
+
 class ExitFromApp extends Component {
 
     functionExit() {
-        let device = DeviceService.device;
         switch (device.sub_type) {
             case 'DST_LG':
                 try {
-                   /* webOS.platformBack();*/
+                    /* webOS.platformBack();*/
 
                 } catch (e) {
                 }
@@ -22,7 +26,7 @@ class ExitFromApp extends Component {
             case 'DST_SAMSUNG':
                 try {
                     /*tizen.application.getCurrentApplication().exit();*/
-                } catch(e) {
+                } catch (e) {
                 }
                 break;
             default:
@@ -40,10 +44,10 @@ class ExitFromApp extends Component {
     };
 
     render() {
-
+        // const {currentPage} = this.props;
         return (
-            <div className="exit">
-                <div className="header__logo">
+            <div className={"exit" + (this.props.visible ? ' visible' : '')}>
+                <div className="header__logo_exit">
                     <img src={logo} alt="Sweet TV"/>
                 </div>
                 <div className="exit__group">
@@ -53,15 +57,18 @@ class ExitFromApp extends Component {
                              func={(key, navTree) => {
                                  this.resolveFunc(key, navTree);
                              }}
-                        onClick={() =>{this.props.changePath(cnst.MAIN_PAGE); this.functionExit()}}
+                             onClick={() => {
+                                 this.props._setState(cnst.MAIN_PAGE);
+                                 this.functionExit()
+                             }}
                         >ДА
                         </Nav>
-                        <Nav defaultFocused={true}
+                        <Nav defaultFocused={false}
                              func={(key, navTree) => {
                                  this.resolveFunc(key, navTree);
                              }}
                              className="exit__items_item"
-                             onClick={() => this.props.changePath()}
+                             onClick={() => this.props._setState()}
                         >НЕТ
                         </Nav>
                     </div>
