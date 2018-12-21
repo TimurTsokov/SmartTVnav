@@ -4,12 +4,12 @@ import CinemaHall from "./CinemaHall/CinemaHall";
 import {Route, withRouter} from 'react-router-dom';
 import {GetGenreMovies, GetMovieInfo} from "../../store/actions/MoviesActions";
 import connect from "react-redux/es/connect/connect";
+import Nav from "react-navtree";
 
 
 class CinemaPageContainer extends PureComponent {
     state = {
-        moveBottom: 0,
-        moveTop: 0
+        moveItem: 0
     };
 
     componentWillMount() {
@@ -19,6 +19,19 @@ class CinemaPageContainer extends PureComponent {
             this.props.GetMovieInfo(moviesID, authToken);
         })
     };
+    funcMoveTop(){
+        this.setState({
+            ...this.state,
+            moveItem : this.state.moveItem + 400
+        });
+    }
+    funcMoveBottom(){
+        this.setState({
+            ...this.state,
+            /*moveBottom: this.state.moveBottom - 100*/
+            moveItem : this.state.moveItem - 400
+        });
+    }
 
     resolveFunc = (key, id) => {
         switch (key) {
@@ -27,18 +40,6 @@ class CinemaPageContainer extends PureComponent {
                 break;
             case 'right':
                 this.props.slideRight();
-                break;
-            case 'down':
-                this.setState({
-                    ...this.state,
-                    moveBottom: this.state.moveBottom + 170
-                });
-                break;
-            case 'up':
-                this.setState({
-                    ...this.state,
-                    moveTop : this.state.moveTop - 170
-                });
                 break;
             case 'enter':
                 this.openMovie(id);
@@ -55,6 +56,19 @@ class CinemaPageContainer extends PureComponent {
         const {movies, genres} = this.props;
         return (
             <div className="movies-items">
+                <Nav defaultFocused={true}
+                    func={key => {
+                    switch (key) {
+                        case 'down':
+                            this.funcMoveTop();
+                            break;
+                        case 'up':
+                            this.funcMoveBottom();
+                            break;}
+                }}
+                     style={{marginTop: this.state.moveItem + 'px'}}
+                >
+               {/* <div style={{marginTop: this.state.moveTop + 'px'}}>*/}
                 <h3 className="collection__title">Лучшая подборка мультфильмов</h3>
                 {movies != undefined ?
                     movies.map((movie, index) => {
@@ -66,17 +80,22 @@ class CinemaPageContainer extends PureComponent {
                             />
                         );
                     }) : ''}
-                <h3 className="collection__title">Мультфильмы ноября 2018</h3>
-                {movies != undefined ?
-                    movies.map((movie, index) => {
-                        return (
-                            <MovieBlockComponent resolveFunc={this.resolveFunc}
-                                                 movie={movie}
-                                                 key={index}
-                                                 genres={genres}
-                            />
-                        );
-                    }) : ''}
+                {/*</div>*/}
+                     {/*<div style={{marginBottom: this.state.moveBottom + 'px'}}>*/}
+
+                     <h3 className="collection__title">Мультфильмы ноября 2018</h3>
+                     {movies != undefined ?
+                         movies.map((movie, index) => {
+                             return (
+                                 <MovieBlockComponent resolveFunc={this.resolveFunc}
+                                                      movie={movie}
+                                                      key={index}
+                                                      genres={genres}
+                                 />
+                             );
+                         }) : ''}
+                    {/* </div>*/}
+                 </Nav>
             </div>
         )
     };
@@ -121,55 +140,3 @@ export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CinemaPag
 // onst {id} = match.params;
 //  return  <MovieContainer itemID={id}/>
 //}}/>
-/*
-resolveFunc = (key) => {
-    switch (key) {
-        case 'left':
-            this.setState({
-                ...this.state,
-                listStyle: this.state.listStyle + 170
-            });
-            break;
-        case 'right':
-            this.setState({
-                ...this.state,
-                listStyle: this.state.listStyle - 170
-            });
-            break;
-    }
-    console.log(key)
-};
-
-render() {
-    const genres = this.state.genres.map(genre => {
-        return (
-            <BilletGenre
-                key={genre.id}
-                resolveFunc={this.resolveFunc}
-                id={genre.id}
-                genre={genre}>
-                <img className="genres__list_picture" src={genre.link} alt={genre.label}/>
-                <p className="genres__list_text">{genre.label}</p>
-            </BilletGenre>
-        )
-    });
-    return (
-        <div className="genres">
-            <ul className="genres__list" style={{marginLeft: this.state.listStyle + 'px'}}>
-                    <span className="prev"
-                          onClick={() => this.prevProperty()}
-                          disabled={this.state.genre.id === 0}
-                    >Prev</span>
-                <span className="next"
-                      onClick={() => this.nextProperty()}
-                      disabled={this.state.genre.id === data.genres.length - 1}
-                >Next</span>
-                {genres}
-            </ul>
-        </div>
-    )
-
-}
-}
-
-export default CinemaGenres;*/
