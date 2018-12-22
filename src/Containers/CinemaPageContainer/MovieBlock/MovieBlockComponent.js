@@ -4,11 +4,6 @@ import './MovieBlockComponent.scss';
 import '../CinemaPageContainer.scss';
 
 const MovieBlockComponent = ({movie, resolveFunc, genres}) => {
-     const state = {
-         array: [
-
-         ]
-     };
 
     const styles = {
         backgroundImage: `url(${movie.poster_url})`

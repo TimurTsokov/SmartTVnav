@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './CinemaHall.scss'
 import Nav, {navHorizontal} from 'react-navtree';
+import InfoFilm from "../../../Components/ImfoFilm/InfoFilm";
 
 export default class CinemaHall extends Component {
 
@@ -52,7 +53,7 @@ export default class CinemaHall extends Component {
         )
     }
 
-    filterFunc() {
+    filterFunc(){
         return (
             <React.Fragment>
                 <Nav className={"filter" + (this.state.addfilter ? ' active' : '')}
@@ -71,22 +72,7 @@ export default class CinemaHall extends Component {
                 </ul>
             </React.Fragment>
         )
-    }
-
-    infoFilm() {
-        return (
-            <div className="banner__info">
-                <h2 className="banner__info_title">Суперсемейка 2</h2>
-                <blockquote className="banner__info_quote">
-                    «It's been too long, dahlings»
-                </blockquote>
-                <div className="banner__info_text">
-                    <span>18+</span>
-                    <span>1 час 35 минут</span>
-                </div>
-            </div>
-        )
-    }
+    };
 
     render() {
         return (
@@ -95,7 +81,7 @@ export default class CinemaHall extends Component {
                     {this.sortFunc()}
                     {this.filterFunc()}
                 </div>
-                {this.infoFilm()}
+                <InfoFilm/>
             </div>
         );
     }

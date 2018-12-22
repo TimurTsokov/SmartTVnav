@@ -1,0 +1,78 @@
+.banner {
+
+  &__play {
+    .btn-view {
+      position: absolute;
+      text-align: center;
+      width: 302px;
+      height: 85px;
+      left: 92px;
+      top: 495px;
+      background: rgba(32, 188, 198, 0.35);
+      border: 4px solid #20BCC6;
+      border-radius: 50px;
+      line-height: 75px;
+      font-size: 34px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      font-weight: 900;
+      &.nav-focused {
+        background: #20BCC6;
+      }
+    }
+    .btn-favorite {
+      position: relative;
+      width: 85px;
+      height: 85px;
+      left: 418px;
+      top: 495px;
+      background: rgba(32, 188, 198, 0.35);
+      border-radius: 50px;
+      border: none;
+      padding-top: 5px;
+      img {
+        position: absolute;
+        left: 50%;
+        top: 7%;
+        bottom: 0;
+        right: 0;
+        transform: translate(-50%, 50%);
+      }
+    }
+  }
+  &__description {
+    position: absolute;
+    width: 695px;
+    height: 126px;
+    left: 90px;
+    top: 695px;
+    font-size: 28px;
+    &_list {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      color: #20BCC6;
+      line-height: 42px;
+      font-weight: 900;
+    }
+    &_list.info {
+      font-weight: 300;
+      margin-left: 32px;
+      color: #FFFFFF;
+      li:first-of-type{
+        text-transform: uppercase;
+      }
+    }
+    &_about{
+      display: inline-block;
+      position: absolute;
+      width: 781px;
+      height: 336px;
+      left: 945px;
+      overflow: hidden;
+      line-height: 1.5;
+    }
+  }
+}
+

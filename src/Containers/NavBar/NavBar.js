@@ -19,7 +19,7 @@ class NavBar extends PureComponent {
     render() {
         return (
             <div className={"header" + (this.props.visible ? ' visible' : '')}>
-                <Nav className="header__logo"><img src={logo_image} alt="Sweet TV"/></Nav>
+                <div className="header__logo"><img src={logo_image} alt="Sweet TV"/></div>
                 <Nav className='header__menu' func={navHorizontal}>
                     <span className="header__arrow header__arrow--left"><img src={arrow_image} alt="<"/></span>
                     <NavBarItem itemName={cnst.SEARCH}
