@@ -1,0 +1,40 @@
+.page__series{
+  display: inline-block;
+  position: relative;
+  width: 268px;
+  height: 218px;
+  border-radius: 10px;
+  color: #fff;
+  background-repeat: no-repeat;
+  //background-size: cover;
+  border: 3px solid transparent;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  &.nav-focused{
+    border-color:#20BCC6;
+    box-shadow: 0px 0px 20px #20BCC6;
+    transform: scale(1.05);
+  }
+  /*&:not(:first-of-type){
+    margin-right: 24px;
+  }*/
+  &-info{
+    background: linear-gradient(180deg, #15394C 16.6%, #0B1E28 65.2%);
+    border-radius: 0px 0px 10px 10px;
+    text-align: center;
+    height: 70px;
+    position: absolute;
+    bottom: -3px;
+    left: 1px;
+    right: -3px;
+    padding: 16px 13px;
+  }
+  &-title{
+    font-size: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+    max-width: 260px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

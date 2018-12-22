@@ -8,6 +8,7 @@ import Nav from "react-navtree";
 
 
 class CinemaPageContainer extends PureComponent {
+
     state = {
         moveItem: 0
     };

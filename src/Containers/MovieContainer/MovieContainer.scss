@@ -1,13 +1,16 @@
 .banner {
 
   &__play {
+    position: absolute;
+    width: 695px;
+    height: 123px;
+    left: 90px;
+    top: 509px;
     .btn-view {
       position: absolute;
       text-align: center;
       width: 302px;
       height: 85px;
-      left: 92px;
-      top: 495px;
       background: rgba(32, 188, 198, 0.35);
       border: 4px solid #20BCC6;
       border-radius: 50px;
@@ -24,8 +27,7 @@
       position: relative;
       width: 85px;
       height: 85px;
-      left: 418px;
-      top: 495px;
+      left: 340px;
       background: rgba(32, 188, 198, 0.35);
       border-radius: 50px;
       border: none;
@@ -60,11 +62,11 @@
       font-weight: 300;
       margin-left: 32px;
       color: #FFFFFF;
-      li:first-of-type{
+      li:first-of-type {
         text-transform: uppercase;
       }
     }
-    &_about{
+    &_about {
       display: inline-block;
       position: absolute;
       width: 781px;
@@ -76,3 +78,19 @@
   }
 }
 
+.series {
+  overflow: hidden;
+  width: 1918px;
+  &__items {
+    width: 2025px;
+    margin: 320px 0 0 86px;
+    height: 117px;
+    overflow: hidden;
+    padding-left: 7px;
+  }
+  &__title {
+    font-size: 38px;
+    font-weight: 700;
+    margin: 10px 0;
+  }
+}
